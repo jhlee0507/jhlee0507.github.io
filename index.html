@@ -102,9 +102,34 @@ main{flex:1 0 auto}
 .mast .handle{flex:none;display:inline-block;padding:.7rem .5rem;margin:-.7rem -.5rem;font-family:var(--mono);font-size:.9375rem;font-weight:600;letter-spacing:.02em;white-space:nowrap;text-decoration:none;color:var(--ink)}
 .mast .handle:hover{color:var(--blue)}
 .mast .handle::before{content:"~/";color:var(--violet)}
-.mast nav{display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:flex-end}
+.mast .links{display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:flex-end}
 .mast nav a{font-size:.875rem;font-weight:500;color:var(--ink-2);text-decoration:none;letter-spacing:.01em;padding:.7rem .5rem;margin:-.7rem -.5rem;display:inline-block}
 .mast nav a:hover{color:var(--blue)}
+.mast nav .n{display:none}
+/* the three-line menu (added by script; see the note beside the header) */
+.mast.has-menu{z-index:5;align-items:center}
+.menu-btn{flex:none;display:inline-grid;place-items:center;width:2.75rem;height:2.75rem;margin:-.625rem -.6875rem -.625rem 0;padding:0;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .15s ease,color .15s ease}
+.menu-btn[hidden]{display:none}
+.menu-btn:focus-visible{outline-offset:2px}
+@media (hover:hover){.menu-btn:hover{background-color:rgba(var(--bl),.08);color:var(--blue)}}
+.menu-btn[aria-expanded="true"]{background-color:rgba(var(--bl),.10);color:var(--blue)}
+.menu-btn .bars{position:relative;display:block;width:1.375rem;height:1rem}
+.menu-btn .bars i{position:absolute;left:0;right:0;height:0;border-top:2px solid currentColor;border-radius:2px;transition:transform .2s ease,opacity .15s ease,top .2s ease}
+.menu-btn .bars i:nth-child(1){top:0}
+.menu-btn .bars i:nth-child(2){top:calc(50% - 1px)}
+.menu-btn .bars i:nth-child(3){top:calc(100% - 2px)}
+.menu-btn[aria-expanded="true"] .bars i:nth-child(1){top:calc(50% - 1px);transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] .bars i:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] .bars i:nth-child(3){top:calc(50% - 1px);transform:rotate(-45deg)}
+.mast.has-menu nav{display:flex}
+.mast.has-menu .links{position:absolute;top:calc(100% + .6rem);right:0;z-index:6;flex-direction:column;flex-wrap:nowrap;gap:.125rem;min-width:14.5rem;padding:.5rem;border:1px solid transparent;border-radius:14px;background:linear-gradient(var(--paper),var(--paper)) padding-box,var(--grad) border-box;box-shadow:0 1px 2px rgba(14,12,46,.06),0 26px 50px -22px rgba(var(--bl),.5),0 12px 26px -16px rgba(var(--vi),.35);animation:menu-in .16s ease}
+.mast.has-menu .links[hidden]{display:none}
+.mast.has-menu nav a{display:flex;align-items:baseline;gap:.9rem;margin:0;padding:.8rem .9rem;border-radius:9px;font-size:1.0625rem;font-weight:600;letter-spacing:-.005em;color:var(--ink)}
+.mast.has-menu nav a:hover{color:var(--ink);background-image:linear-gradient(90deg,rgba(var(--vi),.11),rgba(var(--bl),.09) 55%,rgba(var(--sk),.07))}
+.mast.has-menu nav a:focus-visible{outline-offset:-2px}
+.mast.has-menu nav .n{display:inline;font-family:var(--mono);font-size:.8125rem;font-weight:700;letter-spacing:.02em;color:var(--violet)}
+@keyframes menu-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media (max-width:30rem){.mast.has-menu .links{left:0;min-width:0}}
 
 /* hero */
 .hero{--h1:clamp(3.5rem,17vw,7.5rem);position:relative;padding:16.25rem 0 3.5rem;border-bottom:1px solid var(--rule)}
@@ -252,7 +277,7 @@ footer{height:9rem}
   html{scroll-behavior:auto}
 }
 @media print{
-  .page-art{display:none}
+  .page-art,.menu-btn,.mast nav{display:none !important}
   .hero{padding-top:2.5rem}
   section:not(.hero)::before,footer::before{display:none}
   .btn{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
@@ -266,6 +291,7 @@ footer{height:9rem}
   h1 .zero{filter:none}
   h1 .zero,.sec-head .num{background:none;-webkit-text-fill-color:currentColor}
   .btn,.cves a{border:1px solid currentColor}
+  .mast.has-menu .links{background:Canvas}
 }
 </style>
 </head>
@@ -291,11 +317,40 @@ footer{height:9rem}
 <header class="wrap mast" id="top">
   <a class="handle" href="#top" aria-label="r3c0n, back to top">r3c0n</a>
   <nav aria-label="On this page">
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#cve">CVE</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" hidden>
+      <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+    <div class="links" id="site-nav">
+      <a href="#about"><span class="n" aria-hidden="true">01</span>About</a>
+      <a href="#research"><span class="n" aria-hidden="true">02</span>Projects</a>
+      <a href="#cve"><span class="n" aria-hidden="true">03</span>CVEs</a>
+    </div>
   </nav>
 </header>
+<script>
+/* Turn the inline links into a three-line menu. Without JavaScript the links simply stay visible. */
+(function(){
+  var mast=document.querySelector('.mast'),btn=mast&&mast.querySelector('.menu-btn'),nav=document.getElementById('site-nav');
+  if(!btn||!nav)return;
+  function set(open){
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+    nav.hidden=!open;
+  }
+  mast.classList.add('has-menu');btn.hidden=false;set(false);
+  btn.addEventListener('click',function(){set(nav.hidden)});
+  nav.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+  function inside(n){return !!n&&(btn.contains(n)||nav.contains(n))}
+  function away(e){if(!nav.hidden&&!inside(e.target))set(false)}
+  document.addEventListener('pointerdown',away);document.addEventListener('click',away);
+  mast.addEventListener('focusout',function(e){if(!nav.hidden&&e.relatedTarget&&!inside(e.relatedTarget))set(false)});
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape'||nav.hidden)return;
+    var a=document.activeElement,back=inside(a)||a===document.body;
+    set(false);if(back)btn.focus({preventScroll:true});
+  });
+})();
+</script>
 
 <main id="main" class="wrap">
   <section class="hero" aria-labelledby="name">
