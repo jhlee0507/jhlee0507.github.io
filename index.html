@@ -109,16 +109,10 @@ main{flex:1 0 auto}
 .mast nav a:hover{color:var(--blue)}
 
 /* hero */
-.hero{--h1:clamp(4.5rem,22vw,10.5rem);position:relative;padding:16.75rem 0 3.5rem;border-bottom:1px solid var(--rule)}
+.hero{--h1:clamp(4.5rem,22vw,10.5rem);position:relative;padding:16.25rem 0 3.5rem;border-bottom:1px solid var(--rule)}
 @media (min-width:48rem){.hero{padding:4.5rem 0 4rem}}
 @media (min-width:48rem) and (max-width:63.99rem){.hero{--h1:clamp(4.5rem,19vw,10.5rem)}}
-@media (min-width:64rem){.hero{padding:7rem 0 6rem}}
-.kicker{display:flex;align-items:center;gap:.4rem;margin:0 0 1.5rem;font-family:var(--mono);font-size:.75rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--blue)}
-.kicker::before{content:"";display:block;width:1rem;height:2px;border-radius:2px;background:var(--grad);flex:none;align-self:flex-start;margin-top:.8em}
-@media (min-width:30rem){
-  .kicker{gap:.75rem;margin-bottom:1.75rem;font-size:.8125rem;letter-spacing:.08em}
-  .kicker::before{width:2rem}
-}
+@media (min-width:64rem){.hero{padding:8.5rem 0 7.5rem}}
 h1{
   margin:0;
   width:fit-content;
@@ -261,7 +255,7 @@ footer .mono{font-family:var(--mono);font-size:.8125rem;letter-spacing:.02em}
 @media print{
   .page-art{display:none}
   .hero{padding-top:2.5rem}
-  .kicker::before,section:not(.hero)::before,footer::before{display:none}
+  section:not(.hero)::before,footer::before{display:none}
   .btn{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
   .proj > li,.cves li{break-inside:avoid}
   h1 .zero{background:none;-webkit-text-fill-color:currentColor;filter:none}
@@ -309,7 +303,6 @@ footer .mono{font-family:var(--mono);font-size:.8125rem;letter-spacing:.02em}
 
 <main id="main" class="wrap">
   <section class="hero" aria-labelledby="name">
-    <p class="kicker"><span><span class="nw">Vulnerability Researcher ·</span> <span class="nw">Sejong Univ.</span></span></p>
     <h1 id="name" aria-label="r3c0n"><span class="wm">r3c<span class="zero">0</span>n</span></h1>
     <p class="lede">Lately, I've been working on Windows kernel vulnerability analysis.</p>
     <div class="meta">
