@@ -80,7 +80,6 @@ main{flex:1 0 auto}
 .blob{position:absolute;inset:0;border-radius:50%;background:linear-gradient(100deg,#9a24fb 6%,#8414fc 20%,#5a0cfe 36%,#3b26fd 51%,#2f63fe 65%,#2c86fe 79%,#4aa6fe 95%);filter:blur(30px);transform:rotate(-4deg)}
 /* the wordmark's dotted zero, redrawn as a hairline specimen on the colour */
 .ghost{position:absolute;display:block;overflow:visible;top:50%;right:15%;height:72%;aspect-ratio:400/620;width:auto;transform:translateY(-50%)}
-.ghost .far{display:none}
 @media (max-width:47.99rem){.ghost{top:48%;right:30%}}
 @media (min-width:48rem){
   .art{top:7.5rem;left:auto;right:-4rem;width:17.5rem;height:20rem}
@@ -96,7 +95,6 @@ main{flex:1 0 auto}
   .art{top:7.25rem;right:calc(max(2rem,50% - 36rem) - 1rem);width:clamp(20rem,30vw,23rem);height:auto;aspect-ratio:4/5}
   .blob{filter:blur(46px)}
   .ghost{left:50%;height:58%}
-  .ghost .far{display:block}
 }
 
 /* masthead */
@@ -286,10 +284,6 @@ footer{height:9rem}
       <path stroke="#fff" stroke-opacity=".7" vector-effect="non-scaling-stroke" d="M200 104A96 96 0 0 1 296 200V420A96 96 0 0 1 104 420V200A96 96 0 0 1 200 104Z"/>
       <rect x="158" y="256" width="84" height="108" rx="42" stroke="#fff" stroke-opacity=".75" stroke-width="9" filter="url(#g-glow)"/>
       <rect x="158" y="256" width="84" height="108" rx="42" stroke="#fff" stroke-width="2" vector-effect="non-scaling-stroke"/>
-      <g class="far">
-        <path stroke="#fff" stroke-opacity=".9" vector-effect="non-scaling-stroke" d="M200 232V246"/>
-        <text x="200" y="222" text-anchor="middle" fill="#fff" font-family="'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace" font-size="22" font-weight="600" letter-spacing="1.5">0x30</text>
-      </g>
     </svg>
   </div>
 </div>
