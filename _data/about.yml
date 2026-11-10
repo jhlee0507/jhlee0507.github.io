@@ -1,0 +1,11 @@
+# One entry per line of the About list. `label` is the linked part (leave out `url` for no link); `text` follows it.
+# The small introduction under the list is the `note` at the top of about/index.html.
+- label: A student of Sejong Univ. (sophomore)
+
+- label: WHS (WhiteHat School)
+  url: https://whsedu.kr/home/kor/main.do
+  text: 4th
+
+- label: ARTLAB
+  url: https://artlab.sejong.ac.kr/home
+  text: Undergraduate Research Student

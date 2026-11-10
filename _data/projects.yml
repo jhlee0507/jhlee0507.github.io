@@ -1,0 +1,9 @@
+# One entry per research project, in the order shown. `role` is optional and appears as a badge.
+- title: Embedded System Vulnerability Research
+  org: SSG Projects
+  summary: Analyzed vulnerabilities in home security cameras as part of SSG Projects.
+
+- title: Windows Kernel Vulnerability Research
+  org: WhiteHat School 4th
+  summary: WhiteHat School 4th team project on vulnerabilities in Windows kernel drivers.
+  role: Project Manager
