@@ -17,7 +17,7 @@
   --paper:#fff;
   --ink:#0e0c2e;
   --ink-2:#3b3a61;
-  --muted:#5b5c83;
+  --muted:#55567c;
   --rule:#d9d9e6;
   --rule-hi:#bfc0d9;
   --violet:#7007fa;
@@ -49,9 +49,9 @@ body{
   background-color:var(--ground);
   /* pale washes of the same three hues carry the colour down the page */
   background-image:
-    radial-gradient(ellipse 46rem 30rem at -4rem 30%,rgba(var(--vi),.17),transparent 70%),
-    radial-gradient(ellipse 48rem 32rem at calc(100% + 4rem) 50%,rgba(var(--sk),.26),transparent 70%),
-    radial-gradient(ellipse 46rem 30rem at -4rem 74%,rgba(var(--bl),.15),transparent 70%);
+    radial-gradient(ellipse 46rem 30rem at -4rem 34%,rgba(var(--vi),.12),transparent 70%),
+    radial-gradient(ellipse 48rem 32rem at calc(100% + 4rem) 52%,rgba(var(--sk),.22),transparent 70%),
+    radial-gradient(ellipse 46rem 30rem at -4rem 78%,rgba(var(--bl),.11),transparent 70%);
   background-repeat:no-repeat;
   color:var(--ink);
   font-family:var(--sans);
@@ -76,15 +76,14 @@ main{flex:1 0 auto}
 
 /* the reference, rebuilt: one soft blob running violet -> royal blue -> azure, full-bleed behind the top of the page */
 .page-art{position:absolute;top:0;left:0;right:0;height:60rem;overflow:hidden;pointer-events:none;z-index:0}
-.art{position:absolute;top:7.6rem;left:-1.5rem;right:-1.5rem;height:11.5rem}
+.art{position:absolute;top:6rem;left:-1.5rem;right:-1.5rem;height:11.5rem}
 .blob{position:absolute;inset:0;border-radius:50%;background:linear-gradient(100deg,#9a24fb 6%,#8414fc 20%,#5a0cfe 36%,#3b26fd 51%,#2f63fe 65%,#2c86fe 79%,#4aa6fe 95%);filter:blur(30px);transform:rotate(-4deg)}
 /* the wordmark's dotted zero, redrawn as a hairline specimen on the colour */
 .ghost{position:absolute;display:block;overflow:visible;top:50%;right:15%;height:72%;aspect-ratio:400/620;width:auto;transform:translateY(-50%)}
 .ghost .far{display:none}
 @media (max-width:47.99rem){.ghost{top:48%;right:30%}}
-@media (min-width:30rem){.art{top:6rem}}
 @media (min-width:48rem){
-  .art{top:6.5rem;left:auto;right:-4.5rem;width:21rem;height:27rem}
+  .art{top:6rem;left:auto;right:-4.5rem;width:20rem;height:23.5rem}
   .blob{border-radius:36% 64% 40% 60% / 30% 58% 42% 70%;background:linear-gradient(116deg,#9a24fb 10%,#8414fc 24%,#5a0cfe 38%,#3b26fd 50%,#2f63fe 62%,#2c86fe 75%,#52acfd 92%);filter:blur(38px);transform:rotate(-6deg)}
   /* the reference's lavender haze lower left and sky haze upper right */
   .art::before{content:"";position:absolute;z-index:-1;inset:-22% -28%;background:radial-gradient(ellipse 26% 24% at 29% 72%,rgba(172,96,250,.5),rgba(172,96,250,0)),radial-gradient(ellipse 24% 24% at 73% 27%,rgba(112,176,250,.5),rgba(112,176,250,0))}
@@ -94,7 +93,7 @@ main{flex:1 0 auto}
 .page-art--end{top:auto;bottom:0;height:17rem}
 .page-art--end .blob{inset:auto -6% -7.75rem -6%;height:12rem;border-radius:50%;background:linear-gradient(100deg,#9a24fb 6%,#8414fc 20%,#5a0cfe 36%,#3b26fd 51%,#2f63fe 65%,#2c86fe 79%,#4aa6fe 95%);filter:blur(44px);transform:none}
 @media (min-width:64rem){
-  .art{top:8.5rem;right:calc(max(2rem,50% - 36rem) - 1rem);width:clamp(23rem,35vw,30rem);height:auto;aspect-ratio:4/5}
+  .art{top:8.5rem;right:calc(max(2rem,50% - 36rem) - 1rem);width:clamp(23rem,35vw,28rem);height:auto;aspect-ratio:4/5}
   .blob{filter:blur(46px)}
   .ghost{left:50%;height:58%}
   .ghost .far{display:block}
@@ -108,11 +107,6 @@ main{flex:1 0 auto}
 .mast nav{display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:flex-end}
 .mast nav a{font-size:.875rem;font-weight:500;color:var(--ink-2);text-decoration:none;letter-spacing:.01em;padding:.7rem .5rem;margin:-.7rem -.5rem;display:inline-block}
 .mast nav a:hover{color:var(--blue)}
-@media (max-width:29.99rem){
-  .mast{flex-direction:column;align-items:stretch;gap:.9rem;padding:1.25rem 0 1.1rem}
-  .mast .handle{align-self:flex-start}
-  .mast nav{justify-content:space-between;gap:.5rem}
-}
 
 /* hero */
 .hero{--h1:clamp(4.5rem,22vw,10.5rem);position:relative;padding:16.75rem 0 3.5rem;border-bottom:1px solid var(--rule)}
@@ -165,8 +159,6 @@ h1 .zero{display:inline-block;color:var(--blue);filter:drop-shadow(0 .05em .13em
 .hero .meta dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;gap:.25rem 1.25rem}
 .hero .meta dt{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .hero .meta dd{margin:0;overflow-wrap:anywhere}
-.hero .meta dd a{display:inline-block;padding:.3rem 0;color:var(--blue);font-weight:500;text-decoration-color:rgba(var(--bl),.4)}
-.hero .meta dd a:hover{text-decoration-thickness:2px;text-decoration-color:var(--blue)}
 .btn{
   display:inline-flex;align-items:center;gap:.6rem;
   padding:.9rem 1.4rem;
@@ -198,12 +190,16 @@ section:not(.hero)::before{content:"";position:absolute;left:0;top:-2px;width:2.
 .sec-head .num{font-family:var(--mono);font-size:.8125rem;font-weight:600;letter-spacing:.08em;color:var(--violet)}
 h2{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;letter-spacing:-.025em;font-weight:700;color:var(--ink)}
 .sec-head p{margin:.5rem 0 0;color:var(--muted);font-size:.9375rem;max-width:30ch}
-.sec-head p,.contact .note,.repos .desc{text-wrap:balance}
+.sec-head p{text-wrap:balance}
 
 /* about */
-.about p{margin:0;font-size:clamp(1.125rem,1.7vw,1.375rem);line-height:1.6;letter-spacing:-.005em;color:var(--ink-2)}
-.about p + p{margin-top:1.25rem}
-.about strong{font-weight:600;color:var(--ink);background:linear-gradient(90deg,rgba(var(--vi),.24),rgba(var(--bl),.2) 50%,rgba(var(--sk),.3)) no-repeat 0 92%/100% .38em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.facts{list-style:none;margin:0;padding:0}
+.facts li{display:flex;align-items:center;gap:1rem;padding:1.1rem 0;border-top:1px solid var(--rule);font-size:clamp(1.1875rem,1.9vw,1.5rem);line-height:1.35;font-weight:600;letter-spacing:-.012em;color:var(--ink)}
+.facts li:last-child{border-bottom:1px solid var(--rule)}
+.facts li::before{content:"";flex:none;width:.625rem;height:.625rem;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2))}
+.facts li:nth-child(1){--c1:#9a24fb;--c2:#5a0cfe}
+.facts li:nth-child(2){--c1:#5a0cfe;--c2:var(--blue)}
+.facts li:nth-child(3){--c1:var(--blue);--c2:var(--sky)}
 
 /* research rows */
 .research .grid{display:block}
@@ -229,74 +225,30 @@ h2{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;letter-spacin
 .proj .role{display:inline-block;margin-top:.9rem;padding:.25rem .7rem;border:1px solid transparent;border-radius:999px;background:linear-gradient(var(--paper),var(--paper)) padding-box,var(--grad) border-box;font-family:var(--mono);font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
 
 /* CVE */
-.cve .grid{display:block}
-.cve .sec-head{margin-bottom:2.5rem}
 .cves{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
-@media (min-width:44rem){.cves{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}}
-.cves li{position:relative}
 .cves a{
-  position:relative;
-  display:flex;flex-direction:column;gap:.5rem;
-  min-height:7rem;
-  padding:1.4rem 1.25rem 1.1rem;
+  display:flex;align-items:center;justify-content:space-between;gap:.5rem 1rem;flex-wrap:wrap;
+  min-height:4.75rem;
+  padding:1.1rem 1.4rem;
   border-radius:14px;
   text-decoration:none;
   color:#fff;
   background-color:var(--blue);
-  background-image:linear-gradient(125deg,var(--c1),var(--c2));
-  box-shadow:0 1px 0 rgba(255,255,255,.22) inset,0 20px 34px -18px var(--glow);
+  background-image:linear-gradient(100deg,var(--c1),var(--c2));
+  box-shadow:0 1px 0 rgba(255,255,255,.22) inset,0 18px 30px -20px var(--glow);
   transition:box-shadow .15s ease,transform .15s ease,filter .15s ease;
 }
 .cves li:nth-child(1) a{--c1:#8a1cfb;--c2:#5608fe;--glow:rgba(var(--vi),.8)}
 .cves li:nth-child(2) a{--c1:#5608fe;--c2:var(--blue);--glow:rgba(var(--bl),.8)}
 .cves li:nth-child(3) a{--c1:var(--blue);--c2:#3358fe;--glow:rgba(var(--az),.85)}
-@media (min-width:44rem){.cves a{min-height:7.5rem}}
 .cves a:hover{color:#fff}
-@media (hover:hover){.cves a:hover{filter:brightness(1.1);transform:translateY(-3px);box-shadow:0 1px 0 rgba(255,255,255,.22) inset,0 26px 40px -18px var(--glow)}}
+@media (hover:hover){.cves a:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.22) inset,0 24px 36px -20px var(--glow)}}
 .cves a:focus-visible{outline-offset:3px}
-.cves .id{font-family:var(--mono);font-size:clamp(1.0625rem,2.1vw,1.5rem);font-weight:700;letter-spacing:-.02em;white-space:nowrap;color:#fff}
-.cves .id::after{content:" ↗\FE0E";font-variant-emoji:text;font-size:.75em;font-weight:500;opacity:.85}
-.cves .lab{font-family:var(--mono);font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-top:auto}
+.cves .id{font-family:var(--mono);font-size:clamp(1.0625rem,2vw,1.375rem);font-weight:700;letter-spacing:-.02em;white-space:nowrap;color:#fff}
+.cves .lab{font-family:var(--mono);font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;color:#fff}
+.cves .lab::after{content:" ↗\FE0E";font-variant-emoji:text;font-size:1.15em}
 
-/* repos */
-.repos{list-style:none;margin:0;padding:0}
-.repos li{border-top:1px solid var(--rule)}
-.repos li:last-child{border-bottom:1px solid var(--rule)}
-.repos a{
-  display:grid;grid-template-columns:1fr;gap:.2rem 1.5rem;
-  padding:1.1rem .75rem;margin-inline:-.75rem;
-  border-radius:8px;
-  text-decoration:none;color:var(--ink);
-}
-@media (min-width:48rem){.repos a{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) auto;align-items:baseline}}
-.repos a:hover{color:var(--ink);background-image:linear-gradient(90deg,rgba(var(--vi),.10),rgba(var(--bl),.08) 50%,rgba(var(--sk),.04) 85%,rgba(var(--sk),0))}
-.repos .name{font-family:var(--mono);font-weight:600;font-size:1rem;letter-spacing:-.01em;color:var(--ink);transition:color .15s ease}
-.repos .desc{color:var(--ink-2);font-size:.9375rem}
-.repos .arr{color:var(--blue);font-family:var(--mono);font-size:.9375rem;justify-self:end;display:none;font-variant-emoji:text}
-@media (min-width:48rem){.repos .arr{display:block}}
-.repos a:hover .name{color:var(--blue)}
-.repos a:focus-visible{outline-offset:-2px}
-
-/* contact */
-.contact{border-bottom:0}
-.contact .big{
-  margin:0;
-  font-size:clamp(2rem,5.5vw,4.5rem);
-  line-height:1.08;
-  letter-spacing:-.03em;
-  font-weight:800;
-  text-wrap:balance;
-  color:var(--ink);
-}
-.contact .big a{display:inline-block;text-decoration:none;font-family:var(--mono);font-size:.94em;letter-spacing:-.06em;padding-right:.08em;color:var(--blue);border-bottom:3px solid transparent;transition:border-color .15s ease}
-@supports ((-webkit-background-clip:text) or (background-clip:text)){
-  .contact .big a{background-image:linear-gradient(100deg,var(--violet),var(--indigo) 35%,var(--blue) 60%,var(--azure));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-}
-.contact .big a:hover{border-bottom-color:var(--blue)}
-.contact .note{margin:1.5rem 0 0;color:var(--ink-2);font-size:1rem;max-width:44ch}
-.contact .link{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.5rem;min-height:2.75rem;font-family:var(--mono);font-size:.9375rem;text-decoration:none;color:var(--ink);padding:.5rem 0 .4rem;border-bottom:1px solid var(--rule-hi);transition:border-color .15s ease,color .15s ease}
-.contact .link:hover{color:var(--blue);border-color:var(--blue)}
-.contact .link svg{width:1.125rem;height:1.125rem;fill:currentColor}
+.cve{border-bottom:0}
 
 /* footer */
 footer::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;border-radius:2px;background:var(--grad)}
@@ -313,15 +265,14 @@ footer .mono{font-family:var(--mono);font-size:.8125rem;letter-spacing:.02em}
   .hero{padding-top:2.5rem}
   .kicker::before,section:not(.hero)::before,footer::before{display:none}
   .btn{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
-  .proj > li,.cves li,.repos li{break-inside:avoid}
-  h1 .zero,.contact .big a{background:none;-webkit-text-fill-color:currentColor;filter:none}
+  .proj > li,.cves li{break-inside:avoid}
+  h1 .zero{background:none;-webkit-text-fill-color:currentColor;filter:none}
   .cves a{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
   .cves .id,.cves .lab{color:var(--ink)}
 }
 @media (forced-colors:active){
   h1 .zero{filter:none}
-  h1 .zero,.contact .big a{background:none;-webkit-text-fill-color:currentColor}
-  .contact .big a{border-bottom:0}
+  h1 .zero{background:none;-webkit-text-fill-color:currentColor}
   .btn,.cves a{border:1px solid currentColor}
 }
 </style>
@@ -355,8 +306,6 @@ footer .mono{font-family:var(--mono);font-size:.8125rem;letter-spacing:.02em}
     <a href="#about">About</a>
     <a href="#research">Research</a>
     <a href="#cve">CVE</a>
-    <a href="#github">GitHub</a>
-    <a href="#contact">Contact</a>
   </nav>
 </header>
 
@@ -368,8 +317,6 @@ footer .mono{font-family:var(--mono);font-size:.8125rem;letter-spacing:.02em}
     <div class="meta">
       <dl>
         <dt>Affiliation</dt><dd>Sejong University <span class="nw">(Undergraduate)</span></dd>
-        <dt>Program</dt><dd>WhiteHat School 4th</dd>
-        <dt>GitHub</dt><dd><a href="https://github.com/jhlee0507" rel="me noopener" target="_blank">github.com/jhlee0507</a></dd>
       </dl>
       <a class="btn" href="https://github.com/jhlee0507" rel="me noopener" target="_blank">
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -385,8 +332,11 @@ footer .mono{font-family:var(--mono);font-size:.8125rem;letter-spacing:.02em}
         <h2 id="h-about">About</h2>
       </div>
       <div>
-        <p>I'm an undergraduate at Sejong University and a member of the 4th cohort of <strong>WhiteHat School</strong>.</p>
-        <p>My work focuses on finding, analyzing and reporting vulnerabilities in <strong>Windows kernel drivers</strong> and <strong>embedded systems</strong>.</p>
+        <ul class="facts">
+          <li>Sejong Univ. Sophomore</li>
+          <li>WHS (WhiteHat School) 4th</li>
+          <li>Vulnerability Researcher</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -402,22 +352,22 @@ footer .mono{font-family:var(--mono);font-size:.8125rem;letter-spacing:.02em}
       <li>
         <div>
           <span class="idx" aria-hidden="true"></span>
-          <h3>Windows Kernel Driver Vulnerability Research</h3>
-          <p class="sub">WhiteHat School 4th</p>
+          <h3>Embedded System Vulnerability Research</h3>
+          <p class="sub">SSG Projects</p>
         </div>
         <div class="body">
-          <p>A WhiteHat School 4th team project on vulnerabilities in Windows kernel drivers.</p>
-          <span class="role">Project Manager</span>
+          <p>Analyzed vulnerabilities in home security cameras as part of SSG Projects.</p>
         </div>
       </li>
       <li>
         <div>
           <span class="idx" aria-hidden="true"></span>
-          <h3>Embedded System Vulnerability Research</h3>
-          <p class="sub">SSG</p>
+          <h3>Windows Kernel Vulnerability Research</h3>
+          <p class="sub">WhiteHat School 4th</p>
         </div>
         <div class="body">
-          <p>An SSG project researching vulnerabilities in embedded systems.</p>
+          <p>WhiteHat School 4th team project on vulnerabilities in Windows kernel drivers.</p>
+          <span class="role">Project Manager</span>
         </div>
       </li>
     </ol>
@@ -436,37 +386,6 @@ footer .mono{font-family:var(--mono);font-size:.8125rem;letter-spacing:.02em}
           <li><a href="https://www.cve.org/CVERecord?id=CVE-2026-85868" rel="noopener" target="_blank"><span class="id">CVE-2026-85868</span><span class="lab">cve.org</span></a></li>
           <li><a href="https://www.cve.org/CVERecord?id=CVE-2026-85870" rel="noopener" target="_blank"><span class="id">CVE-2026-85870</span><span class="lab">cve.org</span></a></li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="github" id="github" aria-labelledby="h-github">
-    <div class="grid">
-      <div class="sec-head">
-        <span class="num" aria-hidden="true">04</span>
-        <h2 id="h-github">Public Repositories</h2>
-      </div>
-      <ul class="repos">
-        <li><a href="https://github.com/jhlee0507/cve-2021-43798-grafana" rel="noopener" target="_blank"><span class="name">cve-2021-43798-grafana</span><span class="desc">Analysis and reproduction of <span class="nw">CVE-2021-43798</span>, a Grafana path traversal vulnerability</span><span class="arr" aria-hidden="true">↗&#xFE0E;</span></a></li>
-        <li><a href="https://github.com/jhlee0507/secure_coding" rel="noopener" target="_blank"><span class="name">secure_coding</span><span class="desc">Tiny second-hand shopping platform in Flask, built to practice Secure SDLC</span><span class="arr" aria-hidden="true">↗&#xFE0E;</span></a></li>
-        <li><a href="https://github.com/jhlee0507/whs4-computer1" rel="noopener" target="_blank"><span class="name">whs4-computer1</span><span class="desc">WhiteHat School 4th, Computer Architecture 1 assignment</span><span class="arr" aria-hidden="true">↗&#xFE0E;</span></a></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="contact" id="contact" aria-labelledby="h-contact">
-    <div class="grid">
-      <div class="sec-head">
-        <span class="num" aria-hidden="true">05</span>
-        <h2 id="h-contact">Contact</h2>
-      </div>
-      <div>
-        <p class="big">Find me on GitHub<br><a href="https://github.com/jhlee0507" rel="me noopener" target="_blank">@jhlee0507</a></p>
-        <p class="note">The best way to reach me is through GitHub.</p>
-        <a class="link" href="https://github.com/jhlee0507" rel="me noopener" target="_blank">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-          github.com/jhlee0507
-        </a>
       </div>
     </div>
   </section>
