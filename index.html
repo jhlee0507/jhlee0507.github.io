@@ -281,14 +281,8 @@ h2[tabindex="-1"]:focus,main:focus{outline:none}
 
 /* CVE ticker: the ids drift from left to right */
 .ticker{padding:2.75rem 0 1rem}
-.ticker-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.5rem}
+.ticker-head{margin-bottom:.5rem}
 .ticker .eyebrow{font-family:var(--mono);font-size:.8125rem;font-weight:700;letter-spacing:.1em;color:var(--violet)}
-.ticker-toggle{flex:none;display:inline-grid;place-items:center;width:2.75rem;height:2.75rem;margin:-.5rem -.6875rem -.5rem 0;padding:0;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .15s ease,color .15s ease}
-.ticker-toggle:focus-visible{outline-offset:2px}
-@media (hover:hover){.ticker-toggle:hover{background-color:rgba(var(--bl),.08);color:var(--blue)}}
-.ticker-toggle svg{width:1rem;height:1rem;fill:currentColor}
-.ticker-toggle .i-play,.ticker.is-paused .ticker-toggle .i-pause{display:none}
-.ticker.is-paused .ticker-toggle .i-play{display:block}
 .ticker-clip{overflow:hidden;overflow:clip;padding:.5rem 0 1.75rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 .ticker-track{display:flex;width:max-content;margin:0;padding:0;list-style:none;animation:ticker 44s linear infinite}
 .ticker-track li{flex:none;margin-right:1rem}
@@ -304,12 +298,10 @@ h2[tabindex="-1"]:focus,main:focus{outline:none}
 .ticker-track .lab::after{content:" ↗\FE0E";font-variant-emoji:text;font-size:1.15em}
 /* the list is written out four times; moving it by half its width loops seamlessly, left to right */
 @keyframes ticker{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-.ticker.is-paused .ticker-track{animation-play-state:paused}
 /* keyboard focus inside: the three real ids stand still, all on screen (same layout as reduced motion) */
 .ticker-clip:has(a:focus-visible){-webkit-mask-image:none;mask-image:none}
 .ticker-clip:has(a:focus-visible) .ticker-track{animation:none;width:auto;flex-wrap:wrap;row-gap:.75rem}
 .ticker-clip:has(a:focus-visible) .dup{display:none}
-@media (hover:hover){.ticker-clip:hover .ticker-track{animation-play-state:paused}}
 
 /* a short window: tighten the air around the hero (and scale its blob with it) so the CVE strip stays on the first screen */
 @supports (padding:clamp(0rem,1vh,1rem)){
@@ -338,7 +330,7 @@ footer{height:9rem}
   .btn:hover,.cves a:hover{transform:none !important}
   html{scroll-behavior:auto}
   /* no motion: just the three ids, standing still */
-  .ticker .dup,.ticker-toggle{display:none}
+  .ticker .dup{display:none}
   .ticker-clip{-webkit-mask-image:none;mask-image:none}
   .ticker-track{width:auto;flex-wrap:wrap;row-gap:.75rem}
 }
@@ -434,10 +426,6 @@ footer{height:9rem}
   <div class="ticker" role="region" aria-label="CVE">
     <div class="ticker-head">
       <span class="eyebrow" aria-hidden="true">CVE</span>
-      <button class="ticker-toggle" type="button" aria-label="Pause animation">
-        <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="2.5" width="3" height="11" rx="1"/><rect x="9.5" y="2.5" width="3" height="11" rx="1"/></svg>
-        <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.7v10.6a.7.7 0 0 0 1.07.6l8.2-5.3a.7.7 0 0 0 0-1.2l-8.2-5.3a.7.7 0 0 0-1.07.6z"/></svg>
-      </button>
     </div>
     <div class="ticker-clip">
       <ul class="ticker-track">
@@ -545,8 +533,6 @@ footer{height:9rem}
   show(!!map[location.hash]);
   var skip=document.querySelector('.skip'),main=document.getElementById('main');
   if(skip&&main)skip.addEventListener('click',function(e){e.preventDefault();main.setAttribute('tabindex','-1');main.focus()});
-  var t=document.querySelector('.ticker'),b=t&&t.querySelector('.ticker-toggle');
-  if(b)b.addEventListener('click',function(){var p=t.classList.toggle('is-paused');b.setAttribute('aria-label',p?'Play animation':'Pause animation')});
 })();
 </script>
 </body>
