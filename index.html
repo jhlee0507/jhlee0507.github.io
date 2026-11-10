@@ -83,7 +83,7 @@ main{flex:1 0 auto}
 .ghost .far{display:none}
 @media (max-width:47.99rem){.ghost{top:48%;right:30%}}
 @media (min-width:48rem){
-  .art{top:7.25rem;left:auto;right:-4rem;width:17.5rem;height:20rem}
+  .art{top:7.5rem;left:auto;right:-4rem;width:17.5rem;height:20rem}
   .blob{border-radius:36% 64% 40% 60% / 30% 58% 42% 70%;background:linear-gradient(116deg,#9a24fb 10%,#8414fc 24%,#5a0cfe 38%,#3b26fd 50%,#2f63fe 62%,#2c86fe 75%,#52acfd 92%);filter:blur(38px);transform:rotate(-6deg)}
   /* the reference's lavender haze lower left and sky haze upper right */
   .art::before{content:"";position:absolute;z-index:-1;inset:-22% -28%;background:radial-gradient(ellipse 26% 24% at 29% 72%,rgba(172,96,250,.5),rgba(172,96,250,0)),radial-gradient(ellipse 24% 24% at 73% 27%,rgba(112,176,250,.5),rgba(112,176,250,0))}
@@ -110,8 +110,8 @@ main{flex:1 0 auto}
 
 /* hero */
 .hero{--h1:clamp(3.5rem,17vw,7.5rem);position:relative;padding:16.25rem 0 3.5rem;border-bottom:1px solid var(--rule)}
-@media (min-width:48rem){.hero{padding:4.5rem 0 4rem}}
-@media (min-width:64rem){.hero{padding:8.5rem 0 7.5rem}}
+@media (min-width:48rem){.hero{padding:5.5rem 0 5rem}}
+@media (min-width:64rem){.hero{padding:9.5rem 0 8.5rem}}
 h1{
   margin:0;
   width:fit-content;
@@ -142,7 +142,7 @@ h1 .zero{display:inline-block;color:var(--blue);filter:drop-shadow(0 .05em .13em
 @media (min-width:64rem) and (max-width:75rem){.hero .lede{max-width:30ch}}
 /* a phone held sideways: use the side blob so the name stays on the first screen */
 @media (min-width:35rem) and (max-width:47.99rem) and (orientation:landscape) and (max-height:31.25rem){
-  .hero{--h1:clamp(3.5rem,26vh,7.5rem);padding:2.5rem 0 3rem}
+  .hero{--h1:clamp(3.5rem,26vh,7.5rem);padding:2.5rem 0 4rem}
   .hero .lede{max-width:24ch}
   .art{top:5.5rem;left:auto;right:-4.5rem;width:15rem;height:17rem}
   .blob{border-radius:36% 64% 40% 60% / 30% 58% 42% 70%;background:linear-gradient(116deg,#9a24fb 10%,#8414fc 24%,#5a0cfe 38%,#3b26fd 50%,#2f63fe 62%,#2c86fe 75%,#52acfd 92%);transform:rotate(-6deg)}
@@ -307,7 +307,7 @@ footer .mono{font-family:var(--mono);font-size:.8125rem;letter-spacing:.02em}
 <main id="main" class="wrap">
   <section class="hero" aria-labelledby="name">
     <h1 id="name" aria-label="r3c0n"><span class="wm">r3c<span class="zero">0</span>n</span></h1>
-    <p class="lede">Lately, I've been working on Windows kernel vulnerability analysis.</p>
+    <p class="lede">Vulnerability Researcher</p>
     <div class="meta">
       <a class="btn" href="https://github.com/jhlee0507" rel="me noopener" target="_blank">
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
