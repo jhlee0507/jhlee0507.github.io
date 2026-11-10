@@ -93,7 +93,7 @@ main{flex:1 0 auto}
 .page-art--end{top:auto;bottom:0;height:17rem}
 .page-art--end .blob{inset:auto -6% -7.75rem -6%;height:12rem;border-radius:50%;background:linear-gradient(100deg,#9a24fb 6%,#8414fc 20%,#5a0cfe 36%,#3b26fd 51%,#2f63fe 65%,#2c86fe 79%,#4aa6fe 95%);filter:blur(44px);transform:none}
 @media (min-width:64rem){
-  .art{top:7.25rem;right:calc(max(2rem,50% - 36rem) - 1rem);width:clamp(23rem,35vw,28rem);height:auto;aspect-ratio:4/5}
+  .art{top:7.25rem;right:calc(max(2rem,50% - 36rem) - 1rem);width:clamp(22rem,33vw,26rem);height:auto;aspect-ratio:4/5}
   .blob{filter:blur(46px)}
   .ghost{left:50%;height:58%}
   .ghost .far{display:block}
@@ -155,10 +155,7 @@ h1 .zero{display:inline-block;color:var(--blue);filter:drop-shadow(0 .05em .13em
   .blob{border-radius:36% 64% 40% 60% / 30% 58% 42% 70%;background:linear-gradient(116deg,#9a24fb 10%,#8414fc 24%,#5a0cfe 38%,#3b26fd 50%,#2f63fe 62%,#2c86fe 75%,#52acfd 92%);transform:rotate(-6deg)}
   .ghost{top:50%;right:auto;left:46%;height:56%;transform:translate(-50%,-50%)}
 }
-.hero .meta{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem 2.5rem;margin:2.75rem 0 0;padding-top:1.5rem;border-top:1px solid var(--rule-hi);border-image:linear-gradient(90deg,var(--rule-hi),var(--rule) 40%,transparent 66%) 1;font-size:.9375rem;color:var(--ink-2)}
-.hero .meta dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;gap:.25rem 1.25rem}
-.hero .meta dt{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.hero .meta dd{margin:0;overflow-wrap:anywhere}
+.hero .meta{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem 2.5rem;margin:2.5rem 0 0}
 .btn{
   display:inline-flex;align-items:center;gap:.6rem;
   padding:.9rem 1.4rem;
@@ -197,6 +194,8 @@ h2{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;letter-spacin
 .facts li{display:flex;align-items:center;gap:1rem;padding:1.1rem 0;border-top:1px solid var(--rule);font-size:clamp(1.1875rem,1.9vw,1.5rem);line-height:1.35;font-weight:600;letter-spacing:-.012em;color:var(--ink)}
 .facts li:last-child{border-bottom:1px solid var(--rule)}
 .facts li::before{content:"";flex:none;width:.625rem;height:.625rem;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2))}
+.facts a{color:var(--blue);text-decoration-color:rgba(var(--bl),.45);text-decoration-thickness:2px;text-underline-offset:.22em}
+.facts a:hover{color:var(--violet);text-decoration-color:var(--violet)}
 .facts li:nth-child(1){--c1:#9a24fb;--c2:#5a0cfe}
 .facts li:nth-child(2){--c1:var(--blue);--c2:var(--sky)}
 
@@ -314,9 +313,6 @@ footer .mono{font-family:var(--mono);font-size:.8125rem;letter-spacing:.02em}
     <h1 id="name" aria-label="r3c0n"><span class="wm">r3c<span class="zero">0</span>n</span></h1>
     <p class="lede">Lately, I've been working on Windows kernel vulnerability analysis.</p>
     <div class="meta">
-      <dl>
-        <dt>Affiliation</dt><dd>Sejong University <span class="nw">(Undergraduate)</span></dd>
-      </dl>
       <a class="btn" href="https://github.com/jhlee0507" rel="me noopener" target="_blank">
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
         GitHub profile
@@ -332,8 +328,8 @@ footer .mono{font-family:var(--mono);font-size:.8125rem;letter-spacing:.02em}
       </div>
       <div>
         <ul class="facts">
-          <li>WHS (WhiteHat School) 4th</li>
-          <li>Vulnerability Researcher</li>
+          <li><span>WHS (WhiteHat School) 4th</span></li>
+          <li><span><a href="https://artlab.sejong.ac.kr/home" rel="noopener" target="_blank">ARTLAB</a> Undergraduate Research Student</span></li>
         </ul>
       </div>
     </div>
