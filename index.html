@@ -177,7 +177,10 @@ section:not(.hero)::before{content:"";position:absolute;left:0;top:-2px;width:2.
 .grid{display:grid;gap:1.5rem}
 @media (min-width:64rem){.grid{grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:3rem}}
 .sec-head{display:flex;flex-direction:column;gap:.5rem}
-.sec-head .num{font-family:var(--mono);font-size:.8125rem;font-weight:600;letter-spacing:.08em;color:var(--violet)}
+.sec-head .num{align-self:flex-start;font-family:var(--mono);font-size:clamp(1.5rem,2.6vw,2rem);font-weight:800;line-height:1;letter-spacing:-.02em;color:var(--violet)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .sec-head .num{background-image:linear-gradient(100deg,var(--violet),var(--indigo) 45%,var(--blue) 80%,#2f52fb);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+}
 h2{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;letter-spacing:-.025em;font-weight:700;color:var(--ink)}
 .sec-head p{margin:.5rem 0 0;color:var(--muted);font-size:.9375rem;max-width:30ch}
 .sec-head p{text-wrap:balance}
@@ -258,12 +261,13 @@ footer .mono{font-family:var(--mono);font-size:.8125rem;letter-spacing:.02em}
   .btn{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
   .proj > li,.cves li{break-inside:avoid}
   h1 .zero{background:none;-webkit-text-fill-color:currentColor;filter:none}
+  .sec-head .num{background:none;-webkit-text-fill-color:currentColor}
   .cves a{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
   .cves .id,.cves .lab{color:var(--ink)}
 }
 @media (forced-colors:active){
   h1 .zero{filter:none}
-  h1 .zero{background:none;-webkit-text-fill-color:currentColor}
+  h1 .zero,.sec-head .num{background:none;-webkit-text-fill-color:currentColor}
   .btn,.cves a{border:1px solid currentColor}
 }
 </style>
