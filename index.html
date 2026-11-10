@@ -10,6 +10,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400..800&display=swap">
+<script>
+/* One thing at a time under the hero: the CVE ticker on the main screen, or the section chosen from the menu. */
+(function(d){var h=location.hash,v={'#about':'about','#research':'research','#cve':'cve'}[h]||'home';d.classList.add('views');d.setAttribute('data-view',v)})(document.documentElement);
+</script>
 <style>
 :root{
   /* sampled from the reference: soft grey-white ground, violet -> royal blue -> azure */
@@ -75,7 +79,7 @@ main{flex:1 0 auto}
 @media (min-width:48rem){.wrap{width:min(100% - 4rem,72rem)}}
 
 /* the reference, rebuilt: one soft blob running violet -> royal blue -> azure, full-bleed behind the top of the page */
-.page-art{position:absolute;top:0;left:0;right:0;height:60rem;overflow:hidden;pointer-events:none;z-index:0}
+.page-art{position:absolute;top:0;left:0;right:0;height:min(60rem,100%);overflow:hidden;pointer-events:none;z-index:0}
 .art{position:absolute;top:6rem;left:-1.5rem;right:-1.5rem;height:11.5rem}
 .blob{position:absolute;inset:0;border-radius:50%;background:linear-gradient(100deg,#9a24fb 6%,#8414fc 20%,#5a0cfe 36%,#3b26fd 51%,#2f63fe 65%,#2c86fe 79%,#4aa6fe 95%);filter:blur(30px);transform:rotate(-4deg)}
 /* the wordmark's dotted zero, redrawn as a hairline specimen on the colour */
@@ -127,6 +131,7 @@ main{flex:1 0 auto}
 .mast.has-menu nav a{display:flex;align-items:baseline;gap:.9rem;margin:0;padding:.8rem .9rem;border-radius:9px;font-size:1.0625rem;font-weight:600;letter-spacing:-.005em;color:var(--ink)}
 .mast.has-menu nav a:hover{color:var(--ink);background-image:linear-gradient(90deg,rgba(var(--vi),.11),rgba(var(--bl),.09) 55%,rgba(var(--sk),.07))}
 .mast.has-menu nav a:focus-visible{outline-offset:-2px}
+.mast.has-menu nav a[aria-current="page"]{color:var(--blue)}
 .mast.has-menu nav .n{display:inline;font-family:var(--mono);font-size:.8125rem;font-weight:700;letter-spacing:.02em;color:var(--violet)}
 @keyframes menu-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 @media (max-width:30rem){.mast.has-menu .links{left:0;min-width:0}}
@@ -267,6 +272,63 @@ h2{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;letter-spacin
 
 .cve{border-bottom:0}
 
+/* views (set by the script in the head): the main screen shows the ticker; a menu choice shows that one section */
+.ticker{display:none}
+.views .view{display:none;border-bottom:0}
+.views[data-view="home"] .ticker{display:block}
+.views[data-view="about"] #about,.views[data-view="research"] #research,.views[data-view="cve"] #cve{display:block}
+h2[tabindex="-1"]:focus,main:focus{outline:none}
+
+/* CVE ticker: the ids drift from left to right */
+.ticker{padding:2.75rem 0 1rem}
+.ticker-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.5rem}
+.ticker .eyebrow{font-family:var(--mono);font-size:.8125rem;font-weight:700;letter-spacing:.1em;color:var(--violet)}
+.ticker-toggle{flex:none;display:inline-grid;place-items:center;width:2.75rem;height:2.75rem;margin:-.5rem -.6875rem -.5rem 0;padding:0;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .15s ease,color .15s ease}
+.ticker-toggle:focus-visible{outline-offset:2px}
+@media (hover:hover){.ticker-toggle:hover{background-color:rgba(var(--bl),.08);color:var(--blue)}}
+.ticker-toggle svg{width:1rem;height:1rem;fill:currentColor}
+.ticker-toggle .i-play,.ticker.is-paused .ticker-toggle .i-pause{display:none}
+.ticker.is-paused .ticker-toggle .i-play{display:block}
+.ticker-clip{overflow:hidden;overflow:clip;padding:.5rem 0 1.75rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.ticker-track{display:flex;width:max-content;margin:0;padding:0;list-style:none;animation:ticker 44s linear infinite}
+.ticker-track li{flex:none;margin-right:1rem}
+.ticker-track a{display:flex;align-items:center;gap:1.5rem;height:3.75rem;padding:0 1.4rem;border-radius:14px;white-space:nowrap;text-decoration:none;color:#fff;background-color:var(--blue);background-image:linear-gradient(100deg,var(--c1),var(--c2));box-shadow:0 1px 0 rgba(255,255,255,.22) inset,0 16px 26px -18px var(--glow)}
+@media (max-width:20rem){.ticker-track a{gap:.75rem;padding:0 1rem}}
+.ticker-track li:nth-child(3n+1) a{--c1:#8a1cfb;--c2:#5608fe;--glow:rgba(var(--vi),.8)}
+.ticker-track li:nth-child(3n+2) a{--c1:#5608fe;--c2:var(--blue);--glow:rgba(var(--bl),.8)}
+.ticker-track li:nth-child(3n) a{--c1:var(--blue);--c2:#3358fe;--glow:rgba(var(--az),.85)}
+.ticker-track a:hover{color:#fff}
+.ticker-track a:focus-visible{outline-offset:-4px;outline-color:#fff}
+.ticker-track .id{font-family:var(--mono);font-size:clamp(1.0625rem,1.6vw,1.25rem);font-weight:700;letter-spacing:-.02em}
+.ticker-track .lab{font-family:var(--mono);font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.ticker-track .lab::after{content:" ↗\FE0E";font-variant-emoji:text;font-size:1.15em}
+/* the list is written out four times; moving it by half its width loops seamlessly, left to right */
+@keyframes ticker{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.ticker.is-paused .ticker-track{animation-play-state:paused}
+/* keyboard focus inside: the three real ids stand still, all on screen (same layout as reduced motion) */
+.ticker-clip:has(a:focus-visible){-webkit-mask-image:none;mask-image:none}
+.ticker-clip:has(a:focus-visible) .ticker-track{animation:none;width:auto;flex-wrap:wrap;row-gap:.75rem}
+.ticker-clip:has(a:focus-visible) .dup{display:none}
+@media (hover:hover){.ticker-clip:hover .ticker-track{animation-play-state:paused}}
+
+/* a short window: tighten the air around the hero (and scale its blob with it) so the CVE strip stays on the first screen */
+@supports (padding:clamp(0rem,1vh,1rem)){
+@media screen and (min-width:64rem){
+  .views{--short:clamp(0rem,49.5rem - 100vh,12.25rem)}
+  .views .hero{padding-top:calc(9.5rem - var(--short)*.367);padding-bottom:calc(8.5rem - var(--short)*.531)}
+  .views .art{width:min(clamp(20rem,30vw,23rem),23rem - var(--short)*.718)}
+  .views .ticker{padding-top:calc(2.75rem - var(--short)*.102)}
+}
+@media screen and (max-width:47.99rem) and (orientation:portrait){
+  .views{--short:clamp(0rem,48rem - 100vh,3.5rem)}
+  @supports (height:100svh){.views{--short:clamp(0rem,48rem - 100svh,3.5rem)}}
+  .views .art{height:calc(11.5rem - var(--short))}
+  .views .hero{padding-top:calc(16.25rem - var(--short))}
+  .views[data-view="home"] .hero{padding-bottom:calc(3.5rem - var(--short)*.571)}
+  .views[data-view="home"] .ticker{padding-top:calc(2.75rem - var(--short)*.429)}
+}
+}
+
 /* footer */
 footer::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;border-radius:2px;background:var(--grad)}
 footer{height:9rem}
@@ -275,9 +337,14 @@ footer{height:9rem}
   *,*::before,*::after{transition:none !important;animation:none !important}
   .btn:hover,.cves a:hover{transform:none !important}
   html{scroll-behavior:auto}
+  /* no motion: just the three ids, standing still */
+  .ticker .dup,.ticker-toggle{display:none}
+  .ticker-clip{-webkit-mask-image:none;mask-image:none}
+  .ticker-track{width:auto;flex-wrap:wrap;row-gap:.75rem}
 }
 @media print{
-  .page-art,.menu-btn,.mast nav{display:none !important}
+  .page-art,.menu-btn,.mast nav,.ticker{display:none !important}
+  .views .view{display:block !important}
   .hero{padding-top:2.5rem}
   section:not(.hero)::before,footer::before{display:none}
   .btn{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
@@ -290,7 +357,7 @@ footer{height:9rem}
 @media (forced-colors:active){
   h1 .zero{filter:none}
   h1 .zero,.sec-head .num{background:none;-webkit-text-fill-color:currentColor}
-  .btn,.cves a{border:1px solid currentColor}
+  .btn,.cves a,.ticker-track a{border:1px solid currentColor}
   .mast.has-menu .links{background:Canvas}
 }
 </style>
@@ -315,7 +382,7 @@ footer{height:9rem}
 </div>
 
 <header class="wrap mast" id="top">
-  <a class="handle" href="#top" aria-label="r3c0n, back to top">r3c0n</a>
+  <a class="handle" href="#top" aria-label="r3c0n, home">r3c0n</a>
   <nav aria-label="On this page">
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" hidden>
       <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -323,7 +390,7 @@ footer{height:9rem}
     <div class="links" id="site-nav">
       <a href="#about"><span class="n" aria-hidden="true">01</span>About</a>
       <a href="#research"><span class="n" aria-hidden="true">02</span>Projects</a>
-      <a href="#cve"><span class="n" aria-hidden="true">03</span>CVEs</a>
+      <a href="#cve"><span class="n" aria-hidden="true">03</span>CVE</a>
     </div>
   </nav>
 </header>
@@ -364,11 +431,37 @@ footer{height:9rem}
     </div>
   </section>
 
-  <section class="about" id="about" aria-labelledby="h-about">
+  <div class="ticker" role="region" aria-label="CVE">
+    <div class="ticker-head">
+      <span class="eyebrow" aria-hidden="true">CVE</span>
+      <button class="ticker-toggle" type="button" aria-label="Pause animation">
+        <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="2.5" width="3" height="11" rx="1"/><rect x="9.5" y="2.5" width="3" height="11" rx="1"/></svg>
+        <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.7v10.6a.7.7 0 0 0 1.07.6l8.2-5.3a.7.7 0 0 0 0-1.2l-8.2-5.3a.7.7 0 0 0-1.07.6z"/></svg>
+      </button>
+    </div>
+    <div class="ticker-clip">
+      <ul class="ticker-track">
+        <li><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83834" rel="noopener" target="_blank"><span class="id">CVE-2026-83834</span><span class="lab">MSRC</span></a></li>
+        <li><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85868" rel="noopener" target="_blank"><span class="id">CVE-2026-85868</span><span class="lab">MSRC</span></a></li>
+        <li><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85870" rel="noopener" target="_blank"><span class="id">CVE-2026-85870</span><span class="lab">MSRC</span></a></li>
+        <li aria-hidden="true" class="dup"><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83834" rel="noopener" target="_blank" tabindex="-1"><span class="id">CVE-2026-83834</span><span class="lab">MSRC</span></a></li>
+        <li aria-hidden="true" class="dup"><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85868" rel="noopener" target="_blank" tabindex="-1"><span class="id">CVE-2026-85868</span><span class="lab">MSRC</span></a></li>
+        <li aria-hidden="true" class="dup"><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85870" rel="noopener" target="_blank" tabindex="-1"><span class="id">CVE-2026-85870</span><span class="lab">MSRC</span></a></li>
+        <li aria-hidden="true" class="dup"><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83834" rel="noopener" target="_blank" tabindex="-1"><span class="id">CVE-2026-83834</span><span class="lab">MSRC</span></a></li>
+        <li aria-hidden="true" class="dup"><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85868" rel="noopener" target="_blank" tabindex="-1"><span class="id">CVE-2026-85868</span><span class="lab">MSRC</span></a></li>
+        <li aria-hidden="true" class="dup"><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85870" rel="noopener" target="_blank" tabindex="-1"><span class="id">CVE-2026-85870</span><span class="lab">MSRC</span></a></li>
+        <li aria-hidden="true" class="dup"><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83834" rel="noopener" target="_blank" tabindex="-1"><span class="id">CVE-2026-83834</span><span class="lab">MSRC</span></a></li>
+        <li aria-hidden="true" class="dup"><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85868" rel="noopener" target="_blank" tabindex="-1"><span class="id">CVE-2026-85868</span><span class="lab">MSRC</span></a></li>
+        <li aria-hidden="true" class="dup"><a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-85870" rel="noopener" target="_blank" tabindex="-1"><span class="id">CVE-2026-85870</span><span class="lab">MSRC</span></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="about view" id="about" aria-labelledby="h-about">
     <div class="grid">
       <div class="sec-head">
         <span class="num" aria-hidden="true">01</span>
-        <h2 id="h-about">About</h2>
+        <h2 id="h-about" tabindex="-1">About</h2>
       </div>
       <div>
         <ul class="facts">
@@ -379,11 +472,11 @@ footer{height:9rem}
     </div>
   </section>
 
-  <section class="research" id="research" aria-labelledby="h-research">
+  <section class="research view" id="research" aria-labelledby="h-research">
     <div class="grid">
       <div class="sec-head">
         <span class="num" aria-hidden="true">02</span>
-        <h2 id="h-research">Research Projects</h2>
+        <h2 id="h-research" tabindex="-1">Research Projects</h2>
       </div>
     </div>
     <ol class="proj">
@@ -411,11 +504,11 @@ footer{height:9rem}
     </ol>
   </section>
 
-  <section class="cve" id="cve" aria-labelledby="h-cve">
+  <section class="cve view" id="cve" aria-labelledby="h-cve">
     <div class="grid">
       <div class="sec-head">
         <span class="num" aria-hidden="true">03</span>
-        <h2 id="h-cve">CVEs</h2>
+        <h2 id="h-cve" tabindex="-1">CVE</h2>
         <p>CVEs from my research.</p>
       </div>
       <div>
@@ -431,5 +524,30 @@ footer{height:9rem}
 
 <footer class="wrap"></footer>
 <div class="page-art page-art--end" aria-hidden="true"><div class="blob"></div></div>
+<script>
+(function(){
+  var root=document.documentElement,map={'#about':'about','#research':'research','#cve':'cve'},names={about:'About',research:'Research Projects',cve:'CVE'},title=document.title;
+  if('scrollRestoration' in history)history.scrollRestoration='manual';
+  function show(scroll){
+    var h=location.hash,v=map[h]||((h===''||h==='#'||h==='#top')?'home':null);
+    if(!v)return;                                   /* e.g. the skip link: keep the current view */
+    root.setAttribute('data-view',v);
+    document.title=names[v]?names[v]+' — r3c0n':title;
+    var links=document.querySelectorAll('#site-nav a');
+    for(var i=0;i<links.length;i++){if(links[i].getAttribute('href')===h)links[i].setAttribute('aria-current','page');else links[i].removeAttribute('aria-current')}
+    if(!scroll)return;
+    if(v==='home'){window.scrollTo(0,0);return}
+    var sec=document.getElementById(v),head=sec&&sec.querySelector('h2');
+    if(sec){sec.scrollIntoView({block:'start'});if(head)head.focus({preventScroll:true})}
+  }
+  window.addEventListener('hashchange',function(){show(true)});
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(a&&a.getAttribute('href')===location.hash){if(map[location.hash])e.preventDefault();show(true)}});
+  show(!!map[location.hash]);
+  var skip=document.querySelector('.skip'),main=document.getElementById('main');
+  if(skip&&main)skip.addEventListener('click',function(e){e.preventDefault();main.setAttribute('tabindex','-1');main.focus()});
+  var t=document.querySelector('.ticker'),b=t&&t.querySelector('.ticker-toggle');
+  if(b)b.addEventListener('click',function(){var p=t.classList.toggle('is-paused');b.setAttribute('aria-label',p?'Play animation':'Pause animation')});
+})();
+</script>
 </body>
 </html>
