@@ -1,0 +1,19 @@
+# Built by GitHub Pages (Jekyll). Text that appears on every page lives here.
+title: r3c0n
+# The line under the name. It also ends the browser-tab title of the main page.
+tagline: 0-day Vulnerability Researcher
+description: >-
+  r3c0n is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers
+  and embedded systems. WhiteHat School 4th cohort.
+github_username: jhlee0507
+
+# Where a CVE links to when its entry in _data/cves.yml has no `url`, and the label shown beside it.
+cve_url: https://msrc.microsoft.com/update-guide/vulnerability/
+cve_source: MSRC
+
+url: https://jhlee0507.github.io
+baseurl: ""
+# No theme: the site brings its own stylesheet.
+theme: null
+exclude:
+  - README.md

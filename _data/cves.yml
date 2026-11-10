@@ -1,0 +1,7 @@
+# One entry per CVE. The ticker on the main page and the list on the CVE page are both built from this file.
+# Optional per entry:
+#   url:    link target (default: the MSRC page for that id)
+#   source: the small label on the right (default: MSRC); keep it short, about 10 characters at most
+- id: CVE-2026-83834
+- id: CVE-2026-85868
+- id: CVE-2026-85870

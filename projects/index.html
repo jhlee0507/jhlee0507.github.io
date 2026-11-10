@@ -1,0 +1,32 @@
+---
+layout: default
+key: projects
+title: Research Projects
+---
+<section class="research" id="projects" aria-labelledby="h-projects">
+  <div class="grid">
+    <div class="sec-head">
+      <span class="num" aria-hidden="true">{% include num.html %}</span>
+      <h2 id="h-projects">Research Projects</h2>
+    </div>
+  </div>
+  <ol class="proj">
+    {%- for project in site.data.projects %}
+    <li>
+      <div>
+        <span class="idx" aria-hidden="true"></span>
+        <h3>{{ project.title | escape }}</h3>
+        {%- if project.org %}
+        <p class="sub">{{ project.org | escape }}</p>
+        {%- endif %}
+      </div>
+      <div class="body">
+        <p>{{ project.summary | escape }}</p>
+        {%- if project.role %}
+        <span class="role">{{ project.role | escape }}</span>
+        {%- endif %}
+      </div>
+    </li>
+    {%- endfor %}
+  </ol>
+</section>

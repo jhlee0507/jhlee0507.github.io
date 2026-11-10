@@ -1,0 +1,13 @@
+<header class="wrap mast" id="top">
+  <a class="handle" href="{{ '/' | relative_url }}" aria-label="{{ site.title | escape }}, home">{{ site.title | escape }}</a>
+  <nav aria-label="Site">
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+    <div class="links" id="site-nav">
+      {%- for item in site.data.nav %}
+      <a href="{{ item.url | relative_url }}#{{ item.key }}"{% if page.key == item.key %} aria-current="page"{% endif %}><span class="n" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span>{{ item.label | escape }}</a>
+      {%- endfor %}
+    </div>
+  </nav>
+</header>
