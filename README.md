@@ -10,7 +10,7 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
 |---|---|
 | CVE 추가·삭제 | `_data/cves.yml` |
 | 연구 프로젝트 | `_data/projects.yml` |
-| About 목록 | `_data/about.yml` |
+| About 타임라인 | `_data/about.yml` |
 | 메인 화면의 작은 소개 문장 | `_config.yml`의 `intro` |
 | 메뉴 항목 | `_data/nav.yml` (아래 "페이지 추가" 참고) |
 | 이름 아래 문구, GitHub 계정, CVE 링크 주소 | `_config.yml` |
@@ -42,14 +42,15 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
   role: Project Manager
 ```
 
-### About 줄 추가
+### About 타임라인에 항목 추가
 
-`_data/about.yml`에 항목을 넣습니다. `url`을 빼면 링크 없이 글자만 나옵니다.
+`_data/about.yml`에 항목을 넣습니다. 적힌 순서대로 위에서 아래로 나옵니다. `url`을 빼면 링크 없이 글자만 나오고, `role`은 없어도 됩니다.
 
 ```yaml
-- label: 링크가 걸릴 글자
+- when: 2027.03 ~
+  what: 소속이나 활동 이름
   url: https://example.com
-  text: 뒤에 이어질 글자
+  role: 역할
 ```
 
 메인 화면의 이름 아래에 나오는 작은 소개 문장은 `_config.yml`의 `intro:` 아래에 있습니다. `- `로 시작하는 줄 하나가 한 문단이고, 문단마다 줄을 바꿔 조금 띄워서 보여 줍니다. `intro`와 그 아래 줄을 모두 지우면 문장이 사라집니다.

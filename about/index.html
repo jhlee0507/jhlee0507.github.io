@@ -9,11 +9,17 @@ title: About
       <h1 id="h-about">About</h1>
     </div>
     <div>
-      <ul class="facts">
+      <ol class="timeline">
         {%- for item in site.data.about %}
-        <li class="c{{ forloop.index0 | modulo: 3 }}"><span>{% if item.url %}<a href="{{ item.url | escape }}" rel="noopener" target="_blank">{{ item.label | escape }}</a>{% else %}{{ item.label | escape }}{% endif %}{% if item.text %} {{ item.text | escape }}{% endif %}</span></li>
+        <li class="c{{ forloop.index0 | modulo: 3 }}">
+          <p class="when">{{ item.when | escape }}</p>
+          <p class="what">{% if item.url %}<a href="{{ item.url | escape }}" rel="noopener" target="_blank">{{ item.what | escape }}</a>{% else %}{{ item.what | escape }}{% endif %}</p>
+          {%- if item.role %}
+          <p class="role">{{ item.role | escape }}</p>
+          {%- endif %}
+        </li>
         {%- endfor %}
-      </ul>
+      </ol>
     </div>
   </div>
 </section>
