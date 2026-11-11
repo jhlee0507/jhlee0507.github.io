@@ -1,4 +1,4 @@
-# The timeline on the whoami page, in the order shown. Per entry:
+# The timeline on the About page, in the order shown. Per entry:
 #   when: the period, as it should read (for example 2025.03 ~ or 2026.05 ~ 2026.12)
 #   what: the organisation or activity
 #   url:  optional link on `what`

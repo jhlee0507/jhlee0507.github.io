@@ -12,7 +12,7 @@
    if the visitor chose it before, so the page never flashes light first. On the main page it also
    forwards the old single-page links (#about, #research, #cve) to their new pages. It sits above the stylesheets
    so that the forward does not wait for them. */
-(function(d){d.className+=' js';try{if(localStorage.getItem('theme')==='dark')d.setAttribute('data-theme','dark')}catch(e){}{% if page.key == 'home' %}function go(){var to={'#about':'whoami/','#research':'projects/','#cve':'cve/'}[location.hash];if(to)location.replace('{{ '/' | relative_url }}'+to)}go();addEventListener('hashchange',go);{% endif %}})(document.documentElement);
+(function(d){d.className+=' js';try{if(localStorage.getItem('theme')==='dark')d.setAttribute('data-theme','dark')}catch(e){}{% if page.key == 'home' %}function go(){var to={'#about':'about/','#research':'projects/','#cve':'cve/'}[location.hash];if(to)location.replace('{{ '/' | relative_url }}'+to)}go();addEventListener('hashchange',go);{% endif %}})(document.documentElement);
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
