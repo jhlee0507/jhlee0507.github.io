@@ -1,0 +1,15 @@
+# The Experience page: categories in the order shown, each with its entries under `list`.
+# A category with an empty list (`list: []`) still shows its heading, with a short placeholder line.
+# Per entry: `title`, `summary`, and optionally `org` (the line under the title) and `role` (a badge).
+- category: Research
+  list: []
+
+- category: Project
+  list:
+    - title: Windows Kernel 0-day Vulnerability Research
+      org: WhiteHat School 4th
+      summary: WhiteHat School 4th team project on vulnerabilities in Windows kernel drivers.
+      role: Project Manager
+
+- category: Award
+  list: []

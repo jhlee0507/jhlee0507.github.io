@@ -1,31 +1,17 @@
 ---
-layout: default
-key: projects
-title: Research·Projects
+layout: null
 ---
-<section class="research" id="projects" aria-labelledby="h-projects">
-  <div class="grid">
-    <div class="sec-head">
-      <h1 id="h-projects">Research·Projects</h1>
-    </div>
-  </div>
-  <ol class="proj">
-    {%- for project in site.data.projects %}
-    <li>
-      <div>
-        <span class="idx" aria-hidden="true"></span>
-        <h3>{{ project.title | escape }}</h3>
-        {%- if project.org %}
-        <p class="sub">{{ project.org | escape }}</p>
-        {%- endif %}
-      </div>
-      <div class="body">
-        <p>{{ project.summary | escape }}</p>
-        {%- if project.role %}
-        <span class="role">{{ project.role | escape }}</span>
-        {%- endif %}
-      </div>
-    </li>
-    {%- endfor %}
-  </ol>
-</section>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Experience — {{ site.title | escape }}</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ '/experience/' | absolute_url }}">
+<meta http-equiv="refresh" content="0; url={{ '/experience/' | relative_url }}">
+<script>location.replace('{{ '/experience/' | relative_url }}');</script>
+</head>
+<body>
+<p>This page moved to <a href="{{ '/experience/' | relative_url }}">Experience</a>.</p>
+</body>
+</html>
