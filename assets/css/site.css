@@ -108,6 +108,10 @@ main:focus{outline:none}
 .wrap{position:relative;z-index:1;width:min(100% - 2rem,72rem);margin-inline:auto}
 @media (min-width:48rem){.wrap{width:min(100% - 4rem,72rem)}}
 
+/* a soft glow of the gradient rising from the bottom edge to close the page */
+.page-glow{position:absolute;left:0;right:0;bottom:0;height:17rem;overflow:hidden;pointer-events:none;z-index:0}
+.page-glow::before{content:"";position:absolute;inset:auto -6% -7.75rem -6%;height:12rem;border-radius:50%;background:linear-gradient(100deg,#9a24fb 6%,#8414fc 20%,#5a0cfe 36%,#3b26fd 51%,#2f63fe 65%,#2c86fe 79%,#4aa6fe 95%);filter:blur(44px)}
+
 /* masthead */
 .mast{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:1.5rem 0;border-bottom:1px solid var(--rule)}
 .mast .handle{flex:none;display:inline-block;padding:.7rem .5rem;margin:-.7rem -.5rem;font-family:var(--mono);font-size:.9375rem;font-weight:600;letter-spacing:.02em;white-space:nowrap;text-decoration:none;color:var(--ink)}
@@ -374,7 +378,7 @@ main > section:last-child{border-bottom:0}
 
 /* footer */
 footer::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;border-radius:2px;background:var(--grad)}
-footer{height:6rem}
+footer{height:9rem}
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{transition:none !important;animation:none !important}
@@ -386,7 +390,7 @@ footer{height:6rem}
   .ticker-track{width:auto;flex-wrap:wrap;row-gap:.75rem}
 }
 @media print{
-  .menu-btn,.theme-btn,.lang-btn,.mast nav,.ticker .dup{display:none !important}
+  .page-glow,.menu-btn,.theme-btn,.lang-btn,.mast nav,.ticker .dup{display:none !important}
   /* on paper the main page shows the real ids standing still */
   .ticker-clip{-webkit-mask-image:none;mask-image:none}
   .ticker-track{animation:none;width:auto;flex-wrap:wrap;row-gap:.75rem}
