@@ -14,7 +14,7 @@
   category_ko: 프로젝트
   list:
     - title: Windows Kernel 0-day Vulnerability Research
-      title_ko: Windows 커널 0-day 취약점 연구
+      title_ko: Windows 커널 제로데이 취약점 연구
       org: WhiteHat School 4th
       org_ko: 화이트햇 스쿨 4기
       when: Aug 3 ~ Oct 17, 2026
@@ -23,8 +23,8 @@
         A WhiteHat School 4th cohort team project hunting for 0-day vulnerabilities in Windows kernel drivers.
         The team discovered 28 0-days in total.
       summary_ko: >-
-        WHS 4기 팀 프로젝트로 Windows 커널 드라이버에서 0-day 취약점을 찾는 프로젝트를 진행했으며,
-        팀에서 총 28건의 0-day를 발굴했습니다.
+        WHS 4기 팀 프로젝트로 Windows 커널 드라이버에서 제로데이 취약점을 찾는 프로젝트를 진행했으며,
+        팀에서 총 28건의 제로데이를 발굴했습니다.
       role: Project Manager
       role_ko: 프로젝트 매니저
 

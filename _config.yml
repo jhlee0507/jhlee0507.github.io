@@ -2,7 +2,7 @@
 title: r3c0n
 # The line under the name. It also ends the browser-tab title of the main page.
 tagline: 0-day Vulnerability Researcher
-tagline_ko: 0-day 취약점 연구자
+tagline_ko: 제로데이 취약점 연구자
 # The short introduction in small type under the tagline on the main page. One entry per paragraph;
 # each starts on its own line with a little space above it.
 intro:
@@ -10,7 +10,7 @@ intro:
   - I’m also a student doing research in AI.
 # The same paragraphs in Korean, in the same order (shown when the visitor picks KR in the header).
 intro_ko:
-  - 0-day 취약점을 연구하고 버그 바운티를 하고 있습니다.
+  - 제로데이 취약점을 연구하고 버그 바운티를 하고 있습니다.
   - AI 분야에서 연구도 하는 학생입니다.
 description: >-
   r3c0n is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers.
