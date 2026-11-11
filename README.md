@@ -83,7 +83,7 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
 ```
 index.html              메인 (이름 영역 + 흐르는 CVE)
 about/index.html        About 페이지
-projects/index.html     Research Projects 페이지
+projects/index.html     Research·Projects 페이지
 cve/index.html          CVE 페이지
 404.html                없는 주소로 들어왔을 때 보이는 페이지
 _layouts/default.html   모든 페이지의 공통 뼈대
