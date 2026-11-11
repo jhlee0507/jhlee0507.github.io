@@ -25,5 +25,3 @@ url: https://jhlee0507.github.io
 baseurl: ""
 # No theme: the site brings its own stylesheet.
 theme: null
-exclude:
-  - README.md

@@ -331,8 +331,6 @@ main > section:last-child{border-bottom:0}
 
 /* CVE ticker: the ids drift from left to right */
 .ticker{padding:2.75rem 0 1rem}
-.ticker-head{margin-bottom:.5rem}
-.ticker .eyebrow{font-family:var(--mono);font-size:.8125rem;font-weight:700;letter-spacing:.1em;color:var(--accent-2)}
 .ticker-clip{overflow:hidden;overflow:clip;padding:.5rem 0 1.75rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 .ticker-track{display:flex;width:max-content;margin:0;padding:0;list-style:none;animation:ticker calc(var(--n,6) * 44s / 6) linear infinite}
 .ticker-track li{flex:none;margin-right:1rem}

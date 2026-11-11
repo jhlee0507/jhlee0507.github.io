@@ -10,9 +10,6 @@
 {%- assign per_half = 5 | plus: count | divided_by: count -%}
 {%- assign rounds = per_half | times: 2 -%}
 <div class="ticker" role="region" aria-label="CVE">
-  <div class="ticker-head">
-    <span class="eyebrow" aria-hidden="true">CVE</span>
-  </div>
   <div class="ticker-clip">
     <ul class="ticker-track" style="--n:{{ count | times: per_half }}">
       {%- for round in (1..rounds) %}
