@@ -274,9 +274,12 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 .timeline .c1{--c1:var(--blue);--c2:var(--sky)}
 .timeline .c2{--c1:#5a0cfe;--c2:var(--blue)}
 
-/* research rows */
-.research .grid{display:block}
-.research .sec-head{margin-bottom:2.5rem}
+/* experience: a heading per category, then its rows */
+.experience .grid{display:block}
+.experience .sec-head{margin-bottom:1rem}
+.cat{margin-top:2.75rem}
+.cat h2{margin:0 0 1rem;font-family:var(--mono);font-size:.9375rem;line-height:1.4;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-2)}
+.cat .empty{margin:0;padding:1.5rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-size:.9375rem;color:var(--muted)}
 .proj{list-style:none;margin:0;padding:0;counter-reset:p}
 .proj > li{
   display:grid;

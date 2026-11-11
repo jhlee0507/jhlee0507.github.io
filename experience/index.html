@@ -1,0 +1,42 @@
+---
+layout: default
+key: experience
+title: Experience
+---
+<section class="experience" id="experience" aria-labelledby="h-experience">
+  <div class="grid">
+    <div class="sec-head">
+      <h1 id="h-experience">Experience</h1>
+    </div>
+  </div>
+  {%- for group in site.data.experience %}
+  <div class="cat">
+    <h2 id="cat-{{ group.category | slugify }}">{{ group.category | escape }}</h2>
+    {%- if group.list.size > 0 %}
+    <ol class="proj" aria-labelledby="cat-{{ group.category | slugify }}">
+      {%- for item in group.list %}
+      <li>
+        <div>
+          <span class="idx" aria-hidden="true"></span>
+          <h3>{{ item.title | escape }}</h3>
+          {%- if item.org %}
+          <p class="sub">{{ item.org | escape }}</p>
+          {%- endif %}
+        </div>
+        <div class="body">
+          {%- if item.summary %}
+          <p>{{ item.summary | escape }}</p>
+          {%- endif %}
+          {%- if item.role %}
+          <span class="role">{{ item.role | escape }}</span>
+          {%- endif %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+    {%- else %}
+    <p class="empty">To be updated.</p>
+    {%- endif %}
+  </div>
+  {%- endfor %}
+</section>
