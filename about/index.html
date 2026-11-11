@@ -2,9 +2,6 @@
 layout: default
 key: about
 title: About
-# The short introduction shown in small type under the list.
-note: >-
-  I am a 0-day vulnerability researcher and Bug Bounty player. Also, I’m a student who conducts research on AI.
 ---
 <section class="about" id="about" aria-labelledby="h-about">
   <div class="grid">
@@ -18,8 +15,8 @@ note: >-
         <li class="c{{ forloop.index0 | modulo: 3 }}"><span>{% if item.url %}<a href="{{ item.url | escape }}" rel="noopener" target="_blank">{{ item.label | escape }}</a>{% else %}{{ item.label | escape }}{% endif %}{% if item.text %} {{ item.text | escape }}{% endif %}</span></li>
         {%- endfor %}
       </ul>
-      {%- if page.note %}
-      <p class="about-note">{{ page.note | escape }}</p>
+      {%- if site.intro %}
+      <p class="about-note">{{ site.intro | escape }}</p>
       {%- endif %}
     </div>
   </div>

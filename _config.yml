@@ -2,6 +2,9 @@
 title: r3c0n
 # The line under the name. It also ends the browser-tab title of the main page.
 tagline: 0-day Vulnerability Researcher
+# The short introduction in small type: under the tagline on the main page and under the list on the About page.
+intro: >-
+  I am a 0-day vulnerability researcher and Bug Bounty player. Also, I’m a student who conducts research on AI.
 description: >-
   r3c0n is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers
   and embedded systems. WhiteHat School 4th cohort.
