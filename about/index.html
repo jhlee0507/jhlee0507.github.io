@@ -1,25 +1,17 @@
 ---
-layout: default
-key: about
-title: About
+layout: null
 ---
-<section class="about" id="about" aria-labelledby="h-about">
-  <div class="grid">
-    <div class="sec-head">
-      <h1 id="h-about">About</h1>
-    </div>
-    <div>
-      <ol class="timeline">
-        {%- for item in site.data.about %}
-        <li class="c{{ forloop.index0 | modulo: 3 }}">
-          <p class="when">{{ item.when | escape }}</p>
-          <p class="what">{% if item.url %}<a href="{{ item.url | escape }}" rel="noopener" target="_blank">{{ item.what | escape }}</a>{% else %}{{ item.what | escape }}{% endif %}</p>
-          {%- if item.role %}
-          <p class="role">{{ item.role | escape }}</p>
-          {%- endif %}
-        </li>
-        {%- endfor %}
-      </ol>
-    </div>
-  </div>
-</section>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>whoami — {{ site.title | escape }}</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ '/whoami/' | absolute_url }}">
+<meta http-equiv="refresh" content="0; url={{ '/whoami/' | relative_url }}">
+<script>location.replace('{{ '/whoami/' | relative_url }}');</script>
+</head>
+<body>
+<p>This page moved to <a href="{{ '/whoami/' | relative_url }}">whoami</a>.</p>
+</body>
+</html>

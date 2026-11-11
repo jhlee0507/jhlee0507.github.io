@@ -10,7 +10,7 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
 |---|---|
 | CVE 추가·삭제 | `_data/cves.yml` |
 | 연구 프로젝트 | `_data/projects.yml` |
-| About 타임라인 | `_data/about.yml` |
+| whoami 타임라인 | `_data/whoami.yml` |
 | 메인 화면의 작은 소개 문장 | `_config.yml`의 `intro` |
 | 메뉴 항목 | `_data/nav.yml` (아래 "페이지 추가" 참고) |
 | 이름 아래 문구, GitHub 계정, CVE 링크 주소 | `_config.yml` |
@@ -42,9 +42,9 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
   role: Project Manager
 ```
 
-### About 타임라인에 항목 추가
+### whoami 타임라인에 항목 추가
 
-`_data/about.yml`에 항목을 넣습니다. 적힌 순서대로 위에서 아래로 나옵니다. `url`을 빼면 링크 없이 글자만 나오고, `role`은 없어도 됩니다.
+`_data/whoami.yml`에 항목을 넣습니다. 적힌 순서대로 위에서 아래로 나옵니다. `url`을 빼면 링크 없이 글자만 나오고, `role`은 없어도 됩니다.
 
 ```yaml
 - when: 2027.03 ~
@@ -59,9 +59,9 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
 
 메뉴 항목은 페이지와 짝을 이룹니다. `_data/nav.yml`에 항목만 넣으면 없는 페이지로 가는 링크가 됩니다. 예를 들어 Talks 페이지를 만들려면:
 
-1. `about/` 폴더를 복사해 이름을 `talks/`로 바꿉니다.
-2. `talks/index.html` 안의 `about`을 모두 `talks`로, `About`을 `Talks`로 바꿉니다. 맨 위의 `key`, `title`과 `id="talks"`가 여기에 해당합니다.
-3. `_data/about.yml`과 같은 형식으로 `_data/talks.yml`을 만듭니다.
+1. `whoami/` 폴더를 복사해 이름을 `talks/`로 바꿉니다.
+2. `talks/index.html` 안의 `whoami`를 모두 `talks`로 바꿉니다. 맨 위의 `key`, `title`과 `id="talks"`, 제목이 여기에 해당합니다.
+3. `_data/whoami.yml`과 같은 형식으로 `_data/talks.yml`을 만듭니다.
 4. `_data/nav.yml`에 항목을 추가합니다. `key`는 2번의 `key`와 같아야 합니다. 메뉴에는 `/Talks`처럼 앞에 `/`가 붙어 나옵니다.
 
 ```yaml
@@ -83,7 +83,8 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
 
 ```
 index.html              메인 (이름 영역 + 흐르는 CVE)
-about/index.html        About 페이지
+whoami/index.html       whoami 페이지 (타임라인)
+about/index.html        예전 주소 /about/ 을 /whoami/ 로 넘겨 주는 페이지
 projects/index.html     Research·Projects 페이지
 cve/index.html          CVE 페이지
 404.html                없는 주소로 들어왔을 때 보이는 페이지
