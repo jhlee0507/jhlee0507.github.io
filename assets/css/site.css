@@ -58,6 +58,8 @@ html[data-theme="dark"] body{
     radial-gradient(ellipse 48rem 32rem at calc(100% + 4rem) 52%,rgba(var(--az),.13),transparent 70%),
     radial-gradient(ellipse 46rem 30rem at -4rem 78%,rgba(var(--bl),.14),transparent 70%);
 }
+html[data-theme="dark"] .timeline .ext{color:#c9d0ff;background-color:rgba(147,160,255,.22)}
+html[data-theme="dark"] .timeline .ext:hover{color:#fff;background-color:var(--blue)}
 html[data-theme="dark"].js .mast .links{box-shadow:0 1px 2px rgba(0,0,0,.4),0 26px 50px -22px rgba(0,0,0,.7),0 12px 26px -16px rgba(var(--vi),.45)}
 html[data-theme="dark"] .mast nav a:hover{background-image:linear-gradient(90deg,rgba(147,160,255,.16),rgba(147,160,255,.1) 55%,rgba(var(--sk),.08))}
 }
@@ -263,9 +265,9 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 .timeline .when{font-family:var(--mono);font-size:.875rem;font-weight:600;line-height:1.5;letter-spacing:.02em;color:var(--accent-2)}
 .timeline .what{margin-top:.4rem;font-size:clamp(1.1875rem,1.9vw,1.5rem);line-height:1.3;font-weight:600;letter-spacing:-.012em;color:var(--ink)}
 /* an entry with a website gets a small arrow after its name; the arrow is the link */
-.timeline .ext{display:inline-grid;place-items:center;width:1.75rem;height:1.75rem;margin:-.25rem 0 -.25rem .1rem;vertical-align:middle;border-radius:8px;color:var(--accent);text-decoration:none;transition:background-color .15s ease,color .15s ease}
-.timeline .ext svg{width:.9rem;height:.9rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.timeline .ext:hover{color:var(--accent-2);background-color:var(--tint)}
+.timeline .ext{display:inline-grid;place-items:center;width:2rem;height:2rem;margin:-.35rem 0 -.35rem .2rem;vertical-align:middle;border-radius:9px;background-color:var(--tint);color:var(--accent);text-decoration:none;transition:background-color .15s ease,color .15s ease}
+.timeline .ext svg{width:1.125rem;height:1.125rem;fill:none;stroke:currentColor;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round}
+.timeline .ext:hover{color:#fff;background-color:var(--blue)}
 .timeline .ext:focus-visible{outline-offset:1px}
 .timeline .role{margin-top:.3rem;font-size:1rem;line-height:1.5;color:var(--ink-2)}
 .timeline .c0{--c1:#9a24fb;--c2:#5a0cfe}
