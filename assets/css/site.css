@@ -155,11 +155,13 @@ h1 .zero{display:inline-block;color:var(--blue);filter:drop-shadow(0 .05em .13em
 .hero .intro{margin:.875rem 0 0;max-width:34rem;font-size:.9375rem;line-height:1.6;color:var(--ink-2)}
 @media (min-width:48rem) and (max-width:63.99rem){.hero .lede{max-width:28ch}.hero .intro{max-width:27rem}}
 @media (min-width:64rem) and (max-width:75rem){.hero .lede{max-width:30ch}}
+/* on phones, even out the lines so the last one is not left with two words */
+@media (max-width:47.99rem){.hero .intro,.about-note{text-wrap:balance}}
 /* a phone held sideways: use the side blob so the name stays on the first screen */
 @media (min-width:35rem) and (max-width:47.99rem) and (orientation:landscape) and (max-height:31.25rem){
   .hero{--h1:clamp(3.5rem,26vh,7.5rem);padding:2.5rem 0 4rem}
   .hero .lede{max-width:24ch}
-  .hero .intro{max-width:24rem}
+  .hero .intro{max-width:24rem;max-width:min(24rem,100% - 12.5rem)}
   .art{top:5.5rem;left:auto;right:-4.5rem;width:15rem;height:17rem}
   .blob{border-radius:36% 64% 40% 60% / 30% 58% 42% 70%;background:linear-gradient(116deg,#9a24fb 10%,#8414fc 24%,#5a0cfe 38%,#3b26fd 50%,#2f63fe 62%,#2c86fe 75%,#52acfd 92%);transform:rotate(-6deg)}
   .ghost{top:50%;right:auto;left:46%;height:56%;transform:translate(-50%,-50%)}
@@ -305,6 +307,12 @@ main > section:last-child{border-bottom:0}
   .has-intro .hero .intro{margin-top:calc(.875rem - var(--tight)*.016)}
   .has-intro .hero .meta{margin-top:calc(2.25rem - var(--tight)*.055)}
 }
+@media screen and (min-width:48rem) and (max-width:63.99rem){
+  /* in between: the main page gives back the height of the introduction when the window is short */
+  :root{--tight:clamp(0rem,45.5rem - 100vh,3.875rem)}
+  .has-intro .hero{padding-top:calc(5.5rem - var(--tight)*.4);padding-bottom:calc(5rem - var(--tight)*.45)}
+  .has-intro .ticker{padding-top:calc(2.75rem - var(--tight)*.15)}
+}
 @media screen and (max-width:47.99rem) and (orientation:portrait){
   :root{--short:clamp(0rem,48rem - 100vh,3.5rem)}
   @supports (height:100svh){:root{--short:clamp(0rem,48rem - 100svh,3.5rem)}}
@@ -313,8 +321,8 @@ main > section:last-child{border-bottom:0}
   .page-home .hero{padding-bottom:calc(3.5rem - var(--short)*.571)}
   .page-home .ticker{padding-top:calc(2.75rem - var(--short)*.429)}
   /* with the introduction on the main page: tighten earlier and further, the blob shrinking with it */
-  :root{--tight:clamp(0rem,53.375rem - 100vh,11.375rem)}
-  @supports (height:100svh){:root{--tight:clamp(0rem,53.375rem - 100svh,11.375rem)}}
+  :root{--tight:clamp(0rem,53.375rem - 100vh,12.375rem)}
+  @supports (height:100svh){:root{--tight:clamp(0rem,53.375rem - 100svh,12.375rem)}}
   .has-intro .art{height:calc(11.5rem - var(--tight)*.418)}
   .has-intro .hero{padding-top:calc(16.25rem - var(--tight)*.484);padding-bottom:calc(3.5rem - var(--tight)*.22)}
   .has-intro .ticker{padding-top:calc(2.75rem - var(--tight)*.165)}
