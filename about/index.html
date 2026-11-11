@@ -13,7 +13,7 @@ title: About
         {%- for item in site.data.about %}
         <li class="c{{ forloop.index0 | modulo: 3 }}">
           <p class="when">{{ item.when | escape }}</p>
-          <p class="what">{% if item.url %}<a href="{{ item.url | escape }}" rel="noopener" target="_blank">{{ item.what | escape }}</a>{% else %}{{ item.what | escape }}{% endif %}</p>
+          <p class="what">{{ item.what | escape }}{% if item.url %}&nbsp;<a class="ext" href="{{ item.url | escape }}" rel="noopener" target="_blank" aria-label="{{ item.what | escape }}, open the website"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"/></svg></a>{% endif %}</p>
           {%- if item.role %}
           <p class="role">{{ item.role | escape }}</p>
           {%- endif %}
