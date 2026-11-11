@@ -19,8 +19,12 @@
       org_ko: 화이트햇 스쿨 4기
       when: Aug 3 ~ Oct 17, 2026
       when_ko: 2026.08.03 ~ 2026.10.17
-      summary: WhiteHat School 4th team project on vulnerabilities in Windows kernel drivers.
-      summary_ko: Windows 커널 드라이버의 취약점을 주제로 한 화이트햇 스쿨 4기 팀 프로젝트입니다.
+      summary: >-
+        A WhiteHat School 4th cohort team project hunting for 0-day vulnerabilities in Windows kernel drivers.
+        The team discovered 28 0-days in total.
+      summary_ko: >-
+        WHS 4기 팀 프로젝트로 Windows 커널 드라이버에서 0-day 취약점을 찾는 프로젝트를 진행했으며,
+        팀에서 총 28건의 0-day를 발굴했습니다.
       role: Project Manager
       role_ko: 프로젝트 매니저
 
