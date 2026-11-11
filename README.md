@@ -44,6 +44,15 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
       summary: 한 줄 설명
 ```
 
+설명의 일부를 굵은 링크로 만들려면 `link`를 덧붙입니다. `text`에는 설명 안의 해당 부분을 글자 그대로 적습니다.
+
+```yaml
+      summary: Presented at Example Conference 2027.
+      link:
+        text: Example Conference 2027
+        url: https://example.com
+```
+
 항목이 없는 카테고리는 `list: []`로 두면 제목과 "To be updated."만 나옵니다. 카테고리 자체를 없애려면 그 `- category:` 묶음을 지웁니다.
 
 ### About 타임라인에 항목 추가

@@ -28,7 +28,13 @@ title: Activities
         </div>
         <div class="body">
           {%- if item.summary %}
-          <p>{{ item.summary | escape }}</p>
+          {%- assign summary = item.summary | escape %}
+          {%- if item.link.text and item.link.url %}
+          {%- assign plain = item.link.text | escape %}
+          {%- capture linked %}<a class="ref" href="{{ item.link.url | escape }}" rel="noopener" target="_blank">{{ plain }}</a>{% endcapture %}
+          {%- assign summary = summary | replace_first: plain, linked %}
+          {%- endif %}
+          <p>{{ summary }}</p>
           {%- endif %}
           {%- if item.role %}
           <span class="role">{{ item.role | escape }}</span>
