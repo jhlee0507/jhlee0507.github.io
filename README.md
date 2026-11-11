@@ -89,8 +89,8 @@ cve/index.html          CVE 페이지
 _layouts/default.html   모든 페이지의 공통 뼈대
 _includes/              공통 조각 (메뉴, 메인의 이름 영역과 배경 그라데이션, 흐르는 CVE 줄)
 _data/                  목록 데이터
-assets/css/site.css     스타일
-assets/js/site.js       세 줄 메뉴 동작
+assets/css/site.css     스타일 (다크 모드 색은 파일 위쪽의 `html[data-theme="dark"]`)
+assets/js/site.js       세 줄 메뉴 동작, 다크 모드 버튼
 _config.yml             사이트 전체 설정
 ```
 

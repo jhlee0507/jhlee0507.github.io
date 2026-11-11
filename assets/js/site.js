@@ -27,3 +27,30 @@
   var skip=document.querySelector('.skip'),main=document.getElementById('main');
   if(skip&&main)skip.addEventListener('click',function(e){e.preventDefault();main.setAttribute('tabindex','-1');main.focus()});
 })();
+
+/* Dark mode: the button in the header switches it and the choice is remembered on this device.
+   The page starts light; the saved choice is applied in the head, before the first paint. */
+(function(){
+  var root=document.documentElement,btn=document.querySelector('.theme-btn');
+  if(!btn)return;
+  var metaTheme=document.querySelector('meta[name="theme-color"]');
+  function isDark(){return root.getAttribute('data-theme')==='dark'}
+  function show(){
+    var dark=isDark();
+    btn.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
+    if(metaTheme)metaTheme.setAttribute('content',dark?'#0b0a18':'#eeeef2');
+  }
+  btn.addEventListener('click',function(){
+    var dark=!isDark();
+    if(dark)root.setAttribute('data-theme','dark');else root.removeAttribute('data-theme');
+    try{localStorage.setItem('theme',dark?'dark':'light')}catch(e){}
+    show();
+  });
+  /* another tab changed it */
+  window.addEventListener('storage',function(e){
+    if(e.key!=='theme')return;
+    if(e.newValue==='dark')root.setAttribute('data-theme','dark');else root.removeAttribute('data-theme');
+    show();
+  });
+  show();
+})();
