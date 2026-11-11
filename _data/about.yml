@@ -1,5 +1,4 @@
 # One entry per line of the About list. `label` is the linked part (leave out `url` for no link); `text` follows it.
-# The small introduction under the list is `intro` in _config.yml.
 - label: A student of Sejong Univ. (sophomore)
 
 - label: WHS (WhiteHat School)

@@ -156,7 +156,7 @@ h1 .zero{display:inline-block;color:var(--blue);filter:drop-shadow(0 .05em .13em
 @media (min-width:48rem) and (max-width:63.99rem){.hero .lede{max-width:28ch}.hero .intro{max-width:27rem}}
 @media (min-width:64rem) and (max-width:75rem){.hero .lede{max-width:30ch}}
 /* on phones, even out the lines so the last one is not left with two words */
-@media (max-width:47.99rem){.hero .intro,.about-note{text-wrap:balance}}
+@media (max-width:47.99rem){.hero .intro{text-wrap:balance}}
 /* a phone held sideways: use the side blob so the name stays on the first screen */
 @media (min-width:35rem) and (max-width:47.99rem) and (orientation:landscape) and (max-height:31.25rem){
   .hero{--h1:clamp(3.5rem,26vh,7.5rem);padding:2.5rem 0 4rem}
@@ -213,8 +213,6 @@ h2{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;letter-spacin
 .facts li::before{content:"";flex:none;width:.625rem;height:.625rem;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2))}
 .facts a{color:var(--blue);text-decoration-color:rgba(var(--bl),.45);text-decoration-thickness:2px;text-underline-offset:.22em}
 .facts a:hover{color:var(--violet);text-decoration-color:var(--violet)}
-/* the short introduction under the list, deliberately small */
-.about-note{margin:1.5rem 0 0;max-width:62ch;font-size:.9375rem;line-height:1.65;color:var(--ink-2)}
 .facts .c0{--c1:#9a24fb;--c2:#5a0cfe}
 .facts .c1{--c1:var(--blue);--c2:var(--sky)}
 .facts .c2{--c1:#5a0cfe;--c2:var(--blue)}

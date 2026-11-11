@@ -14,9 +14,6 @@ title: About
         <li class="c{{ forloop.index0 | modulo: 3 }}"><span>{% if item.url %}<a href="{{ item.url | escape }}" rel="noopener" target="_blank">{{ item.label | escape }}</a>{% else %}{{ item.label | escape }}{% endif %}{% if item.text %} {{ item.text | escape }}{% endif %}</span></li>
         {%- endfor %}
       </ul>
-      {%- if site.intro and site.intro != '' %}
-      <p class="about-note">{{ site.intro | escape }}</p>
-      {%- endif %}
     </div>
   </div>
 </section>
