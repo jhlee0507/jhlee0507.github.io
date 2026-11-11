@@ -11,7 +11,7 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
 | CVE 추가·삭제 | `_data/cves.yml` |
 | 연구 프로젝트 | `_data/projects.yml` |
 | About 목록 | `_data/about.yml` |
-| About 아래 작은 소개 문장 | `about/index.html` 맨 위의 `note` |
+| 작은 소개 문장 (메인 화면, About 아래) | `_config.yml`의 `intro` |
 | 메뉴 항목 | `_data/nav.yml` (아래 "페이지 추가" 참고) |
 | 이름 아래 문구, GitHub 계정, CVE 링크 주소 | `_config.yml` |
 
@@ -52,7 +52,7 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
   text: 뒤에 이어질 글자
 ```
 
-목록 아래의 작은 소개 문장은 `about/index.html` 맨 위 `note:` 다음 줄에 있습니다. 그 줄만 고치면 됩니다. `note` 두 줄을 지우면 문장이 사라집니다.
+목록 아래의 작은 소개 문장은 메인 화면의 이름 아래에도 나옵니다. 두 곳 모두 `_config.yml`의 `intro:` 다음 줄에서 가져오므로 그 줄만 고치면 됩니다. `intro` 두 줄을 지우면 두 곳에서 모두 사라집니다.
 
 ### 페이지(메뉴 항목) 추가
 
