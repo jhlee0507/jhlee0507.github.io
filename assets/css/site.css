@@ -59,6 +59,9 @@ html[data-theme="dark"] body{
     radial-gradient(ellipse 46rem 30rem at -4rem 78%,rgba(var(--bl),.14),transparent 70%);
 }
 html[data-theme="dark"] .timeline .ext{color:#c9d0ff;background-color:rgba(147,160,255,.22)}
+html[data-theme="dark"] .cves a{border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.05);background-image:linear-gradient(135deg,rgba(255,255,255,.11),rgba(255,255,255,.02));box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 18px 36px -22px rgba(0,0,0,.85)}
+html[data-theme="dark"] .cves a:hover{background-color:rgba(255,255,255,.09)}
+html[data-theme="dark"] .ticker-track a{border-color:rgba(255,255,255,.22)}
 html[data-theme="dark"] .timeline .ext:hover{color:#fff;background-color:var(--blue)}
 html[data-theme="dark"].js .mast .links{box-shadow:0 1px 2px rgba(0,0,0,.4),0 26px 50px -22px rgba(0,0,0,.7),0 12px 26px -16px rgba(var(--vi),.45)}
 html[data-theme="dark"] .mast nav a:hover{background-image:linear-gradient(90deg,rgba(147,160,255,.16),rgba(147,160,255,.1) 55%,rgba(var(--sk),.08))}
@@ -294,27 +297,31 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 .proj .body .ref:hover{color:var(--accent);text-decoration-color:var(--accent)}
 .proj .role{display:inline-block;margin-top:.9rem;padding:.25rem .7rem;border:1px solid transparent;border-radius:999px;background:linear-gradient(var(--paper),var(--paper)) padding-box,var(--grad) border-box;font-family:var(--mono);font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
 
-/* CVE: a plain card per id, with a thin band of the gradient down its left edge */
+/* CVE: a frosted-glass card per id, with a thin band of the gradient down its left edge */
 .cves{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
 .cves a{
   position:relative;overflow:hidden;
   display:flex;align-items:center;justify-content:space-between;gap:.5rem 1rem;flex-wrap:wrap;
   min-height:4.75rem;
   padding:1.1rem 1.4rem;
-  border:1px solid var(--rule-hi);
+  border:1px solid rgba(255,255,255,.8);
   border-radius:14px;
   text-decoration:none;
   color:var(--ink);
-  background-color:var(--paper);
-  box-shadow:0 1px 2px rgba(14,12,46,.05);
-  transition:box-shadow .15s ease,transform .15s ease,border-color .15s ease;
+  /* glass: see-through, lit along the top edge, blurring whatever lies behind it */
+  background-color:rgba(255,255,255,.42);
+  background-image:linear-gradient(135deg,rgba(255,255,255,.6),rgba(255,255,255,.12));
+  -webkit-backdrop-filter:blur(16px) saturate(1.6);
+  backdrop-filter:blur(16px) saturate(1.6);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(14,12,46,.05),0 16px 32px -22px rgba(var(--bl),.45);
+  transition:box-shadow .15s ease,transform .15s ease,border-color .15s ease,background-color .15s ease;
 }
 .cves a::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--c1),var(--c2))}
 .cves .c0 a{--c1:#8a1cfb;--c2:#5608fe;--glow:rgba(var(--vi),.45)}
 .cves .c1 a{--c1:#5608fe;--c2:var(--blue);--glow:rgba(var(--bl),.45)}
 .cves .c2 a{--c1:var(--blue);--c2:#3358fe;--glow:rgba(var(--az),.5)}
 .cves a:hover{color:var(--ink)}
-@media (hover:hover){.cves a:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 1px 2px rgba(14,12,46,.05),0 18px 30px -22px var(--glow)}}
+@media (hover:hover){.cves a:hover{transform:translateY(-2px);background-color:rgba(255,255,255,.6);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(14,12,46,.05),0 22px 36px -22px var(--glow)}}
 .cves a:focus-visible{outline-offset:3px}
 .cves .id{font-family:var(--mono);font-size:clamp(1.0625rem,2vw,1.375rem);font-weight:700;letter-spacing:-.02em;white-space:nowrap;color:var(--ink)}
 .cves .lab{font-family:var(--mono);font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;color:var(--accent)}
@@ -329,11 +336,12 @@ main > section:last-child{border-bottom:0}
 .ticker-clip{overflow:hidden;overflow:clip;padding:.5rem 0 1.75rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 .ticker-track{display:flex;width:max-content;margin:0;padding:0;list-style:none;animation:ticker calc(var(--n,6) * 44s / 6) linear infinite}
 .ticker-track li{flex:none;margin-right:1rem}
-.ticker-track a{display:flex;align-items:center;gap:1.5rem;height:3.75rem;padding:0 1.4rem;border-radius:14px;white-space:nowrap;text-decoration:none;color:#fff;background-color:var(--blue);background-image:linear-gradient(100deg,var(--c1),var(--c2));box-shadow:0 1px 0 rgba(255,255,255,.22) inset,0 16px 26px -18px var(--glow)}
+.ticker-track a{display:flex;align-items:center;gap:1.5rem;height:3.75rem;padding:0 1.4rem;border-radius:14px;white-space:nowrap;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.34);background-color:transparent;background-image:linear-gradient(180deg,rgba(255,255,255,.17),rgba(255,255,255,.03) 40%,rgba(255,255,255,0) 58%),linear-gradient(100deg,var(--c1),var(--c2));box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 -1px 0 rgba(14,12,46,.14) inset,0 16px 26px -18px var(--glow)}
 @media (max-width:20rem){.ticker-track a{gap:.75rem;padding:0 1rem}}
-.ticker-track .c0 a{--c1:#8a1cfb;--c2:#5608fe;--glow:rgba(var(--vi),.8)}
-.ticker-track .c1 a{--c1:#5608fe;--c2:var(--blue);--glow:rgba(var(--bl),.8)}
-.ticker-track .c2 a{--c1:var(--blue);--c2:#3358fe;--glow:rgba(var(--az),.85)}
+/* the chip colours let a little of the page through, like tinted glass */
+.ticker-track .c0 a{--c1:rgba(132,24,250,.93);--c2:rgba(86,8,254,.93);--glow:rgba(var(--vi),.8)}
+.ticker-track .c1 a{--c1:rgba(86,8,254,.93);--c2:rgba(59,38,253,.93);--glow:rgba(var(--bl),.8)}
+.ticker-track .c2 a{--c1:rgba(59,38,253,.93);--c2:rgba(46,80,250,.93);--glow:rgba(var(--az),.85)}
 .ticker-track a:hover{color:#fff}
 .ticker-track a:focus-visible{outline-offset:-4px;outline-color:#fff}
 .ticker-track .id{font-family:var(--mono);font-size:clamp(1.0625rem,1.6vw,1.25rem);font-weight:700;letter-spacing:-.02em}
