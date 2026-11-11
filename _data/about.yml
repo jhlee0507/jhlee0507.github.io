@@ -1,7 +1,7 @@
 # The timeline on the About page, in the order shown. Per entry:
 #   when: the period, as it should read (for example 2025.03 ~ or 2026.05 ~ 2026.12)
 #   what: the organisation or activity
-#   url:  optional link on `what`
+#   url:  optional website; shown as a small arrow after `what`, and the arrow is the link
 #   role: optional line under it
 - when: 2025.03 ~
   what: SSG (Sejong Security Group)
