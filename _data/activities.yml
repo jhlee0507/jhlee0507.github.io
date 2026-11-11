@@ -1,6 +1,7 @@
-# The Experience page: categories in the order shown, each with its entries under `list`.
+# The Activities page: categories in the order shown, each with its entries under `list`.
 # A category with an empty list (`list: []`) still shows its heading, with a short placeholder line.
-# Per entry: `title`, `summary`, and optionally `org` (the line under the title) and `role` (a badge).
+# Per entry: `title`, `summary`, and optionally `org` (the line under the title), `when` (the period,
+# written as it should read) and `role` (a badge).
 - category: Research
   list: []
 
@@ -8,6 +9,7 @@
   list:
     - title: Windows Kernel 0-day Vulnerability Research
       org: WhiteHat School 4th
+      when: Aug 3 ~ Oct 17, 2026
       summary: WhiteHat School 4th team project on vulnerabilities in Windows kernel drivers.
       role: Project Manager
 
@@ -17,4 +19,4 @@
       summary: >-
         Advanced to the finals with the paper “A Deadline-Aware Hybrid Vision-Language-Action System with
         Dynamic Perception Scheduling” and received the award at the IEEE International Conference on
-        Metaverse Computing, Networking and Applications.
+        Metaverse Computing, Networking and Applications (Nov 6-10, 2026 · Xi'an, China).
