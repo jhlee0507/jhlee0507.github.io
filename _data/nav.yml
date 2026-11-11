@@ -6,9 +6,9 @@
 - key: about
   label: About
   url: /about/
-- key: experience
-  label: Experience
-  url: /experience/
+- key: activities
+  label: Activities
+  url: /activities/
 - key: cve
   label: CVE
   url: /cve/

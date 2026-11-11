@@ -1,15 +1,15 @@
 ---
 layout: default
-key: experience
-title: Experience
+key: activities
+title: Activities
 ---
-<section class="experience" id="experience" aria-labelledby="h-experience">
+<section class="activities" id="activities" aria-labelledby="h-activities">
   <div class="grid">
     <div class="sec-head">
-      <h1 id="h-experience">Experience</h1>
+      <h1 id="h-activities">Activities</h1>
     </div>
   </div>
-  {%- for group in site.data.experience %}
+  {%- for group in site.data.activities %}
   <div class="cat">
     <h2 id="cat-{{ group.category | slugify }}">{{ group.category | escape }}</h2>
     {%- if group.list.size > 0 %}
@@ -21,6 +21,9 @@ title: Experience
           <h3>{{ item.title | escape }}</h3>
           {%- if item.org %}
           <p class="sub">{{ item.org | escape }}</p>
+          {%- endif %}
+          {%- if item.when %}
+          <p class="when">{{ item.when | escape }}</p>
           {%- endif %}
         </div>
         <div class="body">

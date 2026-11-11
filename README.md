@@ -9,7 +9,7 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
 | 바꾸고 싶은 것 | 고칠 파일 |
 |---|---|
 | CVE 추가·삭제 | `_data/cves.yml` |
-| Experience (Research, Project, Award) | `_data/experience.yml` |
+| Activities (Research, Project, Award) | `_data/activities.yml` |
 | About 타임라인 | `_data/about.yml` |
 | 메인 화면의 작은 소개 문장 | `_config.yml`의 `intro` |
 | 메뉴 항목 | `_data/nav.yml` (아래 "페이지 추가" 참고) |
@@ -31,15 +31,16 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
   source: Vendor
 ```
 
-### Experience 항목 추가
+### Activities 항목 추가
 
-`_data/experience.yml`에는 Research, Project, Award 카테고리가 있습니다. 넣고 싶은 카테고리의 `list:` 아래에 항목을 넣습니다. `org`와 `role`은 없어도 됩니다.
+`_data/activities.yml`에는 Research, Project, Award 카테고리가 있습니다. 넣고 싶은 카테고리의 `list:` 아래에 항목을 넣습니다. `org`, `when`(기간), `role`은 없어도 됩니다.
 
 ```yaml
 - category: Award
   list:
     - title: 수상 이름
       org: 주최
+      when: Nov 6 ~ 10, 2026
       summary: 한 줄 설명
 ```
 
@@ -87,8 +88,8 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
 ```
 index.html              메인 (이름 영역 + 흐르는 CVE)
 about/index.html        About 페이지 (타임라인)
-experience/index.html   Experience 페이지 (Research, Project, Award)
-projects/index.html     예전 주소 /projects/ 를 /experience/ 로 넘겨 주는 페이지
+activities/index.html   Activities 페이지 (Research, Project, Award)
+projects/index.html     예전 주소 /projects/ 를 /activities/ 로 넘겨 주는 페이지
 cve/index.html          CVE 페이지
 404.html                없는 주소로 들어왔을 때 보이는 페이지
 _layouts/default.html   모든 페이지의 공통 뼈대
