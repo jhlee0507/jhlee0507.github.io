@@ -22,19 +22,6 @@
   });
 })();
 
-/* A section page always lands on its section, as the menu links do: also when the address has no fragment (typed,
-   shared, a search result) and on Back/Forward, where the browser brings the page back as it was left, at the top
-   (the menu is up there). */
-(function(){
-  var sec=document.querySelector('main > section[id]');
-  if(!sec)return;
-  if(!location.hash)location.replace('#'+sec.id);
-  window.addEventListener('pageshow',function(e){
-    var n=window.performance&&performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];
-    if((e.persisted||(n&&n.type==='back_forward'))&&location.hash==='#'+sec.id&&sec.getBoundingClientRect().top>1)sec.scrollIntoView();
-  });
-})();
-
 /* The skip link moves focus into the content without adding a history entry. */
 (function(){
   var skip=document.querySelector('.skip'),main=document.getElementById('main');

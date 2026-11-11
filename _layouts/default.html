@@ -11,7 +11,7 @@
 /* Marks that scripts run, so the header shows the three-line menu from the first paint. On the main page it also
    forwards the old single-page links (#about, #research, #cve) to their new pages. It sits above the stylesheets
    so that the forward does not wait for them. */
-(function(d){d.className+=' js';{% if page.key == 'home' %}function go(){var to={'#about':'about/#about','#research':'projects/#projects','#cve':'cve/#cve'}[location.hash];if(to)location.replace('{{ '/' | relative_url }}'+to)}go();addEventListener('hashchange',go);{% endif %}})(document.documentElement);
+(function(d){d.className+=' js';{% if page.key == 'home' %}function go(){var to={'#about':'about/','#research':'projects/','#cve':'cve/'}[location.hash];if(to)location.replace('{{ '/' | relative_url }}'+to)}go();addEventListener('hashchange',go);{% endif %}})(document.documentElement);
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,10 +21,10 @@
 <body class="page-{{ page.key | default: 'page' }}{% if page.key == 'home' and site.intro.size > 0 %} has-intro{% endif %}">
 <a class="skip" href="#main">Skip to content</a>
 
-{% include art.html %}
+{% if page.key == 'home' %}{% include art.html %}{% endif %}
 {% include header.html %}
 <main id="main" class="wrap">
-{% include hero.html %}
+{% if page.key == 'home' %}{% include hero.html %}{% endif %}
 {{ content }}
 </main>
 
