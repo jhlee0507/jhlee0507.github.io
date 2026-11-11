@@ -61,7 +61,7 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
 1. `about/` 폴더를 복사해 이름을 `talks/`로 바꿉니다.
 2. `talks/index.html` 안의 `about`을 모두 `talks`로, `About`을 `Talks`로 바꿉니다. 맨 위의 `key`, `title`과 `id="talks"`가 여기에 해당합니다.
 3. `_data/about.yml`과 같은 형식으로 `_data/talks.yml`을 만듭니다.
-4. `_data/nav.yml`에 항목을 추가합니다. `key`는 2번의 `key`와 같아야 합니다. 메뉴와 페이지의 번호(01, 02 …)는 이 파일의 순서대로 자동으로 붙습니다.
+4. `_data/nav.yml`에 항목을 추가합니다. `key`는 2번의 `key`와 같아야 합니다. 메뉴에는 `/Talks`처럼 앞에 `/`가 붙어 나옵니다. 페이지 제목 위의 번호(01, 02 …)는 이 파일의 순서대로 자동으로 붙습니다.
 
 ```yaml
 - key: talks

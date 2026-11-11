@@ -1,4 +1,5 @@
-# The three-line menu, in order; the numbers (01, 02 ...) in the menu and on the pages follow this order.
+# The three-line menu, in order. Each item is shown as a path (/About); the number above each page's heading
+# (01, 02 ...) follows this order.
 # `key` is the `key:` at the top of the page's index.html (and the id of its section); `url` is its folder.
 # Old single-page links (/#about, /#research, /#cve) are forwarded by the script in _layouts/default.html:
 # if a folder or key here is renamed, change it there too.
@@ -6,7 +7,7 @@
   label: About
   url: /about/
 - key: projects
-  label: Projects
+  label: Project
   url: /projects/
 - key: cve
   label: CVE

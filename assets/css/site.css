@@ -92,9 +92,10 @@ main:focus{outline:none}
 .mast .handle:hover{color:var(--blue)}
 .mast .handle::before{content:"~/";color:var(--violet)}
 .mast .links{display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:flex-end}
-.mast nav a{font-size:.875rem;font-weight:500;color:var(--ink-2);text-decoration:none;letter-spacing:.01em;padding:.7rem .5rem;margin:-.7rem -.5rem;display:inline-block}
+/* the menu items read as paths, like the handle: /About */
+.mast nav a{font-family:var(--mono);font-size:.875rem;font-weight:500;color:var(--ink-2);text-decoration:none;letter-spacing:.01em;padding:.7rem .5rem;margin:-.7rem -.5rem;display:inline-block}
 .mast nav a:hover{color:var(--blue)}
-.mast nav .n{display:none}
+.mast nav .n{color:var(--violet)}
 /* the three-line menu; without JavaScript the links simply stay visible in the header */
 .js .mast{z-index:5;align-items:center}
 .menu-btn{flex:none;display:none;place-items:center;width:2.75rem;height:2.75rem;margin:-.625rem -.6875rem -.625rem 0;padding:0;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .15s ease,color .15s ease}
@@ -113,11 +114,10 @@ main:focus{outline:none}
 .js .mast nav{display:flex}
 .js .mast .links{position:absolute;top:calc(100% + .6rem);right:0;z-index:6;flex-direction:column;flex-wrap:nowrap;gap:.125rem;min-width:14.5rem;padding:.5rem;border:1px solid transparent;border-radius:14px;background:linear-gradient(var(--paper),var(--paper)) padding-box,var(--grad) border-box;box-shadow:0 1px 2px rgba(14,12,46,.06),0 26px 50px -22px rgba(var(--bl),.5),0 12px 26px -16px rgba(var(--vi),.35);animation:menu-in .16s ease}
 .js .mast .links:not(.is-open){display:none}
-.js .mast nav a{display:flex;align-items:baseline;gap:.9rem;margin:0;padding:.8rem .9rem;border-radius:9px;font-size:1.0625rem;font-weight:600;letter-spacing:-.005em;color:var(--ink)}
+.js .mast nav a{display:block;margin:0;padding:.8rem .9rem;border-radius:9px;font-size:1rem;font-weight:600;letter-spacing:.01em;color:var(--ink)}
 .js .mast nav a:hover{color:var(--ink);background-image:linear-gradient(90deg,rgba(var(--vi),.11),rgba(var(--bl),.09) 55%,rgba(var(--sk),.07))}
 .js .mast nav a:focus-visible{outline-offset:-2px}
 .js .mast nav a[aria-current="page"]{color:var(--blue)}
-.js .mast nav .n{display:inline;font-family:var(--mono);font-size:.8125rem;font-weight:700;letter-spacing:.02em;color:var(--violet)}
 @keyframes menu-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 @media (max-width:30rem){.js .mast .links{left:0;min-width:0}}
 
