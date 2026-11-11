@@ -20,8 +20,6 @@
   --grad:linear-gradient(100deg,var(--violet),var(--indigo) 28%,var(--blue) 52%,var(--azure) 78%,var(--sky));
   /* stays dark enough for white text on top */
   --grad-fill:linear-gradient(100deg,var(--violet),var(--indigo) 40%,#3550fe);
-  /* stays dark enough to be read as text on the ground */
-  --grad-ink:linear-gradient(100deg,var(--violet),var(--indigo) 45%,var(--blue) 75%,#2f52fb);
   /* the zero in the name */
   --grad-zero:linear-gradient(168deg,#8a1cfb 6%,var(--indigo) 36%,var(--blue) 56%,var(--azure) 88%);
   /* accents used as text or thin lines on the ground: these change with the theme, the fills above do not */
@@ -48,7 +46,6 @@ html[data-theme="dark"]{
   --accent-2:#b894ff;
   --accent-line:rgba(147,160,255,.5);
   --tint:rgba(147,160,255,.14);
-  --grad-ink:linear-gradient(100deg,#b894ff,#9a8cff 45%,#8c9cff 75%,#7fb0ff);
   --grad-zero:linear-gradient(168deg,#a352ff 6%,#7350ff 36%,#5f66ff 56%,#4f9dff 88%);
   color-scheme:dark;
 }
@@ -237,11 +234,6 @@ section:not(.hero)::before{content:"";position:absolute;left:0;top:-2px;width:2.
 .grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem}
 @media (min-width:64rem){.grid{grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:3rem}}
 .sec-head{display:flex;flex-direction:column;gap:.5rem}
-/* the large figure above a heading; only the 404 page uses it */
-.sec-head .num{align-self:flex-start;font-family:var(--mono);font-size:clamp(1.5rem,2.6vw,2rem);font-weight:800;line-height:1;letter-spacing:-.02em;color:var(--accent-2)}
-@supports ((-webkit-background-clip:text) or (background-clip:text)){
-  .sec-head .num{background-image:var(--grad-ink);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-}
 /* the heading of a page */
 h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;letter-spacing:-.025em;font-weight:700;color:var(--ink)}
 .sec-head p{margin:.5rem 0 0;color:var(--muted);font-size:.9375rem;max-width:30ch}
@@ -407,14 +399,13 @@ footer{height:9rem}
   .btn{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
   .proj > li,.cves li{break-inside:avoid}
   h1 .zero{background:none;-webkit-text-fill-color:currentColor;filter:none}
-  .sec-head .num{background:none;-webkit-text-fill-color:currentColor}
   .cves a,.ticker-track a{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
   .cves a::before{display:none}
   .cves .id,.cves .lab{color:var(--ink)}
 }
 @media (forced-colors:active){
   h1 .zero{filter:none}
-  h1 .zero,.sec-head .num{background:none;-webkit-text-fill-color:currentColor}
+  h1 .zero{background:none;-webkit-text-fill-color:currentColor}
   .btn,.cves a,.ticker-track a{border:1px solid currentColor}
   .js .mast .links{background:Canvas}
 }
