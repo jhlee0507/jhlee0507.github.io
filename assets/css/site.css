@@ -127,7 +127,7 @@ main:focus{outline:none}
 .mast .handle:hover{color:var(--accent)}
 .mast .handle::before{content:"~/";color:var(--accent-2)}
 .mast .links{display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:flex-end}
-/* the menu items read as paths, like the handle: /whoami */
+/* the menu items read as paths, like the handle: /About */
 .mast nav a{font-family:var(--mono);font-size:.875rem;font-weight:500;color:var(--ink-2);text-decoration:none;letter-spacing:.01em;padding:.7rem .5rem;margin:-.7rem -.5rem;display:inline-block}
 .mast nav a:hover{color:var(--accent)}
 .mast nav .n{color:var(--accent-2)}
@@ -252,7 +252,7 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 .sec-head p{margin:.5rem 0 0;color:var(--muted);font-size:.9375rem;max-width:30ch}
 .sec-head p{text-wrap:balance}
 
-/* whoami */
+/* about */
 /* a timeline: a thin rail with a dot per entry, the period above what it was */
 .timeline{list-style:none;margin:0;padding:0}
 .timeline li{position:relative;padding:0 0 2.5rem 2.25rem}
