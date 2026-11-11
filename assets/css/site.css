@@ -153,10 +153,12 @@ h1 .zero{display:inline-block;color:var(--blue);filter:drop-shadow(0 .05em .13em
 }
 /* the short introduction on the main page, deliberately small */
 .hero .intro{margin:.875rem 0 0;max-width:34rem;font-size:.9375rem;line-height:1.6;color:var(--ink-2)}
+.hero .intro p{margin:0}
+.hero .intro p + p{margin-top:.75rem}
 @media (min-width:48rem) and (max-width:63.99rem){.hero .lede{max-width:28ch}.hero .intro{max-width:27rem}}
 @media (min-width:64rem) and (max-width:75rem){.hero .lede{max-width:30ch}}
-/* on phones, even out the lines so the last one is not left with two words */
-@media (max-width:47.99rem){.hero .intro{text-wrap:balance}}
+/* on phones: a touch smaller so the second paragraph keeps to one line, and even lines where one wraps */
+@media (max-width:47.99rem){.hero .intro{font-size:.875rem;line-height:1.5}.hero .intro p{text-wrap:balance}}
 /* a phone held sideways: use the side blob so the name stays on the first screen */
 @media (min-width:35rem) and (max-width:47.99rem) and (orientation:landscape) and (max-height:31.25rem){
   .hero{--h1:clamp(3.5rem,26vh,7.5rem);padding:2.5rem 0 4rem}
@@ -299,7 +301,7 @@ main > section:last-child{border-bottom:0}
   .art{width:min(clamp(20rem,30vw,23rem),23rem - var(--short)*.718)}
   .ticker{padding-top:calc(2.75rem - var(--short)*.102)}
   /* the main page also carries the introduction: it starts tightening earlier and gives back that much more */
-  :root{--tight:clamp(0rem,53.375rem - 100vh,15.875rem)}
+  :root{--tight:clamp(0rem,54.125rem - 100vh,16.625rem)}
   .has-intro .hero{padding-top:calc(9.5rem - var(--tight)*.362);padding-bottom:calc(8.5rem - var(--tight)*.433)}
   .has-intro .ticker{padding-top:calc(2.75rem - var(--tight)*.102)}
   .has-intro .hero .lede{margin-top:calc(1.5rem - var(--tight)*.032)}
@@ -308,7 +310,7 @@ main > section:last-child{border-bottom:0}
 }
 @media screen and (min-width:48rem) and (max-width:63.99rem){
   /* in between: the main page gives back the height of the introduction when the window is short */
-  :root{--tight:clamp(0rem,45.5rem - 100vh,3.875rem)}
+  :root{--tight:clamp(0rem,46.25rem - 100vh,4.625rem)}
   .has-intro .hero{padding-top:calc(5.5rem - var(--tight)*.4);padding-bottom:calc(5rem - var(--tight)*.45)}
   .has-intro .ticker{padding-top:calc(2.75rem - var(--tight)*.15)}
 }
