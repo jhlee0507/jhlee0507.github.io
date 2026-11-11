@@ -29,7 +29,7 @@
   --accent-2:var(--violet);
   --accent-line:rgba(var(--bl),.45);
   --tint:rgba(var(--bl),.09);
-  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --sans:"Inter","Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI","Malgun Gothic","Noto Sans KR",Roboto,"Helvetica Neue",Arial,sans-serif;
   --mono:"JetBrains Mono","SFMono-Regular",ui-monospace,Menlo,Consolas,"Liberation Mono",monospace;
   color-scheme:only light;
 }
@@ -64,6 +64,14 @@ html[data-theme="dark"].js .mast .links{box-shadow:0 1px 2px rgba(0,0,0,.4),0 26
 html[data-theme="dark"] .mast nav a:hover{background-image:linear-gradient(90deg,rgba(147,160,255,.16),rgba(147,160,255,.1) 55%,rgba(var(--sk),.08))}
 }
 *,*::before,*::after{box-sizing:border-box}
+/* two languages: each translated text is in the page twice, and the KR/EN button in the header decides which shows */
+.l-ko{display:none}
+html[data-lang="ko"] .l-en{display:none}
+html[data-lang="ko"] .l-ko{display:inline;display:revert}
+/* Korean wraps between words, not inside them */
+html[data-lang="ko"] body{word-break:keep-all}
+/* the wide tracking of the small capitals is for Latin letters; Korean reads better set closer */
+html[data-lang="ko"] .cat h2,html[data-lang="ko"] .proj .role,html[data-lang="ko"] .proj .sub{letter-spacing:.01em}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background-color:var(--ground);scrollbar-color:var(--rule-hi) var(--ground)}
 body{
   position:relative;
@@ -137,8 +145,16 @@ main:focus{outline:none}
 .js .mast{z-index:5;align-items:center}
 .menu-btn{flex:none;display:none;place-items:center;width:2.75rem;height:2.75rem;margin:-.625rem -.6875rem -.625rem 0;padding:0;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .15s ease,color .15s ease}
 .js .menu-btn{display:inline-grid}
+/* the language button: KR/EN, the one in use standing out */
+.lang-btn{flex:none;display:none;align-items:center;gap:.2rem;height:2.75rem;margin:-.625rem 0;padding:0 .6rem;border:1px solid transparent;border-radius:10px;background:transparent;font-family:var(--mono);font-size:.8125rem;font-weight:700;letter-spacing:.04em;color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .15s ease,color .15s ease}
+.js .lang-btn{display:inline-flex}
+.lang-btn:focus-visible{outline-offset:2px}
+@media (hover:hover){.lang-btn:hover{background-color:var(--tint)}}
+.lang-btn .sep{opacity:.55}
+.lang-btn .en,html[data-lang="ko"] .lang-btn .kr{color:var(--ink)}
+html[data-lang="ko"] .lang-btn .en{color:inherit}
 /* the dark-mode button: a moon while the page is light, a sun while it is dark */
-.mast .tools{display:flex;align-items:center;gap:.5rem}
+.mast .tools{display:flex;align-items:center;gap:.25rem}
 .theme-btn{flex:none;display:none;place-items:center;width:2.75rem;height:2.75rem;margin:-.625rem 0;padding:0;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .15s ease,color .15s ease}
 .js .theme-btn{display:inline-grid}
 .theme-btn:focus-visible{outline-offset:2px}
@@ -409,7 +425,7 @@ footer{height:9rem}
   .ticker-track{width:auto;flex-wrap:wrap;row-gap:.75rem}
 }
 @media print{
-  .page-art,.menu-btn,.theme-btn,.mast nav,.ticker .dup{display:none !important}
+  .page-art,.menu-btn,.theme-btn,.lang-btn,.mast nav,.ticker .dup{display:none !important}
   /* on paper the main page shows the real ids standing still */
   .ticker-clip{-webkit-mask-image:none;mask-image:none}
   .ticker-track{animation:none;width:auto;flex-wrap:wrap;row-gap:.75rem}

@@ -68,6 +68,26 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
 
 메인 화면의 이름 아래에 나오는 작은 소개 문장은 `_config.yml`의 `intro:` 아래에 있습니다. `- `로 시작하는 줄 하나가 한 문단이고, 문단마다 줄을 바꿔 조금 띄워서 보여 줍니다. `intro`와 그 아래 줄을 모두 지우면 문장이 사라집니다.
 
+### 한국어 문구 (KR/EN)
+
+오른쪽 위의 KR/EN 버튼을 누르면 한국어와 영어가 바뀝니다. 한국어 문구는 영어 문구 바로 옆에 `_ko`가 붙은 이름으로 적습니다. `_ko`를 적지 않은 줄은 한국어 화면에서도 영어 그대로 나옵니다.
+
+| 영어 | 한국어 | 파일 |
+|---|---|---|
+| `tagline`, `intro` | `tagline_ko`, `intro_ko` | `_config.yml` |
+| `what`, `role`, `when` | `what_ko`, `role_ko`, `when_ko` | `_data/about.yml` |
+| `category`, `title`, `org`, `when`, `summary`, `role` | 각각 뒤에 `_ko` | `_data/activities.yml` |
+| 페이지 제목 `title` | `title_ko` | 각 페이지 `index.html` 맨 위 |
+
+```yaml
+- when: 2027.03 ~
+  what: Example Lab
+  role: Researcher
+  role_ko: 연구원
+```
+
+CVE 페이지의 안내 문구, 404 문구, 버튼 글자처럼 페이지에 직접 적힌 문구는 해당 파일에서 `en="..." ko="..."`로 나란히 적혀 있습니다.
+
 ### 페이지(메뉴 항목) 추가
 
 메뉴 항목은 페이지와 짝을 이룹니다. `_data/nav.yml`에 항목만 넣으면 없는 페이지로 가는 링크가 됩니다. 예를 들어 Talks 페이지를 만들려면:
@@ -102,10 +122,10 @@ projects/index.html     예전 주소 /projects/ 를 /activities/ 로 넘겨 주
 cve/index.html          CVE 페이지
 404.html                없는 주소로 들어왔을 때 보이는 페이지
 _layouts/default.html   모든 페이지의 공통 뼈대
-_includes/              공통 조각 (메뉴, 메인의 이름 영역과 배경 그라데이션, 흐르는 CVE 줄)
+_includes/              공통 조각 (메뉴, 메인의 이름 영역과 배경 그라데이션, 흐르는 CVE 줄, 두 언어 문구용 `t.html`)
 _data/                  목록 데이터
 assets/css/site.css     스타일 (다크 모드 색은 파일 위쪽의 `html[data-theme="dark"]`)
-assets/js/site.js       세 줄 메뉴 동작, 다크 모드 버튼
+assets/js/site.js       세 줄 메뉴 동작, 다크 모드 버튼, KR/EN 버튼
 _config.yml             사이트 전체 설정
 ```
 

@@ -2,49 +2,59 @@
 layout: default
 key: activities
 title: Activities
+title_ko: 활동
 ---
 <section class="activities" id="activities" aria-labelledby="h-activities">
   <div class="grid">
     <div class="sec-head">
-      <h1 id="h-activities">Activities</h1>
+      <h1 id="h-activities">{% include t.html en=page.title ko=page.title_ko %}</h1>
     </div>
   </div>
   {%- for group in site.data.activities %}
   <div class="cat">
-    <h2 id="cat-{{ group.category | slugify }}">{{ group.category | escape }}</h2>
+    <h2 id="cat-{{ group.category | slugify }}">{% include t.html en=group.category ko=group.category_ko %}</h2>
     {%- if group.list.size > 0 %}
     <ol class="proj" aria-labelledby="cat-{{ group.category | slugify }}">
       {%- for item in group.list %}
       <li>
         <div>
           <span class="idx" aria-hidden="true"></span>
-          <h3>{{ item.title | escape }}</h3>
+          <h3>{% include t.html en=item.title ko=item.title_ko %}</h3>
           {%- if item.org %}
-          <p class="sub">{{ item.org | escape }}</p>
+          <p class="sub">{% include t.html en=item.org ko=item.org_ko %}</p>
           {%- endif %}
           {%- if item.when %}
-          <p class="when">{{ item.when | escape }}</p>
+          <p class="when">{% include t.html en=item.when ko=item.when_ko %}</p>
           {%- endif %}
         </div>
         <div class="body">
           {%- if item.summary %}
-          {%- assign summary = item.summary | escape %}
-          {%- if item.link.text and item.link.url %}
+          {%- comment %} the summary in each language, with its linked part turned into a bold link {% endcomment %}
+          {%- assign s_en = item.summary | escape %}
+          {%- assign s_ko = item.summary_ko | escape %}
+          {%- if item.link.url %}
+          {%- if item.link.text %}
           {%- assign plain = item.link.text | escape %}
           {%- capture linked %}<a class="ref" href="{{ item.link.url | escape }}" rel="noopener" target="_blank">{{ plain }}</a>{% endcapture %}
-          {%- assign summary = summary | replace_first: plain, linked %}
+          {%- assign s_en = s_en | replace_first: plain, linked %}
           {%- endif %}
-          <p>{{ summary }}</p>
+          {%- if item.link.text_ko %}
+          {%- assign plain = item.link.text_ko | escape %}
+          {%- capture linked %}<a class="ref" href="{{ item.link.url | escape }}" rel="noopener" target="_blank">{{ plain }}</a>{% endcapture %}
+          {%- assign s_ko = s_ko | replace_first: plain, linked %}
+          {%- endif %}
+          {%- endif %}
+          <p>{% if item.summary_ko %}<span class="l-en">{{ s_en }}</span><span class="l-ko" lang="ko">{{ s_ko }}</span>{% else %}{{ s_en }}{% endif %}</p>
           {%- endif %}
           {%- if item.role %}
-          <span class="role">{{ item.role | escape }}</span>
+          <span class="role">{% include t.html en=item.role ko=item.role_ko %}</span>
           {%- endif %}
         </div>
       </li>
       {%- endfor %}
     </ol>
     {%- else %}
-    <p class="empty">To be updated.</p>
+    <p class="empty">{% include t.html en="To be updated." ko="업데이트 예정입니다." %}</p>
     {%- endif %}
   </div>
   {%- endfor %}

@@ -3,24 +3,40 @@
 # Per entry: `title`, `summary`, and optionally `org` (the line under the title), `when` (the period,
 # written as it should read) and `role` (a badge).
 # To turn part of a summary into a bold link, add `link` with `text` (copied exactly from the summary) and `url`.
+# A key ending in _ko is the Korean text for the same line (category_ko, title_ko, org_ko, when_ko,
+# summary_ko, role_ko, and text_ko inside `link`). Leave it out and the English text is shown in both languages.
 - category: Research
+  category_ko: 연구
   list: []
 
 - category: Project
+  category_ko: 프로젝트
   list:
     - title: Windows Kernel 0-day Vulnerability Research
+      title_ko: Windows 커널 0-day 취약점 연구
       org: WhiteHat School 4th
+      org_ko: 화이트햇 스쿨 4기
       when: Aug 3 ~ Oct 17, 2026
+      when_ko: 2026.08.03 ~ 2026.10.17
       summary: WhiteHat School 4th team project on vulnerabilities in Windows kernel drivers.
+      summary_ko: Windows 커널 드라이버의 취약점을 주제로 한 화이트햇 스쿨 4기 팀 프로젝트입니다.
       role: Project Manager
+      role_ko: 프로젝트 매니저
 
 - category: Award
+  category_ko: 수상
   list:
     - title: Third Prize for MARC (Meta-Sejong AI Robotics Challenge) 2026
+      title_ko: MARC (Meta-Sejong AI Robotics Challenge) 2026 3등상
       summary: >-
         Advanced to the finals with the paper “A Deadline-Aware Hybrid Vision-Language-Action System with
         Dynamic Perception Scheduling”, then presented it and received the award at the IEEE International
         Conference on Metaverse Computing, Networking and Applications (Nov 6-10, 2026 · Xi'an, China).
+      summary_ko: >-
+        논문 “A Deadline-Aware Hybrid Vision-Language-Action System with Dynamic Perception Scheduling”으로
+        본선에 진출하여, IEEE International Conference on Metaverse Computing, Networking and Applications
+        (2026년 11월 6~10일 · 중국 시안)에서 발표하고 수상했습니다.
       link:
         text: "IEEE International Conference on Metaverse Computing, Networking and Applications (Nov 6-10, 2026 · Xi'an, China)"
+        text_ko: "IEEE International Conference on Metaverse Computing, Networking and Applications (2026년 11월 6~10일 · 중국 시안)"
         url: https://www.metacomm.org/2026/

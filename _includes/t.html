@@ -1,0 +1,9 @@
+{%- comment -%}
+  One piece of text in both languages. Pass `en` and `ko`; the KR/EN button in the header shows one of them.
+  Without a Korean text the English one is shown in both.
+{%- endcomment -%}
+{%- if include.ko and include.ko != '' -%}
+<span class="l-en">{{ include.en | escape }}</span><span class="l-ko" lang="ko">{{ include.ko | escape }}</span>
+{%- else -%}
+{{ include.en | escape }}
+{%- endif -%}
