@@ -1,4 +1,4 @@
-/* r3c0n — site styles. Colours are sampled from the reference image: a pale grey-white ground and one soft blob running violet -> royal blue -> azure. */
+/* r3c0n — site styles. Colours are sampled from the reference image: a pale grey-white ground with violet -> royal blue -> azure accents. */
 :root{
   /* sampled from the reference: soft grey-white ground, violet -> royal blue -> azure */
   --ground:#eeeef2;
@@ -33,7 +33,7 @@
   --mono:"JetBrains Mono","SFMono-Regular",ui-monospace,Menlo,Consolas,"Liberation Mono",monospace;
   color-scheme:only light;
 }
-/* dark mode, chosen with the button in the header. The blob, the buttons and the CVE chips keep their colours;
+/* dark mode, chosen with the button in the header. The buttons and the CVE chips keep their colours;
    the ground, the text and the thin accents change. Paper stays light, so this applies to screens only. */
 @media screen{
 html[data-theme="dark"]{
@@ -108,24 +108,6 @@ main:focus{outline:none}
 .wrap{position:relative;z-index:1;width:min(100% - 2rem,72rem);margin-inline:auto}
 @media (min-width:48rem){.wrap{width:min(100% - 4rem,72rem)}}
 
-/* the reference, rebuilt: one soft blob running violet -> royal blue -> azure, full-bleed behind the top of the page */
-.page-art{position:absolute;top:0;left:0;right:0;height:min(60rem,100%);overflow:hidden;pointer-events:none;z-index:0}
-.art{position:absolute;top:6rem;left:-1.5rem;right:-1.5rem;height:11.5rem}
-.blob{position:absolute;inset:0;border-radius:50%;background:linear-gradient(100deg,#9a24fb 6%,#8414fc 20%,#5a0cfe 36%,#3b26fd 51%,#2f63fe 65%,#2c86fe 79%,#4aa6fe 95%);filter:blur(30px);transform:rotate(-4deg)}
-@media (min-width:48rem){
-  .art{top:7.5rem;left:auto;right:-4rem;width:17.5rem;height:20rem}
-  .blob{border-radius:36% 64% 40% 60% / 30% 58% 42% 70%;background:linear-gradient(116deg,#9a24fb 10%,#8414fc 24%,#5a0cfe 38%,#3b26fd 50%,#2f63fe 62%,#2c86fe 75%,#52acfd 92%);filter:blur(38px);transform:rotate(-6deg)}
-  /* the reference's lavender haze lower left and sky haze upper right */
-  .art::before{content:"";position:absolute;z-index:-1;inset:-22% -28%;background:radial-gradient(ellipse 26% 24% at 29% 72%,rgba(172,96,250,.5),rgba(172,96,250,0)),radial-gradient(ellipse 24% 24% at 73% 27%,rgba(112,176,250,.5),rgba(112,176,250,0))}
-}
-/* the same blob again, rising from the bottom edge to close the page */
-.page-art--end{top:auto;bottom:0;height:17rem}
-.page-art--end .blob{inset:auto -6% -7.75rem -6%;height:12rem;border-radius:50%;background:linear-gradient(100deg,#9a24fb 6%,#8414fc 20%,#5a0cfe 36%,#3b26fd 51%,#2f63fe 65%,#2c86fe 79%,#4aa6fe 95%);filter:blur(44px);transform:none}
-@media (min-width:64rem){
-  .art{top:7.25rem;right:calc(max(2rem,50% - 36rem) - 1rem);width:clamp(20rem,30vw,23rem);height:auto;aspect-ratio:4/5}
-  .blob{filter:blur(46px)}
-}
-
 /* masthead */
 .mast{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:1.5rem 0;border-bottom:1px solid var(--rule)}
 .mast .handle{flex:none;display:inline-block;padding:.7rem .5rem;margin:-.7rem -.5rem;font-family:var(--mono);font-size:.9375rem;font-weight:600;letter-spacing:.02em;white-space:nowrap;text-decoration:none;color:var(--ink)}
@@ -180,7 +162,7 @@ html[data-theme="dark"] .theme-btn .moon{display:none}
 @media (max-width:30rem){.js .mast .links{left:0;min-width:0}}
 
 /* hero */
-.hero{--h1:clamp(3.5rem,17vw,7.5rem);position:relative;padding:16.25rem 0 3.5rem;border-bottom:1px solid var(--rule)}
+.hero{--h1:clamp(3.5rem,17vw,7.5rem);position:relative;padding:3.5rem 0 3.5rem;border-bottom:1px solid var(--rule)}
 @media (min-width:48rem){.hero{padding:5.5rem 0 5rem}}
 @media (min-width:64rem){.hero{padding:9.5rem 0 8.5rem}}
 .hero h1{
@@ -213,17 +195,11 @@ h1 .zero{display:inline-block;color:var(--accent);filter:drop-shadow(0 .05em .13
 .hero .intro{margin:.875rem 0 0;max-width:34rem;font-size:.9375rem;line-height:1.6;color:var(--ink-2)}
 .hero .intro p{margin:0}
 .hero .intro p + p{margin-top:.75rem}
-@media (min-width:48rem) and (max-width:63.99rem){.hero .lede{max-width:28ch}.hero .intro{max-width:27rem}}
-@media (min-width:64rem) and (max-width:75rem){.hero .lede{max-width:30ch}}
 /* on phones: a touch smaller so the second paragraph keeps to one line, and even lines where one wraps */
 @media (max-width:47.99rem){.hero .intro{font-size:.875rem;line-height:1.5}.hero .intro p{text-wrap:balance}}
-/* a phone held sideways: use the side blob so the name stays on the first screen */
+/* a phone held sideways: a smaller name so it stays on the first screen */
 @media (min-width:35rem) and (max-width:47.99rem) and (orientation:landscape) and (max-height:31.25rem){
   .hero{--h1:clamp(3.5rem,26vh,7.5rem);padding:2.5rem 0 4rem}
-  .hero .lede{max-width:24ch}
-  .hero .intro{max-width:24rem;max-width:min(24rem,100% - 12.5rem)}
-  .art{top:5.5rem;left:auto;right:-4.5rem;width:15rem;height:17rem}
-  .blob{border-radius:36% 64% 40% 60% / 30% 58% 42% 70%;background:linear-gradient(116deg,#9a24fb 10%,#8414fc 24%,#5a0cfe 38%,#3b26fd 50%,#2f63fe 62%,#2c86fe 75%,#52acfd 92%);transform:rotate(-6deg)}
 }
 .hero .meta{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem 2.5rem;margin:2.25rem 0 0}
 .btn{
@@ -365,12 +341,11 @@ main > section:last-child{border-bottom:0}
 .ticker-clip:has(a:focus-visible) .ticker-track{animation:none;width:auto;flex-wrap:wrap;row-gap:.75rem}
 .ticker-clip:has(a:focus-visible) .dup{display:none}
 
-/* a short window: tighten the air around the hero (and scale its blob with it) so the CVE strip stays on the first screen */
+/* a short window: tighten the air around the hero so the CVE strip stays on the first screen */
 @supports (padding:clamp(0rem,1vh,1rem)){
 @media screen and (min-width:64rem){
   :root{--short:clamp(0rem,49.5rem - 100vh,12.25rem)}
   .hero{padding-top:calc(9.5rem - var(--short)*.367);padding-bottom:calc(8.5rem - var(--short)*.531)}
-  .art{width:min(clamp(20rem,30vw,23rem),23rem - var(--short)*.718)}
   .ticker{padding-top:calc(2.75rem - var(--short)*.102)}
   /* the main page also carries the introduction: it starts tightening earlier and gives back that much more */
   :root{--tight:clamp(0rem,54.125rem - 100vh,16.625rem)}
@@ -387,27 +362,19 @@ main > section:last-child{border-bottom:0}
   .has-intro .ticker{padding-top:calc(2.75rem - var(--tight)*.15)}
 }
 @media screen and (max-width:47.99rem) and (orientation:portrait){
-  :root{--short:clamp(0rem,48rem - 100vh,3.5rem)}
-  @supports (height:100svh){:root{--short:clamp(0rem,48rem - 100svh,3.5rem)}}
-  .art{height:calc(11.5rem - var(--short))}
-  .hero{padding-top:calc(16.25rem - var(--short))}
-  .page-home .hero{padding-bottom:calc(3.5rem - var(--short)*.571)}
-  .page-home .ticker{padding-top:calc(2.75rem - var(--short)*.429)}
-  /* with the introduction on the main page: tighten earlier and further, the blob shrinking with it */
-  :root{--tight:clamp(0rem,53.375rem - 100vh,12.375rem)}
-  @supports (height:100svh){:root{--tight:clamp(0rem,53.375rem - 100svh,12.375rem)}}
-  .has-intro .art{height:calc(11.5rem - var(--tight)*.418)}
-  .has-intro .hero{padding-top:calc(16.25rem - var(--tight)*.484);padding-bottom:calc(3.5rem - var(--tight)*.22)}
-  .has-intro .ticker{padding-top:calc(2.75rem - var(--tight)*.165)}
-  .has-intro .hero .lede{margin-top:calc(1.5rem - var(--tight)*.044)}
-  .has-intro .hero .intro{margin-top:calc(.875rem - var(--tight)*.022)}
-  .has-intro .hero .meta{margin-top:calc(2.25rem - var(--tight)*.066)}
+  /* a short phone: the hero and the strip give back what is missing, down to a floor */
+  :root{--tight:clamp(0rem,41rem - 100vh,7.625rem)}
+  @supports (height:100svh){:root{--tight:clamp(0rem,41rem - 100svh,7.625rem)}}
+  .hero{padding-top:calc(3.5rem - var(--tight)*.262);padding-bottom:calc(3.5rem - var(--tight)*.328)}
+  .ticker{padding-top:calc(2.75rem - var(--tight)*.246)}
+  .hero .meta{margin-top:calc(2.25rem - var(--tight)*.098)}
+  .hero .lede{margin-top:calc(1.5rem - var(--tight)*.066)}
 }
 }
 
 /* footer */
 footer::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;border-radius:2px;background:var(--grad)}
-footer{height:9rem}
+footer{height:6rem}
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{transition:none !important;animation:none !important}
@@ -419,7 +386,7 @@ footer{height:9rem}
   .ticker-track{width:auto;flex-wrap:wrap;row-gap:.75rem}
 }
 @media print{
-  .page-art,.menu-btn,.theme-btn,.lang-btn,.mast nav,.ticker .dup{display:none !important}
+  .menu-btn,.theme-btn,.lang-btn,.mast nav,.ticker .dup{display:none !important}
   /* on paper the main page shows the real ids standing still */
   .ticker-clip{-webkit-mask-image:none;mask-image:none}
   .ticker-track{animation:none;width:auto;flex-wrap:wrap;row-gap:.75rem}

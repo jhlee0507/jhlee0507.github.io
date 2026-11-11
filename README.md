@@ -122,7 +122,7 @@ projects/index.html     예전 주소 /projects/ 를 /activities/ 로 넘겨 주
 cve/index.html          CVE 페이지
 404.html                없는 주소로 들어왔을 때 보이는 페이지
 _layouts/default.html   모든 페이지의 공통 뼈대
-_includes/              공통 조각 (메뉴, 메인의 이름 영역과 배경 그라데이션, 흐르는 CVE 줄, 두 언어 문구용 `t.html`)
+_includes/              공통 조각 (메뉴, 메인의 이름 영역, 흐르는 CVE 줄, 두 언어 문구용 `t.html`)
 _data/                  목록 데이터
 assets/css/site.css     스타일 (다크 모드 색은 파일 위쪽의 `html[data-theme="dark"]`)
 assets/js/site.js       세 줄 메뉴 동작, 다크 모드 버튼, KR/EN 버튼

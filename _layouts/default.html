@@ -23,7 +23,6 @@
 <body class="page-{{ page.key | default: 'page' }}{% if page.key == 'home' and site.intro.size > 0 %} has-intro{% endif %}">
 <a class="skip" href="#main">{% include t.html en="Skip to content" ko="본문으로 건너뛰기" %}</a>
 
-{% if page.key == 'home' %}{% include art.html %}{% endif %}
 {% include header.html %}
 <main id="main" class="wrap">
 {% if page.key == 'home' %}{% include hero.html %}{% endif %}
@@ -31,7 +30,6 @@
 </main>
 
 <footer class="wrap"></footer>
-<div class="page-art page-art--end" aria-hidden="true"><div class="blob"></div></div>
 <!-- If the menu script cannot be loaded, fall back to the plain header with its links visible. -->
 <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer onerror="document.documentElement.classList.remove('js')"></script>
 </body>
