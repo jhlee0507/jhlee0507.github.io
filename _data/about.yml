@@ -1,10 +1,18 @@
-# One entry per line of the About list. `label` is the linked part (leave out `url` for no link); `text` follows it.
-- label: A student of Sejong Univ. (sophomore)
+# The timeline on the About page, in the order shown. Per entry:
+#   when: the period, as it should read (for example 2025.03 ~ or 2026.05 ~ 2026.12)
+#   what: the organisation or activity
+#   url:  optional link on `what`
+#   role: optional line under it
+- when: 2025.03 ~
+  what: SSG (Sejong Security Group)
+  role: Member
 
-- label: WHS (WhiteHat School)
+- when: 2026.05 ~ 2026.12
+  what: WHS (WhiteHat School)
   url: https://whsedu.kr/home/kor/main.do
-  text: 4th
+  role: 4th
 
-- label: ARTLAB
+- when: 2026.07 ~
+  what: ARTLAB (Sejong Univ.)
   url: https://artlab.sejong.ac.kr/home
-  text: Undergraduate Research Student
+  role: Undergraduate Researcher
