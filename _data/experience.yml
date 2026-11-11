@@ -12,4 +12,9 @@
       role: Project Manager
 
 - category: Award
-  list: []
+  list:
+    - title: Third Prize for MARC (Meta-Sejong AI Robotics Challenge) 2026
+      summary: >-
+        Advanced to the finals with the paper “A Deadline-Aware Hybrid Vision-Language-Action System with
+        Dynamic Perception Scheduling” and received the award at the IEEE International Conference on
+        Metaverse Computing, Networking and Applications.
