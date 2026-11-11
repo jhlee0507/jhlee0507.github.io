@@ -1,7 +1,7 @@
 <section class="hero" aria-labelledby="name">
   <h1 id="name" aria-label="{{ site.title | escape }}"><span class="wm">r3c<span class="zero">0</span>n</span></h1>
   <p class="lede">{{ site.tagline | escape }}</p>
-  {%- if page.key == 'home' and site.intro %}
+  {%- if page.key == 'home' and site.intro and site.intro != '' %}
   <p class="intro">{{ site.intro | escape }}</p>
   {%- endif %}
   <div class="meta">
