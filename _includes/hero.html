@@ -1,17 +1,18 @@
 <section class="hero" aria-labelledby="name">
   <h1 id="name" aria-label="{{ site.title | escape }}"><span class="wm">r3c<span class="zero">0</span>n</span></h1>
-  <p class="lede">{{ site.tagline | escape }}</p>
+  <p class="lede">{% include t.html en=site.tagline ko=site.tagline_ko %}</p>
   {%- if site.intro.size > 0 %}
   <div class="intro">
     {%- for line in site.intro %}
-    <p>{{ line | escape }}</p>
+    {%- assign line_ko = site.intro_ko[forloop.index0] %}
+    <p>{% include t.html en=line ko=line_ko %}</p>
     {%- endfor %}
   </div>
   {%- endif %}
   <div class="meta">
     <a class="btn" href="https://github.com/{{ site.github_username }}" rel="me noopener" target="_blank">
       {% include icon-github.html %}
-      GitHub profile
+      {% include t.html en="GitHub profile" ko="GitHub 프로필" %}
     </a>
   </div>
 </section>

@@ -2,14 +2,15 @@
 layout: default
 key: notfound
 title: Page not found
+title_ko: 페이지를 찾을 수 없습니다
 permalink: /404.html
 ---
 <section id="notfound" aria-labelledby="h-notfound">
   <div class="grid">
     <div class="sec-head">
       <span class="num" aria-hidden="true">404</span>
-      <h1 id="h-notfound">Page not found</h1>
-      <p>Nothing lives at this address. <a href="{{ '/' | relative_url }}">Back to the main page</a></p>
+      <h1 id="h-notfound">{% include t.html en=page.title ko=page.title_ko %}</h1>
+      <p>{% include t.html en="Nothing lives at this address." ko="이 주소에는 페이지가 없습니다." %} <a href="{{ '/' | relative_url }}">{% include t.html en="Back to the main page" ko="메인으로 돌아가기" %}</a></p>
     </div>
   </div>
 </section>
