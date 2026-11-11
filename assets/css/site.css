@@ -125,7 +125,7 @@ main:focus{outline:none}
 .hero{--h1:clamp(3.5rem,17vw,7.5rem);position:relative;padding:16.25rem 0 3.5rem;border-bottom:1px solid var(--rule)}
 @media (min-width:48rem){.hero{padding:5.5rem 0 5rem}}
 @media (min-width:64rem){.hero{padding:9.5rem 0 8.5rem}}
-h1{
+.hero h1{
   margin:0;
   width:fit-content;
   font-family:var(--mono);
@@ -202,7 +202,8 @@ section:not(.hero)::before{content:"";position:absolute;left:0;top:-2px;width:2.
 @supports ((-webkit-background-clip:text) or (background-clip:text)){
   .sec-head .num{background-image:linear-gradient(100deg,var(--violet),var(--indigo) 45%,var(--blue) 80%,#2f52fb);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 }
-h2{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;letter-spacing:-.025em;font-weight:700;color:var(--ink)}
+/* the heading of a page */
+h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;letter-spacing:-.025em;font-weight:700;color:var(--ink)}
 .sec-head p{margin:.5rem 0 0;color:var(--muted);font-size:.9375rem;max-width:30ch}
 .sec-head p{text-wrap:balance}
 
