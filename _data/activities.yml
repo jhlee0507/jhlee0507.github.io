@@ -2,6 +2,7 @@
 # A category with an empty list (`list: []`) still shows its heading, with a short placeholder line.
 # Per entry: `title`, `summary`, and optionally `org` (the line under the title), `when` (the period,
 # written as it should read) and `role` (a badge).
+# To turn part of a summary into a bold link, add `link` with `text` (copied exactly from the summary) and `url`.
 - category: Research
   list: []
 
@@ -20,3 +21,6 @@
         Advanced to the finals with the paper “A Deadline-Aware Hybrid Vision-Language-Action System with
         Dynamic Perception Scheduling” and received the award at the IEEE International Conference on
         Metaverse Computing, Networking and Applications (Nov 6-10, 2026 · Xi'an, China).
+      link:
+        text: "IEEE International Conference on Metaverse Computing, Networking and Applications (Nov 6-10, 2026 · Xi'an, China)"
+        url: https://www.metacomm.org/2026/
