@@ -1,0 +1,25 @@
+---
+layout: default
+key: whoami
+title: whoami
+---
+<section class="whoami" id="whoami" aria-labelledby="h-whoami">
+  <div class="grid">
+    <div class="sec-head">
+      <h1 id="h-whoami">whoami</h1>
+    </div>
+    <div>
+      <ol class="timeline">
+        {%- for item in site.data.whoami %}
+        <li class="c{{ forloop.index0 | modulo: 3 }}">
+          <p class="when">{{ item.when | escape }}</p>
+          <p class="what">{% if item.url %}<a href="{{ item.url | escape }}" rel="noopener" target="_blank">{{ item.what | escape }}</a>{% else %}{{ item.what | escape }}{% endif %}</p>
+          {%- if item.role %}
+          <p class="role">{{ item.role | escape }}</p>
+          {%- endif %}
+        </li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </div>
+</section>
