@@ -38,8 +38,9 @@ title_ko: 활동
           {%- capture linked %}<a class="ref" href="{{ item.link.url | escape }}" rel="noopener" target="_blank">{{ plain }}</a>{% endcapture %}
           {%- assign s_en = s_en | replace_first: plain, linked %}
           {%- endif %}
-          {%- if item.link.text_ko %}
-          {%- assign plain = item.link.text_ko | escape %}
+          {%- assign text_ko = item.link.text_ko | default: item.link.text %}
+          {%- if text_ko %}
+          {%- assign plain = text_ko | escape %}
           {%- capture linked %}<a class="ref" href="{{ item.link.url | escape }}" rel="noopener" target="_blank">{{ plain }}</a>{% endcapture %}
           {%- assign s_ko = s_ko | replace_first: plain, linked %}
           {%- endif %}

@@ -4,7 +4,8 @@
 # written as it should read) and `role` (a badge).
 # To turn part of a summary into a bold link, add `link` with `text` (copied exactly from the summary) and `url`.
 # A key ending in _ko is the Korean text for the same line (category_ko, title_ko, org_ko, when_ko,
-# summary_ko, role_ko, and text_ko inside `link`). Leave it out and the English text is shown in both languages.
+# summary_ko, role_ko). Leave it out and the English text is shown in both languages. The `text` of a `link`
+# is looked for in both summaries, so keep that part the same in each; add text_ko only if the Korean differs.
 - category: Research
   category_ko: 연구
   list: []
@@ -27,7 +28,6 @@
   category_ko: 수상
   list:
     - title: Third Prize for MARC (Meta-Sejong AI Robotics Challenge) 2026
-      title_ko: MARC (Meta-Sejong AI Robotics Challenge) 2026 3등상
       summary: >-
         Advanced to the finals with the paper “A Deadline-Aware Hybrid Vision-Language-Action System with
         Dynamic Perception Scheduling”, then presented it and received the award at the IEEE International
@@ -35,8 +35,7 @@
       summary_ko: >-
         논문 “A Deadline-Aware Hybrid Vision-Language-Action System with Dynamic Perception Scheduling”으로
         본선에 진출하여, IEEE International Conference on Metaverse Computing, Networking and Applications
-        (2026년 11월 6~10일 · 중국 시안)에서 발표하고 수상했습니다.
+        (Nov 6-10, 2026 · Xi'an, China)에서 발표하고 수상했습니다.
       link:
         text: "IEEE International Conference on Metaverse Computing, Networking and Applications (Nov 6-10, 2026 · Xi'an, China)"
-        text_ko: "IEEE International Conference on Metaverse Computing, Networking and Applications (2026년 11월 6~10일 · 중국 시안)"
         url: https://www.metacomm.org/2026/
