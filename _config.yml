@@ -5,8 +5,8 @@ tagline: 0-day Vulnerability Researcher
 # The short introduction in small type under the tagline on the main page. One entry per paragraph;
 # each starts on its own line with a little space above it.
 intro:
-  - I am a 0-day vulnerability researcher and Bug Bounty player.
-  - Also, I’m a student who conducts research on AI.
+  - I am a 0-day vulnerability researcher and bug bounty hunter.
+  - I’m also a student doing research in AI.
 description: >-
   r3c0n is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers
   and embedded systems. WhiteHat School 4th cohort.
