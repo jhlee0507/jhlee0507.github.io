@@ -8,8 +8,8 @@ intro:
   - I am a 0-day vulnerability researcher and bug bounty hunter.
   - I’m also a student doing research in AI.
 description: >-
-  r3c0n is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers
-  and embedded systems. WhiteHat School 4th cohort.
+  r3c0n is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers.
+  WhiteHat School 4th cohort.
 github_username: jhlee0507
 
 # Where a CVE links to when its entry in _data/cves.yml has no `url`, and the label shown beside it.
