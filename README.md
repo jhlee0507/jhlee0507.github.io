@@ -61,7 +61,7 @@ r3c0n 소개 사이트입니다. GitHub Pages가 푸시할 때마다 자동으�
 1. `about/` 폴더를 복사해 이름을 `talks/`로 바꿉니다.
 2. `talks/index.html` 안의 `about`을 모두 `talks`로, `About`을 `Talks`로 바꿉니다. 맨 위의 `key`, `title`과 `id="talks"`가 여기에 해당합니다. 아래쪽의 `{%- if site.intro ... %}`부터 `{%- endif %}`까지 세 줄은 지웁니다. 지우지 않으면 소개 문장이 새 페이지 맨 아래에도 나옵니다.
 3. `_data/about.yml`과 같은 형식으로 `_data/talks.yml`을 만듭니다.
-4. `_data/nav.yml`에 항목을 추가합니다. `key`는 2번의 `key`와 같아야 합니다. 메뉴에는 `/Talks`처럼 앞에 `/`가 붙어 나옵니다. 페이지 제목 위의 번호(01, 02 …)는 이 파일의 순서대로 자동으로 붙습니다.
+4. `_data/nav.yml`에 항목을 추가합니다. `key`는 2번의 `key`와 같아야 합니다. 메뉴에는 `/Talks`처럼 앞에 `/`가 붙어 나옵니다.
 
 ```yaml
 - key: talks
@@ -88,7 +88,7 @@ projects/index.html     Research Projects 페이지
 cve/index.html          CVE 페이지
 404.html                없는 주소로 들어왔을 때 보이는 페이지
 _layouts/default.html   모든 페이지의 공통 뼈대
-_includes/              공통 조각 (메뉴, 이름 영역, 배경 그라데이션, 흐르는 CVE 줄, 페이지 번호)
+_includes/              공통 조각 (메뉴, 이름 영역, 배경 그라데이션, 흐르는 CVE 줄)
 _data/                  목록 데이터
 assets/css/site.css     스타일
 assets/js/site.js       세 줄 메뉴 동작, 페이지를 열었을 때 해당 섹션으로 이동

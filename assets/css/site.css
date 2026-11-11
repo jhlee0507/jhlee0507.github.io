@@ -195,6 +195,7 @@ section:not(.hero)::before{content:"";position:absolute;left:0;top:-2px;width:2.
 .grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem}
 @media (min-width:64rem){.grid{grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:3rem}}
 .sec-head{display:flex;flex-direction:column;gap:.5rem}
+/* the large figure above a heading; only the 404 page uses it */
 .sec-head .num{align-self:flex-start;font-family:var(--mono);font-size:clamp(1.5rem,2.6vw,2rem);font-weight:800;line-height:1;letter-spacing:-.02em;color:var(--violet)}
 @supports ((-webkit-background-clip:text) or (background-clip:text)){
   .sec-head .num{background-image:linear-gradient(100deg,var(--violet),var(--indigo) 45%,var(--blue) 80%,#2f52fb);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
