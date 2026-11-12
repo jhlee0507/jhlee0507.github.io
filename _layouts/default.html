@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400..800&display=swap">
 <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
-<body class="page-{{ page.key | default: 'page' }}{% if page.key == 'home' and site.intro.size > 0 %} has-intro{% endif %}">
+<body class="page-{{ page.key | default: 'page' }}">
 <a class="skip" href="#main">{% include t.html en="Skip to content" ko="본문으로 건너뛰기" %}</a>
 
 {% include header.html %}

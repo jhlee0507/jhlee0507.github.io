@@ -15,4 +15,20 @@
       <svg class="go" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
     </a>
   </div>
+  {%- if site.contact.size > 0 %}
+  <div class="hero-contact">
+    <p class="contact-label" id="hero-contact-label">{% include t.html en="Contact" ko="연락처" %}</p>
+    <ul aria-labelledby="hero-contact-label">
+      {%- for item in site.contact %}
+      {%- assign scheme = item.url | slice: 0, 7 %}
+      {%- if scheme == 'mailto:' %}
+      {%- assign address = item.url | remove_first: 'mailto:' %}
+      <li><a href="{{ item.url | escape }}" aria-label="{{ item.name | escape }}: {{ address | escape }}">{{ address | escape }}</a></li>
+      {%- else %}
+      <li><a href="{{ item.url | escape }}" rel="me noopener" target="_blank" aria-label="{{ item.name | escape }}: {{ item.handle | default: item.name | escape }}">{% if item.icon == 'x' %}{% include icon-x.html %}{% elsif item.icon == 'github' %}{% include icon-github.html %}{% endif %}<span>{{ item.handle | default: item.name | escape }}</span></a></li>
+      {%- endif %}
+      {%- endfor %}
+    </ul>
+  </div>
+  {%- endif %}
 </section>

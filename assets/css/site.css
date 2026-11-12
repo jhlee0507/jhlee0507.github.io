@@ -229,6 +229,14 @@ h1 .zero{display:inline-block;color:var(--accent);filter:drop-shadow(0 .05em .13
 .btn svg.go{fill:none;stroke:currentColor;transition:transform .15s ease}
 @media (hover:hover){.btn:hover svg.go{transform:translateX(2px)}}
 
+/* contact on the main page: a label, then one link per line under the button */
+.hero-contact{margin-top:2.75rem}
+.hero-contact .contact-label{margin:0 0 .35rem}
+.hero-contact ul{display:flex;flex-direction:column;align-items:flex-start;margin:0;padding:0;list-style:none}
+.hero-contact a{display:inline-flex;align-items:center;gap:.65rem;min-height:2.125rem;font-family:var(--mono);font-size:.875rem;font-weight:500;color:var(--ink-2);text-decoration:none}
+.hero-contact a:hover{color:var(--accent)}
+.hero-contact svg{flex:none;width:1.0625rem;height:1.0625rem;fill:currentColor}
+
 /* generic section */
 section{position:relative;padding:4rem 0;border-bottom:1px solid var(--rule)}
 @media (min-width:64rem){section{padding:5.5rem 0}}
@@ -348,34 +356,32 @@ main > section:last-child{border-bottom:0}
 .ticker-clip:has(a:focus-visible) .ticker-track{animation:none;width:auto;flex-wrap:wrap;row-gap:.75rem}
 .ticker-clip:has(a:focus-visible) .dup{display:none}
 
-/* a short window: tighten the air around the hero so the CVE strip stays on the first screen */
+/* a short window: the hero and the strip give back the air around them, down to a floor, so that the CVE strip
+   stays on the first screen for as long as it can. --tight is how much is missing; each rule returns its share. */
 @supports (padding:clamp(0rem,1vh,1rem)){
 @media screen and (min-width:64rem){
-  :root{--short:clamp(0rem,49.5rem - 100vh,12.25rem)}
-  .hero{padding-top:calc(9.5rem - var(--short)*.367);padding-bottom:calc(8.5rem - var(--short)*.531)}
-  .ticker{padding-top:calc(2.75rem - var(--short)*.102)}
-  /* the main page also carries the introduction: it starts tightening earlier and gives back that much more */
-  :root{--tight:clamp(0rem,54.125rem - 100vh,16.625rem)}
-  .has-intro .hero{padding-top:calc(9.5rem - var(--tight)*.362);padding-bottom:calc(8.5rem - var(--tight)*.433)}
-  .has-intro .ticker{padding-top:calc(2.75rem - var(--tight)*.102)}
-  .has-intro .hero .lede{margin-top:calc(1.5rem - var(--tight)*.032)}
-  .has-intro .hero .intro{margin-top:calc(.875rem - var(--tight)*.016)}
-  .has-intro .hero .meta{margin-top:calc(2.25rem - var(--tight)*.055)}
+  :root{--tight:clamp(0rem,62rem - 100vh,20.25rem)}
+  .hero{padding-top:calc(9.5rem - var(--tight)*.383);padding-bottom:calc(8.5rem - var(--tight)*.383)}
+  .ticker{padding-top:calc(2.75rem - var(--tight)*.083)}
+  .hero .lede{margin-top:calc(1.5rem - var(--tight)*.025)}
+  .hero .intro{margin-top:calc(.875rem - var(--tight)*.012)}
+  .hero .meta{margin-top:calc(2.25rem - var(--tight)*.046)}
+  .hero-contact{margin-top:calc(2.75rem - var(--tight)*.068)}
 }
 @media screen and (min-width:48rem) and (max-width:63.99rem){
-  /* in between: the main page gives back the height of the introduction when the window is short */
-  :root{--tight:clamp(0rem,46.25rem - 100vh,4.625rem)}
-  .has-intro .hero{padding-top:calc(5.5rem - var(--tight)*.4);padding-bottom:calc(5rem - var(--tight)*.45)}
-  .has-intro .ticker{padding-top:calc(2.75rem - var(--tight)*.15)}
+  :root{--tight:clamp(0rem,54rem - 100vh,10.125rem)}
+  .hero{padding-top:calc(5.5rem - var(--tight)*.346);padding-bottom:calc(5rem - var(--tight)*.37)}
+  .ticker{padding-top:calc(2.75rem - var(--tight)*.148)}
+  .hero-contact{margin-top:calc(2.75rem - var(--tight)*.136)}
 }
 @media screen and (max-width:47.99rem) and (orientation:portrait){
-  /* a short phone: the hero and the strip give back what is missing, down to a floor */
-  :root{--tight:clamp(0rem,41rem - 100vh,7.625rem)}
-  @supports (height:100svh){:root{--tight:clamp(0rem,41rem - 100svh,7.625rem)}}
-  .hero{padding-top:calc(3.5rem - var(--tight)*.262);padding-bottom:calc(3.5rem - var(--tight)*.328)}
-  .ticker{padding-top:calc(2.75rem - var(--tight)*.246)}
-  .hero .meta{margin-top:calc(2.25rem - var(--tight)*.098)}
-  .hero .lede{margin-top:calc(1.5rem - var(--tight)*.066)}
+  :root{--tight:clamp(0rem,48.5rem - 100vh,9rem)}
+  @supports (height:100svh){:root{--tight:clamp(0rem,48.5rem - 100svh,9rem)}}
+  .hero{padding-top:calc(3.5rem - var(--tight)*.222);padding-bottom:calc(3.5rem - var(--tight)*.278)}
+  .ticker{padding-top:calc(2.75rem - var(--tight)*.208)}
+  .hero .meta{margin-top:calc(2.25rem - var(--tight)*.083)}
+  .hero .lede{margin-top:calc(1.5rem - var(--tight)*.056)}
+  .hero-contact{margin-top:calc(2.75rem - var(--tight)*.153)}
 }
 }
 
