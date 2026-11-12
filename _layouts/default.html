@@ -35,7 +35,8 @@
     <span class="contact-label" id="contact-label">{% include t.html en="Contact" ko="연락처" %}</span>
     <ul aria-labelledby="contact-label">
       {%- for item in site.contact %}
-      <li><a href="{{ item.url | escape }}" rel="me noopener" target="_blank" aria-label="{{ item.name | escape }}" title="{{ item.name | escape }}">{% if item.icon == 'x' %}{% include icon-x.html %}{% elsif item.icon == 'github' %}{% include icon-github.html %}{% else %}{{ item.name | escape }}{% endif %}</a></li>
+      {%- assign scheme = item.url | slice: 0, 7 %}
+      <li><a href="{{ item.url | escape }}"{% if scheme == 'mailto:' %} aria-label="{{ item.name | escape }}: {{ item.url | remove_first: 'mailto:' | escape }}" title="{{ item.url | remove_first: 'mailto:' | escape }}"{% else %} rel="me noopener" target="_blank" aria-label="{{ item.name | escape }}" title="{{ item.name | escape }}"{% endif %}>{% if item.icon == 'x' %}{% include icon-x.html %}{% elsif item.icon == 'github' %}{% include icon-github.html %}{% elsif item.icon == 'mail' %}{% include icon-mail.html %}{% else %}{{ item.name | escape }}{% endif %}</a></li>
       {%- endfor %}
     </ul>
   </div>
