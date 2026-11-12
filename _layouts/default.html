@@ -40,10 +40,11 @@
 
 <footer class="wrap">
 {%- if page.key == 'home' %}
-  {%- comment %} under the line the main page ends in glass buttons (one per page) over the glow; more than three
+  {%- comment %} under the line the main page ends in glass buttons (one per page, bar those with `home: false` in _data/nav.yml) over the glow; more than three
      of them stand two to a row on a phone {% endcomment %}
-  <nav class="home-nav{% if site.data.nav.size > 3 %} many{% endif %}" aria-label="Pages" data-label-ko="페이지">
-    {%- for item in site.data.nav %}
+  {%- assign buttons = site.data.nav | where_exp: "item", "item.home != false" %}
+  <nav class="home-nav{% if buttons.size > 3 %} many{% endif %}" aria-label="Pages" data-label-ko="페이지">
+    {%- for item in buttons %}
     <a href="{{ item.url | relative_url }}">{% include t.html en=item.label ko=item.label_ko %}</a>
     {%- endfor %}
   </nav>
