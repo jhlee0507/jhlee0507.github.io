@@ -9,7 +9,10 @@
     {%- endfor %}
   </div>
   {%- endif %}
-  {%- if site.contact.size > 0 %}
-  {% include contact.html %}
-  {%- endif %}
+  {%- comment %} three glass buttons, one per page {% endcomment %}
+  <nav class="home-nav" aria-label="Pages" data-label-ko="페이지">
+    {%- for item in site.data.nav %}
+    <a href="{{ item.url | relative_url }}"><span class="n" aria-hidden="true">/</span>{{ item.label | escape }}</a>
+    {%- endfor %}
+  </nav>
 </section>
