@@ -36,7 +36,12 @@
     <ul aria-labelledby="contact-label">
       {%- for item in site.contact %}
       {%- assign scheme = item.url | slice: 0, 7 %}
-      <li><a href="{{ item.url | escape }}"{% if scheme == 'mailto:' %} aria-label="{{ item.name | escape }}: {{ item.url | remove_first: 'mailto:' | escape }}" title="{{ item.url | remove_first: 'mailto:' | escape }}"{% else %} rel="me noopener" target="_blank" aria-label="{{ item.name | escape }}" title="{{ item.name | escape }}"{% endif %}>{% if item.icon == 'x' %}{% include icon-x.html %}{% elsif item.icon == 'github' %}{% include icon-github.html %}{% elsif item.icon == 'mail' %}{% include icon-mail.html %}{% else %}{{ item.name | escape }}{% endif %}</a></li>
+      {%- if scheme == 'mailto:' %}
+      {%- assign address = item.url | remove_first: 'mailto:' %}
+      <li><a class="text" href="{{ item.url | escape }}" aria-label="{{ item.name | escape }}: {{ address | escape }}">{{ address | escape }}</a></li>
+      {%- else %}
+      <li><a href="{{ item.url | escape }}" rel="me noopener" target="_blank" aria-label="{{ item.name | escape }}" title="{{ item.name | escape }}">{% if item.icon == 'x' %}{% include icon-x.html %}{% elsif item.icon == 'github' %}{% include icon-github.html %}{% else %}{{ item.name | escape }}{% endif %}</a></li>
+      {%- endif %}
       {%- endfor %}
     </ul>
   </div>
