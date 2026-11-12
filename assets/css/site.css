@@ -334,18 +334,18 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 /* the email: an envelope, then the address written out as plain text (not a link) */
 .contact .text{display:inline-flex;align-items:center;gap:.6rem;height:2.75rem;padding:0 .75rem;font-family:var(--mono);font-size:.875rem;font-weight:500;color:var(--ink-2)}
 
-/* the main page: a hero of moderate height, the contact row pinned just above the bottom line, and under the
-   line glass buttons (one per page) */
-.page-home .hero{padding-top:clamp(2.5rem,9vh,3.5rem);padding-bottom:2.5rem}
-@media (min-width:48rem){.page-home .hero{padding-top:clamp(3rem,10vh,5.5rem);padding-bottom:3rem}}
-@media (min-width:64rem){.page-home .hero{padding-top:clamp(3rem,14vh,9.5rem);padding-bottom:3.5rem}}
-.page-home footer{min-height:0;padding:1.25rem 0 calc(1.75rem + env(safe-area-inset-bottom))}
-/* the name, tagline and introduction are centred */
-.page-home .hero{text-align:center}
-.page-home .hero h1,.page-home .hero .lede,.page-home .hero .intro{margin-inline:auto}
+/* the main page, everything on the centre line: the name, tagline and introduction sit in the middle of the
+   space between the header and the contact row; under the row the bottom line, then glass buttons (one per page) */
 .page-home main{display:flex;flex-direction:column}
-.page-home .hero{border-bottom:0}
-.page-home main>.contact{margin-top:auto;padding-bottom:.5rem}
+/* the extra at the top makes up for the empty space type and logos carry inside their own boxes, so the space
+   seen above the name equals the space seen under the introduction */
+.page-home .hero{flex:1 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(2.5rem + 10px) 0 2.5rem;border-bottom:0;text-align:center}
+@media (min-width:48rem){.page-home .hero{padding-top:calc(2.5rem + 8px)}}
+.page-home main>.contact{justify-content:center;padding-bottom:.5rem}
+/* the logos carry their own padding to be easy to press; pull it in on both sides so the row is centred by eye */
+.page-home main>.contact ul{margin-right:-.75rem}
+/* the same space above the line, under it and under the buttons */
+.page-home footer{min-height:0;padding:1.25rem 0 calc(1.25rem + env(safe-area-inset-bottom))}
 .home-nav{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:.5rem}
 @media (min-width:48rem){.home-nav{gap:.875rem}}
 /* four or more buttons do not fit side by side on a phone: two to a row there */
