@@ -1,8 +1,8 @@
 # Built by GitHub Pages (Jekyll). Text that appears on every page lives here.
 title: r3c0n
 # The line under the name. It also ends the browser-tab title of the main page.
-tagline: 0-day Vulnerability Researcher
-tagline_ko: 제로데이 취약점 연구자
+tagline: Vulnerability Researcher
+tagline_ko: 취약점 연구자
 # The short introduction in small type under the tagline on the main page. One entry per paragraph;
 # each starts on its own line with a little space above it.
 intro:
