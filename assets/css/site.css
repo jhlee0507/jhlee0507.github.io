@@ -115,11 +115,6 @@ main:focus{outline:none}
 .wrap{position:relative;z-index:1;width:min(100% - 2rem,72rem);margin-inline:auto}
 @media (min-width:48rem){.wrap{width:min(100% - 4rem,72rem)}}
 
-/* a soft glow of the gradient rising from the bottom edge to close the main page: kept low, with a tighter
-   blur so the colour along the bottom edge stays deep */
-.page-glow{position:absolute;left:0;right:0;bottom:0;height:17rem;overflow:hidden;pointer-events:none;z-index:0}
-.page-glow::before{content:"";position:absolute;inset:auto -6% -8.625rem -6%;height:12rem;border-radius:50%;background:linear-gradient(100deg,#9a24fb 6%,#8414fc 20%,#5a0cfe 36%,#3b26fd 51%,#2f63fe 65%,#2c86fe 79%,#4aa6fe 95%);filter:blur(35px)}
-
 /* masthead */
 .mast{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:1.5rem 0;border-bottom:1px solid var(--rule)}
 .mast .handle{flex:none;display:inline-block;padding:.7rem .5rem;margin:-.7rem -.5rem;font-family:var(--mono);font-size:.9375rem;font-weight:600;letter-spacing:.02em;white-space:nowrap;text-decoration:none;color:var(--ink)}
@@ -340,7 +335,7 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 .contact .text{display:inline-flex;align-items:center;gap:.6rem;height:2.75rem;padding:0 .75rem;font-family:var(--mono);font-size:.875rem;font-weight:500;color:var(--ink-2)}
 
 /* the main page: a hero of moderate height, the contact row pinned just above the bottom line, and under the
-   line glass buttons (one per page) sitting on the glow */
+   line glass buttons (one per page) */
 .page-home .hero{padding-top:clamp(2.5rem,9vh,3.5rem);padding-bottom:2.5rem}
 @media (min-width:48rem){.page-home .hero{padding-top:clamp(3rem,10vh,5.5rem);padding-bottom:3rem}}
 @media (min-width:64rem){.page-home .hero{padding-top:clamp(3rem,14vh,9.5rem);padding-bottom:3.5rem}}
@@ -360,7 +355,7 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
   border-radius:14px;
   font-family:var(--mono);font-size:clamp(.8125rem,3.8vw,1.0625rem);font-weight:600;letter-spacing:.01em;text-align:center;white-space:nowrap;
   color:var(--ink);text-decoration:none;
-  /* glass: see-through, lit along the top edge, blurring the glow behind it */
+  /* glass: see-through, lit along the top edge, blurring what is behind it */
   background-color:rgba(255,255,255,.42);
   background-image:linear-gradient(135deg,rgba(255,255,255,.6),rgba(255,255,255,.12));
   -webkit-backdrop-filter:blur(16px) saturate(1.6);
@@ -379,7 +374,7 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
   html{scroll-behavior:auto}
 }
 @media print{
-  .page-glow,.menu-btn,.theme-btn,.lang-btn,.mast nav{display:none !important}
+  .menu-btn,.theme-btn,.lang-btn,.mast nav{display:none !important}
   .hero{padding-top:2.5rem}
   section:not(.hero)::before,footer::before{display:none}
   .home-nav{display:none}
