@@ -340,6 +340,9 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 @media (min-width:48rem){.page-home .hero{padding-top:clamp(3rem,10vh,5.5rem);padding-bottom:3rem}}
 @media (min-width:64rem){.page-home .hero{padding-top:clamp(3rem,14vh,9.5rem);padding-bottom:3.5rem}}
 .page-home footer{min-height:0;padding:1.25rem 0 calc(1.75rem + env(safe-area-inset-bottom))}
+/* the name, tagline and introduction are centred */
+.page-home .hero{text-align:center}
+.page-home .hero h1,.page-home .hero .lede,.page-home .hero .intro{margin-inline:auto}
 .page-home main{display:flex;flex-direction:column}
 .page-home .hero{border-bottom:0}
 .page-home main>.contact{margin-top:auto;padding-bottom:.5rem}
