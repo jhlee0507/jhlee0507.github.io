@@ -343,6 +343,9 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 .page-home main{display:flex;flex-direction:column}
 .page-home .hero{border-bottom:0}
 .page-home main>.contact{margin-top:auto;padding-bottom:.5rem}
+/* trial (index2.html): the name, tagline and introduction centred */
+.hero-center .hero{text-align:center}
+.hero-center .hero h1,.hero-center .hero .lede,.hero-center .hero .intro{margin-inline:auto}
 .home-nav{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:.5rem}
 @media (min-width:48rem){.home-nav{gap:.875rem}}
 /* four or more buttons do not fit side by side on a phone: two to a row there */
