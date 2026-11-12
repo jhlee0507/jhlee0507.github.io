@@ -1,15 +1,12 @@
 {%- comment -%}
-  The contact row: a label, a logo per link, and the email written out as plain text. With `mail_link=true`
-  (the main page) the email is an envelope that opens a new message instead, like the other logos.
+  The contact row: a label and a logo per link. The email is an envelope that opens a new message.
 {%- endcomment -%}
 <div class="contact">
   <span class="contact-label" id="contact-label">{% include t.html en="Contact" ko="연락처" %}</span>
   <ul aria-labelledby="contact-label">
     {%- for item in site.contact %}
-    {%- if item.text and include.mail_link %}
+    {%- if item.text %}
     <li><a href="mailto:{{ item.text | escape }}" aria-label="{{ item.name | escape }}: {{ item.text | escape }}" title="{{ item.text | escape }}">{% include icon-mail.html %}</a></li>
-    {%- elsif item.text %}
-    <li><span class="text">{% include icon-mail.html %}<span class="sr-only">{{ item.name | escape }}: </span><span>{{ item.text | escape }}</span></span></li>
     {%- else %}
     <li><a href="{{ item.url | escape }}" rel="me noopener" target="_blank" aria-label="{{ item.name | escape }}" title="{{ item.name | escape }}">{% if item.icon == 'x' %}{% include icon-x.html %}{% elsif item.icon == 'github' %}{% include icon-github.html %}{% else %}{{ item.name | escape }}{% endif %}</a></li>
     {%- endif %}
