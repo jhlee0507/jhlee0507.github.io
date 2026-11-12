@@ -15,8 +15,8 @@ intro_ko:
 description: >-
   r3c0n is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers.
   WhiteHat School 4th cohort.
-# Contact links, shown in a row under the bottom line of every page except the main one: X and GitHub as
-# logos, the email as an envelope followed by the address.
+# Contact links, shown in a row under the bottom line of every page (on the main page, above the three
+# buttons): X and GitHub as logos, the email as an envelope followed by the address.
 # `icon` is x or github; `name` is what a screen reader says for the logo. The email is written under `text`
 # with no `url`: it is shown as plain text, not as a link.
 contact:
