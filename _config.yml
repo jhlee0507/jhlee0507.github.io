@@ -17,6 +17,16 @@ description: >-
   WhiteHat School 4th cohort.
 github_username: jhlee0507
 
+# Contact links shown as logos under the bottom line of every page except the main one.
+# `icon` is x or github; `name` is what a screen reader says for the logo.
+contact:
+  - name: X
+    url: https://x.com/_r3con_
+    icon: x
+  - name: GitHub
+    url: https://github.com/jhlee0507
+    icon: github
+
 # Where a CVE links to when its entry in _data/cves.yml has no `url`, and the label shown beside it.
 cve_url: https://msrc.microsoft.com/update-guide/vulnerability/
 cve_source: MSRC
