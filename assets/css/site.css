@@ -334,7 +334,7 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 .contact .text{display:inline-flex;align-items:center;gap:.6rem;height:2.75rem;padding:0 .75rem;font-family:var(--mono);font-size:.875rem;font-weight:500;color:var(--ink-2)}
 
 /* the main page: a hero of moderate height, the contact row pinned just above the bottom line, and under the
-   line three glass buttons (one per page) sitting on the glow */
+   line glass buttons (one per page) sitting on the glow */
 .page-home .hero{padding-top:clamp(2.5rem,9vh,3.5rem);padding-bottom:2.5rem}
 @media (min-width:48rem){.page-home .hero{padding-top:clamp(3rem,10vh,5.5rem);padding-bottom:3rem}}
 @media (min-width:64rem){.page-home .hero{padding-top:clamp(3rem,14vh,9.5rem);padding-bottom:3.5rem}}
@@ -344,6 +344,8 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 .page-home main>.contact{margin-top:auto;padding-bottom:.5rem}
 .home-nav{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:.5rem}
 @media (min-width:48rem){.home-nav{gap:.875rem}}
+/* four or more buttons do not fit side by side on a phone: two to a row there */
+@media (max-width:47.99rem){.home-nav.many{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr))}.home-nav.many a{min-height:3rem}}
 .home-nav a{
   display:flex;align-items:center;justify-content:center;
   min-height:3.25rem;

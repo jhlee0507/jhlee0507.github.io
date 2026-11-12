@@ -1,0 +1,15 @@
+{%- comment -%}
+  A timeline: one entry per item of `items` (a list from _data), the period above the name, an optional
+  small arrow that links to the website, and an optional line under it.
+{%- endcomment -%}
+<ol class="timeline">
+  {%- for item in include.items %}
+  <li class="c{{ forloop.index0 | modulo: 3 }}">
+    <p class="when">{% include t.html en=item.when ko=item.when_ko %}</p>
+    <p class="what">{% include t.html en=item.what ko=item.what_ko %}{% if item.url %}&nbsp;<a class="ext" href="{{ item.url | escape }}" rel="noopener" target="_blank" aria-label="{{ item.what | escape }}, open the website" data-label-ko="{{ item.what_ko | default: item.what | escape }}, 웹사이트 열기"><svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"/></svg></a>{% endif %}</p>
+    {%- if item.role %}
+    <p class="role">{% include t.html en=item.role ko=item.role_ko %}</p>
+    {%- endif %}
+  </li>
+  {%- endfor %}
+</ol>
