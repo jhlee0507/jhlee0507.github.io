@@ -15,8 +15,6 @@ intro_ko:
 description: >-
   r3c0n is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers.
   WhiteHat School 4th cohort.
-github_username: jhlee0507
-
 # Contact links shown as logos under the bottom line of every page except the main one.
 # `icon` is x or github; `name` is what a screen reader says for the logo. An email address is written as
 # mailto:address with no icon, and is shown as the address itself.
