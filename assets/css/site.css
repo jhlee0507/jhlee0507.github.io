@@ -58,8 +58,9 @@ html[data-theme="dark"] body{
 html[data-theme="dark"] .timeline .ext{color:#c9d0ff;background-color:rgba(147,160,255,.22)}
 html[data-theme="dark"] .cves a{border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.05);background-image:linear-gradient(135deg,rgba(255,255,255,.11),rgba(255,255,255,.02));box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 18px 36px -22px rgba(0,0,0,.85)}
 html[data-theme="dark"] .cves a:hover{background-color:rgba(255,255,255,.09)}
-html[data-theme="dark"] .btn{border-color:rgba(255,255,255,.22)}
-html[data-theme="dark"] .timeline .ext:hover{color:#fff;background-color:var(--blue)}
+html[data-theme="dark"] .home-nav a{border-color:rgba(255,255,255,.2);background-color:rgba(12,10,30,.38);background-image:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.03));box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 18px 36px -22px rgba(0,0,0,.85)}
+html[data-theme="dark"] .home-nav a:hover{background-color:rgba(12,10,30,.25)}
+@media (hover:hover){html[data-theme="dark"] .timeline .ext:hover{color:#fff;background-color:var(--blue)}}
 html[data-theme="dark"].js .mast .links{box-shadow:0 1px 2px rgba(0,0,0,.4),0 26px 50px -22px rgba(0,0,0,.7),0 12px 26px -16px rgba(var(--vi),.45)}
 html[data-theme="dark"] .mast nav a:hover{background-image:linear-gradient(90deg,rgba(147,160,255,.16),rgba(147,160,255,.1) 55%,rgba(var(--sk),.08))}
 }
@@ -72,7 +73,11 @@ html[data-lang="ko"] .l-ko{display:inline;display:revert}
 html[data-lang="ko"] body{word-break:keep-all}
 /* the wide tracking of the small capitals is for Latin letters; Korean reads better set closer */
 html[data-lang="ko"] .cat h2,html[data-lang="ko"] .proj .role,html[data-lang="ko"] .proj .sub{letter-spacing:.01em}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background-color:var(--ground);scrollbar-color:var(--rule-hi) var(--ground)}
+/* iPhone: keep clear of the notch and the home bar (the page reaches the screen edges: viewport-fit=cover) */
+body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+/* iPhone: no grey flash and no double-tap zoom delay on things that are pressed */
+a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;background-color:var(--ground);scrollbar-color:var(--rule-hi) var(--ground)}
 body{
   position:relative;
   display:flex;flex-direction:column;
@@ -208,38 +213,8 @@ h1 .zero{display:inline-block;color:var(--accent);filter:drop-shadow(0 .05em .13
 @media (min-width:35rem) and (max-width:47.99rem) and (orientation:landscape) and (max-height:31.25rem){
   .hero{--h1:clamp(3.5rem,26vh,7.5rem);padding:2.5rem 0 4rem}
 }
-.hero .meta{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem 2.5rem;margin:2.25rem 0 0}
-/* the button on the main page: small, left-aligned, and glass (a light rim, a sheen across the
-   top, a touch of transparency over its own colours) */
-.btn{
-  display:inline-flex;align-items:center;gap:.5rem;
-  min-height:2.5rem;
-  padding:.5rem 1rem;
-  border:1px solid rgba(255,255,255,.34);
-  border-radius:10px;
-  background-color:transparent;
-  background-image:linear-gradient(180deg,rgba(255,255,255,.17),rgba(255,255,255,.03) 40%,rgba(255,255,255,0) 58%),linear-gradient(100deg,rgba(112,7,250,.93),rgba(75,10,254,.93) 40%,rgba(53,80,254,.93));
-  color:#fff;
-  font-weight:700;font-size:.875rem;text-decoration:none;
-  box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 -1px 0 rgba(14,12,46,.14) inset,0 10px 22px -12px rgba(var(--bl),.7),0 5px 12px -8px rgba(var(--vi),.55);
-  transition:box-shadow .15s ease,transform .15s ease,filter .15s ease;
-}
-.btn:hover{color:#fff}
-@media (hover:hover){.btn:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 -1px 0 rgba(14,12,46,.14) inset,0 14px 28px -12px rgba(var(--bl),.8),0 7px 16px -8px rgba(var(--vi),.65)}}
-.btn:focus-visible{outline-offset:3px}
-.btn svg{width:1rem;height:1rem;fill:currentColor}
-.btn svg.go{fill:none;stroke:currentColor;transition:transform .15s ease}
-@media (hover:hover){.btn:hover svg.go{transform:translateX(2px)}}
-
-/* contact on the main page: a label, then one link per line under the button */
-.hero-contact{margin-top:2.75rem}
-.hero-contact .contact-label{margin:0 0 .35rem}
-.hero-contact ul{display:flex;flex-direction:column;align-items:flex-start;margin:0;padding:0;list-style:none}
-.hero-contact a,.hero-contact .plain{display:inline-flex;align-items:center;gap:.65rem;min-height:2.125rem;font-family:var(--mono);font-size:.875rem;font-weight:500;color:var(--ink-2);text-decoration:none}
-.hero-contact a:hover{color:var(--accent)}
-.hero-contact svg{flex:none;width:1.125rem;height:1.125rem;fill:currentColor}
-/* a logo on its own: a square to press, the logo at its left edge in line with the label */
-.hero-contact a.logo{min-width:2.125rem}
+/* the contact row under the introduction on the main page */
+.hero .contact{margin-top:2.25rem}
 
 /* generic section */
 section{position:relative;padding:4rem 0;border-bottom:1px solid var(--rule)}
@@ -267,8 +242,12 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 /* an entry with a website gets a small arrow after its name; the arrow is the link */
 .timeline .ext{display:inline-grid;place-items:center;width:2rem;height:2rem;margin:-.35rem 0 -.35rem .2rem;vertical-align:middle;border-radius:9px;background-color:var(--tint);color:var(--accent);text-decoration:none;transition:background-color .15s ease,color .15s ease}
 .timeline .ext svg{width:1.125rem;height:1.125rem;fill:none;stroke:currentColor;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round}
-.timeline .ext:hover{color:#fff;background-color:var(--blue)}
+@media (hover:hover){.timeline .ext:hover{color:#fff;background-color:var(--blue)}}
+.timeline .ext:active{color:#fff;background-color:var(--blue)}
 .timeline .ext:focus-visible{outline-offset:1px}
+/* a larger area to press than the chip itself (44px, the size iPhone asks for) */
+.timeline .ext{position:relative}
+.timeline .ext::after{content:"";position:absolute;inset:-6px}
 .timeline .role{margin-top:.3rem;font-size:1rem;line-height:1.5;color:var(--ink-2)}
 .timeline .c0{--c1:#9a24fb;--c2:#5a0cfe}
 .timeline .c1{--c1:var(--blue);--c2:var(--sky)}
@@ -339,28 +318,9 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 
 main > section:last-child{border-bottom:0}
 
-/* the main page is one screen: the air above and below the hero is whatever the window has to spare, within
-   limits, so that the page fits without scrolling on most screens */
-@supports (padding:clamp(0rem,1vh,1rem)){
-@media screen and (min-width:64rem){
-  .hero{padding-top:clamp(2.5rem,(100vh - 44.5rem)*.55,9.5rem);padding-bottom:clamp(2rem,(100vh - 44.5rem)*.45,8.5rem)}
-  body.page-home footer{height:clamp(4rem,100vh - 40.1rem,9rem)}
-}
-@media screen and (min-width:48rem) and (max-width:63.99rem){
-  .hero{padding-top:clamp(2.5rem,(100vh - 44rem)*.52,5.5rem);padding-bottom:clamp(2rem,(100vh - 44rem)*.48,5rem)}
-  body.page-home footer{height:clamp(4rem,100vh - 40rem,9rem)}
-}
-@media screen and (max-width:47.99rem) and (orientation:portrait){
-  .hero{padding-top:clamp(1.75rem,(100vh - 42rem)*.5,3.5rem);padding-bottom:clamp(1.75rem,(100vh - 42rem)*.5,3.5rem)}
-  @supports (height:100svh){.hero{padding-top:clamp(1.75rem,(100svh - 42rem)*.5,3.5rem);padding-bottom:clamp(1.75rem,(100svh - 42rem)*.5,3.5rem)}}
-  body.page-home footer{height:clamp(4rem,100vh - 37.25rem,9rem)}
-  @supports (height:100svh){body.page-home footer{height:clamp(4rem,100svh - 37.25rem,9rem)}}
-}
-}
-
 /* footer */
 footer::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;border-radius:2px;background:var(--grad)}
-footer{min-height:6rem;padding:1.25rem 0 2.5rem}
+footer{min-height:6rem;padding:1.25rem 0 calc(2.5rem + env(safe-area-inset-bottom))}
 /* contact: a label and a logo per link, right under the bottom line (not on the main page) */
 .contact{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem 1.25rem}
 .contact-label{font-family:var(--mono);font-size:.8125rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
@@ -368,24 +328,53 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 /* pulled left by the padding inside a logo, so that a wrapped row lines up with the label above it */
 .contact ul{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem;margin:0 0 0 -.75rem;padding:0;list-style:none}
 .contact a{display:grid;place-items:center;min-width:2.75rem;height:2.75rem;padding:0 .5rem;border-radius:10px;color:var(--ink-2);text-decoration:none;font-size:.875rem;font-weight:600;transition:background-color .15s ease,color .15s ease}
-.contact a:hover{color:var(--accent);background-color:var(--tint)}
+@media (hover:hover){.contact a:hover{color:var(--accent);background-color:var(--tint)}}
+.contact a:active{color:var(--accent);background-color:var(--tint)}
 .contact a:focus-visible{outline-offset:2px}
 .contact svg{width:1.25rem;height:1.25rem;fill:currentColor}
 /* the email: an envelope, then the address written out as plain text (not a link) */
 .contact .text{display:inline-flex;align-items:center;gap:.6rem;height:2.75rem;padding:0 .75rem;font-family:var(--mono);font-size:.875rem;font-weight:500;color:var(--ink-2)}
-/* room for the glow under the main page */
-.page-home footer{height:9rem;min-height:0;padding:0}
+
+/* the main page: a hero of moderate height, then three glass buttons (one per page) sitting on the glow at the
+   bottom of the screen */
+.page-home .hero{padding-top:clamp(2.5rem,9vh,3.5rem);padding-bottom:2.5rem}
+@media (min-width:48rem){.page-home .hero{padding-top:clamp(3rem,10vh,5.5rem);padding-bottom:3rem}}
+@media (min-width:64rem){.page-home .hero{padding-top:clamp(3rem,14vh,9.5rem);padding-bottom:3.5rem}}
+.page-home footer{min-height:0;padding:1.25rem 0 calc(1.75rem + env(safe-area-inset-bottom))}
+.home-nav{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:.5rem}
+@media (min-width:48rem){.home-nav{gap:.875rem}}
+.home-nav a{
+  display:flex;align-items:center;justify-content:center;
+  min-height:3.25rem;
+  padding:.5rem .25rem;
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:14px;
+  font-family:var(--mono);font-size:clamp(.75rem,3.4vw,.9375rem);font-weight:600;letter-spacing:.01em;white-space:nowrap;
+  color:var(--ink);text-decoration:none;
+  /* glass: see-through, lit along the top edge, blurring the glow behind it */
+  background-color:rgba(255,255,255,.42);
+  background-image:linear-gradient(135deg,rgba(255,255,255,.6),rgba(255,255,255,.12));
+  -webkit-backdrop-filter:blur(16px) saturate(1.6);
+  backdrop-filter:blur(16px) saturate(1.6);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(14,12,46,.06),0 16px 32px -22px rgba(var(--bl),.5);
+  transition:background-color .15s ease,transform .15s ease,box-shadow .15s ease;
+}
+.home-nav .n{color:var(--accent-2)}
+.home-nav a:hover{color:var(--ink)}
+@media (hover:hover){.home-nav a:hover{background-color:rgba(255,255,255,.62);transform:translateY(-2px)}}
+.home-nav a:active{transform:scale(.98)}
+.home-nav a:focus-visible{outline-offset:3px}
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{transition:none !important;animation:none !important}
-  .btn:hover,.cves a:hover{transform:none !important}
+  .cves a:hover,.home-nav a:hover,.home-nav a:active{transform:none !important}
   html{scroll-behavior:auto}
 }
 @media print{
   .page-glow,.menu-btn,.theme-btn,.lang-btn,.mast nav{display:none !important}
   .hero{padding-top:2.5rem}
   section:not(.hero)::before,footer::before{display:none}
-  .btn{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
+  .home-nav{display:none}
   .proj > li,.cves li{break-inside:avoid}
   h1 .zero{background:none;-webkit-text-fill-color:currentColor;filter:none}
   .cves a{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
@@ -395,6 +384,6 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 @media (forced-colors:active){
   h1 .zero{filter:none}
   h1 .zero{background:none;-webkit-text-fill-color:currentColor}
-  .btn,.cves a{border:1px solid currentColor}
+  .cves a,.home-nav a{border:1px solid currentColor}
   .js .mast .links{background:Canvas}
 }

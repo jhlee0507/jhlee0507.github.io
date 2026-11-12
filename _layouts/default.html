@@ -3,7 +3,12 @@
 <html lang="en" data-title-en="{{ title_en }}"{% if page.title_ko %} data-title-ko="{{ page.title_ko | escape }} — {{ site.title | escape }}"{% elsif page.key == 'home' and site.tagline_ko %} data-title-ko="{{ site.title | escape }} — {{ site.tagline_ko | escape }}"{% endif %}>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- iPhone: do not turn the email address or the dates into links -->
+<meta name="format-detection" content="telephone=no, email=no, address=no, date=no">
+<meta name="apple-mobile-web-app-title" content="{{ site.title | escape }}">
+<link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
 <title>{{ title_en }}</title>
 <meta name="description" content="{{ page.description | default: site.description | escape }}">
 <meta name="color-scheme" content="light dark">
@@ -30,19 +35,15 @@
 </main>
 
 <footer class="wrap">
-{%- if page.key != 'home' and site.contact.size > 0 %}
-  <div class="contact">
-    <span class="contact-label" id="contact-label">{% include t.html en="Contact" ko="연락처" %}</span>
-    <ul aria-labelledby="contact-label">
-      {%- for item in site.contact %}
-      {%- if item.text %}
-      <li><span class="text">{% include icon-mail.html %}<span class="sr-only">{{ item.name | escape }}: </span><span>{{ item.text | escape }}</span></span></li>
-      {%- else %}
-      <li><a href="{{ item.url | escape }}" rel="me noopener" target="_blank" aria-label="{{ item.name | escape }}" title="{{ item.name | escape }}">{% if item.icon == 'x' %}{% include icon-x.html %}{% elsif item.icon == 'github' %}{% include icon-github.html %}{% else %}{{ item.name | escape }}{% endif %}</a></li>
-      {%- endif %}
-      {%- endfor %}
-    </ul>
-  </div>
+{%- if page.key == 'home' %}
+  {%- comment %} the main page ends in three glass buttons, one per page, over the glow {% endcomment %}
+  <nav class="home-nav" aria-label="Pages" data-label-ko="페이지">
+    {%- for item in site.data.nav %}
+    <a href="{{ item.url | relative_url }}"><span class="n" aria-hidden="true">/</span>{{ item.label | escape }}</a>
+    {%- endfor %}
+  </nav>
+{%- elsif site.contact.size > 0 %}
+  {% include contact.html %}
 {%- endif %}
 </footer>
 {% if page.key == 'home' %}<div class="page-glow" aria-hidden="true"></div>
