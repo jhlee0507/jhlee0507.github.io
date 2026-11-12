@@ -235,7 +235,9 @@ h1 .zero{display:inline-block;color:var(--accent);filter:drop-shadow(0 .05em .13
 .hero-contact ul{display:flex;flex-direction:column;align-items:flex-start;margin:0;padding:0;list-style:none}
 .hero-contact a{display:inline-flex;align-items:center;gap:.65rem;min-height:2.125rem;font-family:var(--mono);font-size:.875rem;font-weight:500;color:var(--ink-2);text-decoration:none}
 .hero-contact a:hover{color:var(--accent)}
-.hero-contact svg{flex:none;width:1.0625rem;height:1.0625rem;fill:currentColor}
+.hero-contact svg{flex:none;width:1.125rem;height:1.125rem;fill:currentColor}
+/* a logo on its own: a square to press, the logo at its left edge in line with the label */
+.hero-contact a.logo{min-width:2.125rem}
 
 /* generic section */
 section{position:relative;padding:4rem 0;border-bottom:1px solid var(--rule)}
@@ -398,8 +400,8 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 .contact a:hover{color:var(--accent);background-color:var(--tint)}
 .contact a:focus-visible{outline-offset:2px}
 .contact svg{width:1.25rem;height:1.25rem;fill:currentColor}
-/* an address written out, such as the email */
-.contact a.text{font-family:var(--mono);font-size:.875rem;font-weight:500;letter-spacing:0;padding:0 .6rem}
+/* the email: an envelope, then the address written out */
+.contact a.text{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.875rem;font-weight:500;letter-spacing:0;padding:0 .75rem}
 /* room for the glow under the main page */
 .page-home footer{height:9rem;padding:0}
 

@@ -15,19 +15,17 @@ intro_ko:
 description: >-
   r3c0n is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers.
   WhiteHat School 4th cohort.
-# Contact links. On the main page they are listed one per line under the button, each logo followed by its
-# `handle`; on the other pages they sit as logos under the bottom line.
+# Contact links: X and GitHub as logos, the email as an envelope followed by the address. On the main page they
+# are listed one per line under the button; on the other pages they sit in a row under the bottom line.
 # `icon` is x or github; `name` is what a screen reader says for the logo. An email address is written as
-# mailto:address with no icon, and is shown as the address itself.
+# mailto:address.
 contact:
   - name: X
     url: https://x.com/_r3con_
     icon: x
-    handle: "@_r3con_"
   - name: GitHub
     url: https://github.com/jhlee0507
     icon: github
-    handle: jhlee0507
   - name: Email
     url: mailto:tommy0507@sju.ac.kr
 
