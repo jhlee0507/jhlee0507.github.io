@@ -8,6 +8,7 @@
 - when: 2025.03 ~
   what: Sejong Univ.
   what_ko: 세종대학교
+  role: Dept. AI&IT
 
 - when: 2025.03 ~
   what: SSG (Sejong Security Group)
