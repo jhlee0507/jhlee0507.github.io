@@ -32,14 +32,15 @@
 <main id="main" class="wrap">
 {% if page.key == 'home' %}{% include hero.html %}{% endif %}
 {{ content }}
+{%- if page.key == 'home' and site.contact.size > 0 %}
+{%- comment %} on the main page the contact row sits just above the bottom line {% endcomment %}
+{% include contact.html %}
+{%- endif %}
 </main>
 
 <footer class="wrap">
 {%- if page.key == 'home' %}
-  {%- comment %} the main page ends in the contact row and, under it, three glass buttons (one per page) over the glow {% endcomment %}
-  {%- if site.contact.size > 0 %}
-  {% include contact.html %}
-  {%- endif %}
+  {%- comment %} under the line the main page ends in three glass buttons (one per page) over the glow {% endcomment %}
   <nav class="home-nav" aria-label="Pages" data-label-ko="페이지">
     {%- for item in site.data.nav %}
     <a href="{{ item.url | relative_url }}">{% include t.html en=item.label ko=item.label_ko %}</a>
