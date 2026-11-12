@@ -6,6 +6,10 @@
 #           desc: Link Following Arbitrary File Corruption
 #           (desc_ko is the same line in Korean; leave it out and the English one is shown in both languages)
 - id: CVE-2026-83834
+  desc: Windows Kernel Driver Local Privilege Escalation via Use After Free
 - id: CVE-2026-85868
+  desc: Windows Common Log File System Driver Local Privilege Escalation via Use After Free
 - id: CVE-2026-85870
+  desc: Windows Common Log File System Driver Local Privilege Escalation via Heap-based Buffer Overflow
 - id: CVE-2026-108403
+  desc: Windows Kernel Elevation of Privilege via Use After Free
