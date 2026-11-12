@@ -207,7 +207,7 @@ h1 .zero{display:inline-block;color:var(--accent);filter:drop-shadow(0 .05em .13
   .hero{--h1:clamp(3.5rem,26vh,7.5rem);padding:2.5rem 0 4rem}
 }
 .hero .meta{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem 2.5rem;margin:2.25rem 0 0}
-/* the GitHub button: small, left-aligned, and glass like the chips in the strip (a light rim, a sheen across the
+/* the button on the main page: small, left-aligned, and glass like the chips in the strip (a light rim, a sheen across the
    top, a touch of transparency over its own colours) */
 .btn{
   display:inline-flex;align-items:center;gap:.5rem;
@@ -226,6 +226,8 @@ h1 .zero{display:inline-block;color:var(--accent);filter:drop-shadow(0 .05em .13
 @media (hover:hover){.btn:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 -1px 0 rgba(14,12,46,.14) inset,0 14px 28px -12px rgba(var(--bl),.8),0 7px 16px -8px rgba(var(--vi),.65)}}
 .btn:focus-visible{outline-offset:3px}
 .btn svg{width:1rem;height:1rem;fill:currentColor}
+.btn svg.go{fill:none;stroke:currentColor;transition:transform .15s ease}
+@media (hover:hover){.btn:hover svg.go{transform:translateX(2px)}}
 
 /* generic section */
 section{position:relative;padding:4rem 0;border-bottom:1px solid var(--rule)}

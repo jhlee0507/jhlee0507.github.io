@@ -10,9 +10,9 @@
   </div>
   {%- endif %}
   <div class="meta">
-    <a class="btn" href="https://github.com/{{ site.github_username }}" rel="me noopener" target="_blank">
-      {% include icon-github.html %}
-      {% include t.html en="GitHub profile" ko="GitHub 프로필" %}
+    <a class="btn" href="{{ '/activities/' | relative_url }}">
+      {% include t.html en="Activities" ko="활동" %}
+      <svg class="go" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
     </a>
   </div>
 </section>
