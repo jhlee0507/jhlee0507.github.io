@@ -3,7 +3,7 @@ layout: default
 key: about
 title: About
 title_ko: 소개
-# The short introduction above the timeline: one paragraph per line, `intro_ko` being the same lines in Korean.
+# The short introduction under the timeline: one paragraph per line, `intro_ko` being the same lines in Korean.
 intro:
   - I am a student interested in researching vulnerabilities in the Windows kernel and drivers.
   - I am currently an undergraduate researcher at ARTLAB, Sejong University, where I study and do research in AI.
@@ -17,6 +17,7 @@ intro_ko:
       <h1 id="h-about">{% include t.html en=page.title ko=page.title_ko %}</h1>
     </div>
     <div>
+      {% include timeline.html items=site.data.about %}
       {%- if page.intro.size > 0 %}
       <div class="about-intro">
         {%- for line in page.intro %}
@@ -25,7 +26,6 @@ intro_ko:
         {%- endfor %}
       </div>
       {%- endif %}
-      {% include timeline.html items=site.data.about %}
     </div>
   </div>
 </section>
