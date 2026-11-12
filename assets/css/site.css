@@ -110,7 +110,7 @@ main:focus{outline:none}
 
 /* a soft glow of the gradient rising from the bottom edge to close the main page */
 .page-glow{position:absolute;left:0;right:0;bottom:0;height:17rem;overflow:hidden;pointer-events:none;z-index:0}
-.page-glow::before{content:"";position:absolute;inset:auto -6% -8.75rem -6%;height:12rem;border-radius:50%;background:linear-gradient(100deg,#9a24fb 6%,#8414fc 20%,#5a0cfe 36%,#3b26fd 51%,#2f63fe 65%,#2c86fe 79%,#4aa6fe 95%);filter:blur(44px)}
+.page-glow::before{content:"";position:absolute;inset:auto -6% -9.75rem -6%;height:12rem;border-radius:50%;background:linear-gradient(100deg,#9a24fb 6%,#8414fc 20%,#5a0cfe 36%,#3b26fd 51%,#2f63fe 65%,#2c86fe 79%,#4aa6fe 95%);filter:blur(44px)}
 
 /* masthead */
 .mast{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:1.5rem 0;border-bottom:1px solid var(--rule)}
