@@ -321,7 +321,7 @@ main > section:last-child{border-bottom:0}
 /* footer */
 footer::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;border-radius:2px;background:var(--grad)}
 footer{min-height:6rem;padding:1.25rem 0 calc(2.5rem + env(safe-area-inset-bottom))}
-/* contact: a label, a logo per link and the email, right under the bottom line of every page */
+/* contact: a label, a logo per link and the email, right under the bottom line (not on the main page) */
 .contact{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem 1.25rem}
 .contact-label{font-family:var(--mono);font-size:.8125rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 html[data-lang="ko"] .contact-label{letter-spacing:.01em}
@@ -335,12 +335,12 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 /* the email: an envelope, then the address written out as plain text (not a link) */
 .contact .text{display:inline-flex;align-items:center;gap:.6rem;height:2.75rem;padding:0 .75rem;font-family:var(--mono);font-size:.875rem;font-weight:500;color:var(--ink-2)}
 
-/* the main page: a hero of moderate height with three glass buttons (one per page), then the contact row under
-   the bottom line with room below it for the glow */
+/* the main page: a hero of moderate height with three glass buttons (one per page), then the bottom line with
+   room below it for the glow (no contact row here) */
 .page-home .hero{padding-top:clamp(2.5rem,9vh,3.5rem);padding-bottom:2.5rem}
 @media (min-width:48rem){.page-home .hero{padding-top:clamp(3rem,10vh,5.5rem);padding-bottom:3rem}}
 @media (min-width:64rem){.page-home .hero{padding-top:clamp(3rem,14vh,9.5rem);padding-bottom:3.5rem}}
-.page-home footer{padding-bottom:calc(5.75rem + env(safe-area-inset-bottom))}
+.page-home footer{min-height:0;height:calc(clamp(4.5rem,16vh,9rem) + env(safe-area-inset-bottom));padding:0}
 .home-nav{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:.5rem}
 @media (min-width:48rem){.home-nav{gap:.875rem}}
 .home-nav a{

@@ -35,7 +35,7 @@
 </main>
 
 <footer class="wrap">
-{%- if site.contact.size > 0 %}
+{%- if page.key != 'home' and site.contact.size > 0 %}
   {% include contact.html %}
 {%- endif %}
 </footer>
