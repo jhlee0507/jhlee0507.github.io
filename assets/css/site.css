@@ -58,7 +58,7 @@ html[data-theme="dark"] body{
 html[data-theme="dark"] .timeline .ext{color:#c9d0ff;background-color:rgba(147,160,255,.22)}
 html[data-theme="dark"] .cves a{border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.05);background-image:linear-gradient(135deg,rgba(255,255,255,.11),rgba(255,255,255,.02));box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 18px 36px -22px rgba(0,0,0,.85)}
 html[data-theme="dark"] .cves a:hover{background-color:rgba(255,255,255,.09)}
-html[data-theme="dark"] .ticker-track a,html[data-theme="dark"] .btn{border-color:rgba(255,255,255,.22)}
+html[data-theme="dark"] .btn{border-color:rgba(255,255,255,.22)}
 html[data-theme="dark"] .timeline .ext:hover{color:#fff;background-color:var(--blue)}
 html[data-theme="dark"].js .mast .links{box-shadow:0 1px 2px rgba(0,0,0,.4),0 26px 50px -22px rgba(0,0,0,.7),0 12px 26px -16px rgba(var(--vi),.45)}
 html[data-theme="dark"] .mast nav a:hover{background-image:linear-gradient(90deg,rgba(147,160,255,.16),rgba(147,160,255,.1) 55%,rgba(var(--sk),.08))}
@@ -209,7 +209,7 @@ h1 .zero{display:inline-block;color:var(--accent);filter:drop-shadow(0 .05em .13
   .hero{--h1:clamp(3.5rem,26vh,7.5rem);padding:2.5rem 0 4rem}
 }
 .hero .meta{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem 2.5rem;margin:2.25rem 0 0}
-/* the button on the main page: small, left-aligned, and glass like the chips in the strip (a light rim, a sheen across the
+/* the button on the main page: small, left-aligned, and glass (a light rim, a sheen across the
    top, a touch of transparency over its own colours) */
 .btn{
   display:inline-flex;align-items:center;gap:.5rem;
@@ -339,56 +339,22 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 
 main > section:last-child{border-bottom:0}
 
-/* CVE ticker: the ids drift from left to right */
-.ticker{padding:2.75rem 0 1rem}
-.ticker-clip{overflow:hidden;overflow:clip;padding:.5rem 0 1.75rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.ticker-track{display:flex;width:max-content;margin:0;padding:0;list-style:none;animation:ticker calc(var(--n,6) * 44s / 6) linear infinite}
-.ticker-track li{flex:none;margin-right:1rem}
-.ticker-track a{display:flex;align-items:center;gap:1.5rem;height:3.75rem;padding:0 1.4rem;border-radius:14px;white-space:nowrap;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.34);background-color:transparent;background-image:linear-gradient(180deg,rgba(255,255,255,.17),rgba(255,255,255,.03) 40%,rgba(255,255,255,0) 58%),linear-gradient(100deg,var(--c1),var(--c2));box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 -1px 0 rgba(14,12,46,.14) inset,0 16px 26px -18px var(--glow)}
-@media (max-width:20rem){.ticker-track a{gap:.75rem;padding:0 1rem}}
-/* the chip colours let a little of the page through, like tinted glass */
-.ticker-track .c0 a{--c1:rgba(132,24,250,.93);--c2:rgba(86,8,254,.93);--glow:rgba(var(--vi),.8)}
-.ticker-track .c1 a{--c1:rgba(86,8,254,.93);--c2:rgba(59,38,253,.93);--glow:rgba(var(--bl),.8)}
-.ticker-track .c2 a{--c1:rgba(59,38,253,.93);--c2:rgba(46,80,250,.93);--glow:rgba(var(--az),.85)}
-.ticker-track a:hover{color:#fff}
-.ticker-track a:focus-visible{outline-offset:-4px;outline-color:#fff}
-.ticker-track .id{font-family:var(--mono);font-size:clamp(1.0625rem,1.6vw,1.25rem);font-weight:700;letter-spacing:-.02em}
-.ticker-track .lab{font-family:var(--mono);font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
-.ticker-track .lab::after{content:" ↗\FE0E";font-variant-emoji:text;font-size:1.15em}
-/* the list fills two identical halves; moving it by half its width loops seamlessly, left to right.
-   --n is the number of chips in one half, so the speed stays the same however many CVEs there are */
-@keyframes ticker{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-/* keyboard focus inside: the real ids stand still, all on screen (same layout as reduced motion) */
-.ticker-clip:has(a:focus-visible){-webkit-mask-image:none;mask-image:none}
-.ticker-clip:has(a:focus-visible) .ticker-track{animation:none;width:auto;flex-wrap:wrap;row-gap:.75rem}
-.ticker-clip:has(a:focus-visible) .dup{display:none}
-
-/* a short window: the hero and the strip give back the air around them, down to a floor, so that the CVE strip
-   stays on the first screen for as long as it can. --tight is how much is missing; each rule returns its share. */
+/* the main page is one screen: the air above and below the hero is whatever the window has to spare, within
+   limits, so that the page fits without scrolling on most screens */
 @supports (padding:clamp(0rem,1vh,1rem)){
 @media screen and (min-width:64rem){
-  :root{--tight:clamp(0rem,62rem - 100vh,20.25rem)}
-  .hero{padding-top:calc(9.5rem - var(--tight)*.383);padding-bottom:calc(8.5rem - var(--tight)*.383)}
-  .ticker{padding-top:calc(2.75rem - var(--tight)*.083)}
-  .hero .lede{margin-top:calc(1.5rem - var(--tight)*.025)}
-  .hero .intro{margin-top:calc(.875rem - var(--tight)*.012)}
-  .hero .meta{margin-top:calc(2.25rem - var(--tight)*.046)}
-  .hero-contact{margin-top:calc(2.75rem - var(--tight)*.068)}
+  .hero{padding-top:clamp(2.5rem,(100vh - 44.5rem)*.55,9.5rem);padding-bottom:clamp(2rem,(100vh - 44.5rem)*.45,8.5rem)}
+  body.page-home footer{height:clamp(4rem,100vh - 40.1rem,9rem)}
 }
 @media screen and (min-width:48rem) and (max-width:63.99rem){
-  :root{--tight:clamp(0rem,54rem - 100vh,10.125rem)}
-  .hero{padding-top:calc(5.5rem - var(--tight)*.346);padding-bottom:calc(5rem - var(--tight)*.37)}
-  .ticker{padding-top:calc(2.75rem - var(--tight)*.148)}
-  .hero-contact{margin-top:calc(2.75rem - var(--tight)*.136)}
+  .hero{padding-top:clamp(2.5rem,(100vh - 44rem)*.52,5.5rem);padding-bottom:clamp(2rem,(100vh - 44rem)*.48,5rem)}
+  body.page-home footer{height:clamp(4rem,100vh - 40rem,9rem)}
 }
 @media screen and (max-width:47.99rem) and (orientation:portrait){
-  :root{--tight:clamp(0rem,48.5rem - 100vh,9rem)}
-  @supports (height:100svh){:root{--tight:clamp(0rem,48.5rem - 100svh,9rem)}}
-  .hero{padding-top:calc(3.5rem - var(--tight)*.222);padding-bottom:calc(3.5rem - var(--tight)*.278)}
-  .ticker{padding-top:calc(2.75rem - var(--tight)*.208)}
-  .hero .meta{margin-top:calc(2.25rem - var(--tight)*.083)}
-  .hero .lede{margin-top:calc(1.5rem - var(--tight)*.056)}
-  .hero-contact{margin-top:calc(2.75rem - var(--tight)*.153)}
+  .hero{padding-top:clamp(1.75rem,(100vh - 42rem)*.5,3.5rem);padding-bottom:clamp(1.75rem,(100vh - 42rem)*.5,3.5rem)}
+  @supports (height:100svh){.hero{padding-top:clamp(1.75rem,(100svh - 42rem)*.5,3.5rem);padding-bottom:clamp(1.75rem,(100svh - 42rem)*.5,3.5rem)}}
+  body.page-home footer{height:clamp(4rem,100vh - 37.25rem,9rem)}
+  @supports (height:100svh){body.page-home footer{height:clamp(4rem,100svh - 37.25rem,9rem)}}
 }
 }
 
@@ -408,34 +374,27 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 /* the email: an envelope, then the address written out as plain text (not a link) */
 .contact .text{display:inline-flex;align-items:center;gap:.6rem;height:2.75rem;padding:0 .75rem;font-family:var(--mono);font-size:.875rem;font-weight:500;color:var(--ink-2)}
 /* room for the glow under the main page */
-.page-home footer{height:9rem;padding:0}
+.page-home footer{height:9rem;min-height:0;padding:0}
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{transition:none !important;animation:none !important}
   .btn:hover,.cves a:hover{transform:none !important}
   html{scroll-behavior:auto}
-  /* no motion: just the real ids, standing still */
-  .ticker .dup{display:none}
-  .ticker-clip{-webkit-mask-image:none;mask-image:none}
-  .ticker-track{width:auto;flex-wrap:wrap;row-gap:.75rem}
 }
 @media print{
-  .page-glow,.menu-btn,.theme-btn,.lang-btn,.mast nav,.ticker .dup{display:none !important}
-  /* on paper the main page shows the real ids standing still */
-  .ticker-clip{-webkit-mask-image:none;mask-image:none}
-  .ticker-track{animation:none;width:auto;flex-wrap:wrap;row-gap:.75rem}
+  .page-glow,.menu-btn,.theme-btn,.lang-btn,.mast nav{display:none !important}
   .hero{padding-top:2.5rem}
   section:not(.hero)::before,footer::before{display:none}
   .btn{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
   .proj > li,.cves li{break-inside:avoid}
   h1 .zero{background:none;-webkit-text-fill-color:currentColor;filter:none}
-  .cves a,.ticker-track a{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
+  .cves a{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
   .cves a::before{display:none}
   .cves .id,.cves .lab{color:var(--ink)}
 }
 @media (forced-colors:active){
   h1 .zero{filter:none}
   h1 .zero{background:none;-webkit-text-fill-color:currentColor}
-  .btn,.cves a,.ticker-track a{border:1px solid currentColor}
+  .btn,.cves a{border:1px solid currentColor}
   .js .mast .links{background:Canvas}
 }
