@@ -23,9 +23,9 @@
       {%- assign scheme = item.url | slice: 0, 7 %}
       {%- if scheme == 'mailto:' %}
       {%- assign address = item.url | remove_first: 'mailto:' %}
-      <li><a href="{{ item.url | escape }}" aria-label="{{ item.name | escape }}: {{ address | escape }}">{{ address | escape }}</a></li>
+      <li><a href="{{ item.url | escape }}" aria-label="{{ item.name | escape }}: {{ address | escape }}">{% include icon-mail.html %}<span>{{ address | escape }}</span></a></li>
       {%- else %}
-      <li><a href="{{ item.url | escape }}" rel="me noopener" target="_blank" aria-label="{{ item.name | escape }}: {{ item.handle | default: item.name | escape }}">{% if item.icon == 'x' %}{% include icon-x.html %}{% elsif item.icon == 'github' %}{% include icon-github.html %}{% endif %}<span>{{ item.handle | default: item.name | escape }}</span></a></li>
+      <li><a class="logo" href="{{ item.url | escape }}" rel="me noopener" target="_blank" aria-label="{{ item.name | escape }}" title="{{ item.name | escape }}">{% if item.icon == 'x' %}{% include icon-x.html %}{% elsif item.icon == 'github' %}{% include icon-github.html %}{% else %}{{ item.name | escape }}{% endif %}</a></li>
       {%- endif %}
       {%- endfor %}
     </ul>
