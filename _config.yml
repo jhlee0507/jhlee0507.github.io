@@ -17,8 +17,8 @@ description: >-
   WhiteHat School 4th cohort.
 # Contact links: X and GitHub as logos, the email as an envelope followed by the address. On the main page they
 # are listed one per line under the button; on the other pages they sit in a row under the bottom line.
-# `icon` is x or github; `name` is what a screen reader says for the logo. An email address is written as
-# mailto:address.
+# `icon` is x or github; `name` is what a screen reader says for the logo. The email is written under `text`
+# with no `url`: it is shown as plain text, not as a link.
 contact:
   - name: X
     url: https://x.com/_r3con_
@@ -27,7 +27,7 @@ contact:
     url: https://github.com/jhlee0507
     icon: github
   - name: Email
-    url: mailto:tommy0507@sju.ac.kr
+    text: tommy0507@sju.ac.kr
 
 # Where a CVE links to when its entry in _data/cves.yml has no `url`, and the label shown beside it.
 cve_url: https://msrc.microsoft.com/update-guide/vulnerability/
