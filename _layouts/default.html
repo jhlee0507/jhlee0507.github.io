@@ -29,7 +29,18 @@
 {{ content }}
 </main>
 
-<footer class="wrap"></footer>
+<footer class="wrap">
+{%- if page.key != 'home' and site.contact.size > 0 %}
+  <div class="contact">
+    <span class="contact-label" id="contact-label">{% include t.html en="Contact" ko="연락처" %}</span>
+    <ul aria-labelledby="contact-label">
+      {%- for item in site.contact %}
+      <li><a href="{{ item.url | escape }}" rel="me noopener" target="_blank" aria-label="{{ item.name | escape }}" title="{{ item.name | escape }}">{% if item.icon == 'x' %}{% include icon-x.html %}{% elsif item.icon == 'github' %}{% include icon-github.html %}{% else %}{{ item.name | escape }}{% endif %}</a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+{%- endif %}
+</footer>
 {% if page.key == 'home' %}<div class="page-glow" aria-hidden="true"></div>
 {% endif -%}
 <!-- If the menu script cannot be loaded, fall back to the plain header with its links visible. -->
