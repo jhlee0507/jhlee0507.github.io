@@ -1,4 +1,4 @@
-# The timeline on the Affiliation page, in the order shown. Same keys as _data/about.yml:
+# The timeline on the Affiliation page, in the order shown. Per entry:
 #   when: since when, as it should read (for example 2025.03 ~)
 #   what: the school, group or lab
 #   url:  optional website; shown as a small arrow after `what`, and the arrow is the link
@@ -14,6 +14,13 @@
   what: SSG (Sejong Security Group)
   role: Member
   role_ko: 부원
+
+- when: 2026.06 ~ 2026.12
+  what: WHS (WhiteHat School) 4th Cohort
+  what_ko: WHS (화이트햇 스쿨) 4기
+  url: https://whsedu.kr/home/kor/main.do
+  role: Trainee
+  role_ko: 교육생
 
 - when: 2026.07 ~
   what: ARTLAB

@@ -3,7 +3,7 @@ layout: default
 key: about
 title: About
 title_ko: 소개
-# The short introduction under the timeline, starting at the left edge like the heading: one paragraph per line, `intro_ko` being the same lines in Korean.
+# The introduction under the heading: one paragraph per line, `intro_ko` being the same lines in Korean.
 intro:
   - I am a student doing vulnerability research, finding vulnerabilities and analyzing their root cause and impact.
   - I currently belong to the Cold Triangle team, where I find 0-day vulnerabilities and develop exploits to verify their exploitability.
@@ -17,9 +17,6 @@ intro_ko:
   <div class="grid">
     <div class="sec-head">
       <h1 id="h-about">{% include t.html en=page.title ko=page.title_ko %}</h1>
-    </div>
-    <div>
-      {% include timeline.html items=site.data.about %}
     </div>
     {%- if page.intro.size > 0 %}
     <div class="about-intro">
