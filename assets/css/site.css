@@ -308,7 +308,7 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 .cves{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
 .cves a{
   position:relative;overflow:hidden;
-  display:flex;align-items:center;justify-content:space-between;gap:.5rem 1rem;flex-wrap:wrap;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
   min-height:4.75rem;
   padding:1.1rem 1.4rem;
   border:1px solid rgba(255,255,255,.8);
@@ -331,7 +331,10 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 @media (hover:hover){.cves a:hover{transform:translateY(-2px);background-color:rgba(255,255,255,.6);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(14,12,46,.05),0 22px 36px -22px var(--glow)}}
 .cves a:focus-visible{outline-offset:3px}
 .cves .id{font-family:var(--mono);font-size:clamp(1.0625rem,2vw,1.375rem);font-weight:700;letter-spacing:-.02em;white-space:nowrap;color:var(--ink)}
-.cves .lab{font-family:var(--mono);font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;color:var(--accent)}
+/* the id, and under it an optional short description */
+.cves .what{flex:1 1 auto;display:flex;flex-direction:column;gap:.3rem;min-width:0}
+.cves .desc{font-size:.9375rem;line-height:1.45;font-weight:500;color:var(--ink-2)}
+.cves .lab{flex:none;font-family:var(--mono);font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;color:var(--accent)}
 .cves .lab::after{content:" ↗\FE0E";font-variant-emoji:text;font-size:1.15em}
 
 main > section:last-child{border-bottom:0}

@@ -14,7 +14,7 @@ title: CVE
         {%- for cve in site.data.cves %}
         {%- assign href = site.cve_url | append: cve.id %}
         {%- if cve.url %}{% assign href = cve.url %}{% endif %}
-        <li class="c{{ forloop.index0 | modulo: 3 }}"><a href="{{ href | escape }}" rel="noopener" target="_blank"><span class="id">{{ cve.id | escape }}</span><span class="lab">{{ cve.source | default: site.cve_source | escape }}</span></a></li>
+        <li class="c{{ forloop.index0 | modulo: 3 }}"><a href="{{ href | escape }}" rel="noopener" target="_blank"><span class="what"><span class="id">{{ cve.id | escape }}</span>{% if cve.desc %}<span class="desc">{% include t.html en=cve.desc ko=cve.desc_ko %}</span>{% endif %}</span><span class="lab">{{ cve.source | default: site.cve_source | escape }}</span></a></li>
         {%- endfor %}
       </ul>
     </div>
