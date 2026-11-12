@@ -35,7 +35,14 @@
 </main>
 
 <footer class="wrap">
-{%- if page.key != 'home' and site.contact.size > 0 %}
+{%- if page.key == 'home' %}
+  {%- comment %} the main page ends in three glass buttons, one per page, over the glow {% endcomment %}
+  <nav class="home-nav" aria-label="Pages" data-label-ko="페이지">
+    {%- for item in site.data.nav %}
+    <a href="{{ item.url | relative_url }}">{% include t.html en=item.label ko=item.label_ko %}</a>
+    {%- endfor %}
+  </nav>
+{%- elsif site.contact.size > 0 %}
   {% include contact.html %}
 {%- endif %}
 </footer>
