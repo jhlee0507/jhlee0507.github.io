@@ -196,19 +196,19 @@ h1 .zero{display:inline-block;color:var(--accent);filter:drop-shadow(0 .05em .13
 .hero .lede{
   margin:1.5rem 0 0;
   max-width:36ch;
-  font-size:clamp(1.125rem,1.7vw,1.375rem);
+  font-size:clamp(1.25rem,1.95vw,1.5625rem);
   line-height:1.45;
   font-weight:500;
   letter-spacing:-.012em;
   color:var(--ink);
   text-wrap:balance;
 }
-/* the short introduction on the main page, deliberately small */
-.hero .intro{margin:.875rem 0 0;max-width:34rem;font-size:.9375rem;line-height:1.6;color:var(--ink-2)}
+/* the short introduction on the main page, a size under the tagline */
+.hero .intro{margin:1rem 0 0;max-width:38rem;font-size:1.0625rem;line-height:1.6;color:var(--ink-2)}
 .hero .intro p{margin:0}
 .hero .intro p + p{margin-top:.75rem}
 /* on phones: a touch smaller so the second paragraph keeps to one line, and even lines where one wraps */
-@media (max-width:47.99rem){.hero .intro{font-size:.875rem;line-height:1.5}.hero .intro p{text-wrap:balance}}
+@media (max-width:47.99rem){.hero .intro{font-size:1rem;line-height:1.5}.hero .intro p{text-wrap:balance}}
 /* a phone held sideways: a smaller name so it stays on the first screen */
 @media (min-width:35rem) and (max-width:47.99rem) and (orientation:landscape) and (max-height:31.25rem){
   .hero{--h1:clamp(3.5rem,26vh,7.5rem);padding:2.5rem 0 4rem}
