@@ -12,6 +12,8 @@
 
 - when: 2025.03 ~
   what: SSG (Sejong Security Group)
+  role: Member
+  role_ko: 부원
 
 - when: 2026.07 ~
   what: ARTLAB
@@ -21,3 +23,4 @@
 
 - when: 2026.11 ~
   what: Cold Triangle
+  url: https://x.com/cold_triangle
