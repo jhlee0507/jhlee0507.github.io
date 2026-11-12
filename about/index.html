@@ -10,17 +10,7 @@ title_ko: 소개
       <h1 id="h-about">{% include t.html en=page.title ko=page.title_ko %}</h1>
     </div>
     <div>
-      <ol class="timeline">
-        {%- for item in site.data.about %}
-        <li class="c{{ forloop.index0 | modulo: 3 }}">
-          <p class="when">{% include t.html en=item.when ko=item.when_ko %}</p>
-          <p class="what">{% include t.html en=item.what ko=item.what_ko %}{% if item.url %}&nbsp;<a class="ext" href="{{ item.url | escape }}" rel="noopener" target="_blank" aria-label="{{ item.what | escape }}, open the website" data-label-ko="{{ item.what_ko | default: item.what | escape }}, 웹사이트 열기"><svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10"/></svg></a>{% endif %}</p>
-          {%- if item.role %}
-          <p class="role">{% include t.html en=item.role ko=item.role_ko %}</p>
-          {%- endif %}
-        </li>
-        {%- endfor %}
-      </ol>
+      {% include timeline.html items=site.data.about %}
     </div>
   </div>
 </section>

@@ -1,4 +1,4 @@
-# The three-line menu, in order. Each item is shown as a path (/About). The same items are the three buttons
+# The three-line menu, in order. Each item is shown as a path (/About). The same items are the buttons
 # at the bottom of the main page, where `label_ko` is the Korean wording.
 # `key` is the `key:` at the top of the page's index.html (and the id of its section); `url` is its folder.
 # Old single-page links (/#about, /#research, /#cve) are forwarded by the script in _layouts/default.html:
@@ -7,6 +7,10 @@
   label: About
   label_ko: 소개
   url: /about/
+- key: affiliation
+  label: Affiliation
+  label_ko: 소속
+  url: /affiliation/
 - key: activities
   label: Activities
   label_ko: 활동

@@ -1,0 +1,16 @@
+---
+layout: default
+key: affiliation
+title: Affiliation
+title_ko: 소속
+---
+<section class="about" id="affiliation" aria-labelledby="h-affiliation">
+  <div class="grid">
+    <div class="sec-head">
+      <h1 id="h-affiliation">{% include t.html en=page.title ko=page.title_ko %}</h1>
+    </div>
+    <div>
+      {% include timeline.html items=site.data.affiliation %}
+    </div>
+  </div>
+</section>

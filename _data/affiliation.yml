@@ -1,0 +1,22 @@
+# The timeline on the Affiliation page, in the order shown. Same keys as _data/about.yml:
+#   when: since when, as it should read (for example 2025.03 ~)
+#   what: the school, group or lab
+#   url:  optional website; shown as a small arrow after `what`, and the arrow is the link
+#   role: optional line under it
+# A key ending in _ko is the Korean text for the same line (what_ko, role_ko, when_ko). Leave it out and
+# the English text is shown in both languages.
+- when: 2025.03 ~
+  what: Sejong Univ.
+  what_ko: 세종대학교
+
+- when: 2025.03 ~
+  what: SSG (Sejong Security Group)
+
+- when: 2026.07 ~
+  what: ARTLAB
+  url: https://artlab.sejong.ac.kr/home
+  role: Undergraduate Researcher
+  role_ko: 학부연구생
+
+- when: 2026.11 ~
+  what: Cold Triangle
