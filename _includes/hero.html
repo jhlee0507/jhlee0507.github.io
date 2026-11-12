@@ -20,10 +20,8 @@
     <p class="contact-label" id="hero-contact-label">{% include t.html en="Contact" ko="연락처" %}</p>
     <ul aria-labelledby="hero-contact-label">
       {%- for item in site.contact %}
-      {%- assign scheme = item.url | slice: 0, 7 %}
-      {%- if scheme == 'mailto:' %}
-      {%- assign address = item.url | remove_first: 'mailto:' %}
-      <li><a href="{{ item.url | escape }}" aria-label="{{ item.name | escape }}: {{ address | escape }}">{% include icon-mail.html %}<span>{{ address | escape }}</span></a></li>
+      {%- if item.text %}
+      <li><span class="plain">{% include icon-mail.html %}<span class="sr-only">{{ item.name | escape }}: </span><span>{{ item.text | escape }}</span></span></li>
       {%- else %}
       <li><a class="logo" href="{{ item.url | escape }}" rel="me noopener" target="_blank" aria-label="{{ item.name | escape }}" title="{{ item.name | escape }}">{% if item.icon == 'x' %}{% include icon-x.html %}{% elsif item.icon == 'github' %}{% include icon-github.html %}{% else %}{{ item.name | escape }}{% endif %}</a></li>
       {%- endif %}
