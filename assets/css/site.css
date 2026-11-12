@@ -228,6 +228,11 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 .sec-head p{text-wrap:balance}
 
 /* about */
+/* a short introduction above the timeline */
+.about-intro{margin:0 0 2.75rem;max-width:40rem;font-size:1.0625rem;line-height:1.7;color:var(--ink-2)}
+.about-intro p{margin:0}
+.about-intro p + p{margin-top:.75rem}
+@media (max-width:47.99rem){.about-intro{margin-bottom:2.25rem;font-size:1rem;line-height:1.65}}
 /* a timeline: a thin rail with a dot per entry, the period above what it was */
 .timeline{list-style:none;margin:0;padding:0}
 .timeline li{position:relative;padding:0 0 2.5rem 2.25rem}
