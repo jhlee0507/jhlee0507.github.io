@@ -230,10 +230,10 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 /* about and affiliation */
 /* the About page is its heading and, under it, the introduction in the colour of the heading */
 .page-about .grid{display:block}
-.about-intro{margin:2.75rem 0 0;max-width:52rem;font-size:1.4375rem;line-height:1.65;color:var(--ink)}
+.about-intro{margin:3.75rem 0 0;max-width:52rem;font-size:1.4375rem;line-height:1.65;color:var(--ink)}
 .about-intro p{margin:0}
 .about-intro p + p{margin-top:1rem}
-@media (max-width:47.99rem){.about-intro{margin-top:2.25rem;font-size:1.25rem;line-height:1.6}}
+@media (max-width:47.99rem){.about-intro{margin-top:3rem;font-size:1.25rem;line-height:1.6}}
 /* a timeline: a thin rail with a dot per entry, the period above what it was */
 .timeline{list-style:none;margin:0;padding:0}
 .timeline li{position:relative;padding:0 0 2.5rem 2.25rem}
