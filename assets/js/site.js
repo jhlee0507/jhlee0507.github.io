@@ -1,4 +1,4 @@
-/* r3c0n — the three-line menu. Without JavaScript the links stay visible in the header. */
+/* r3con — the three-line menu. Without JavaScript the links stay visible in the header. */
 (function(){
   function ko(){return document.documentElement.getAttribute('data-lang')==='ko'}
   var mast=document.querySelector('.mast'),btn=mast&&mast.querySelector('.menu-btn'),nav=document.getElementById('site-nav');
