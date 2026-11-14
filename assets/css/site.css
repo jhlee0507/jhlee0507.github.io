@@ -166,7 +166,7 @@ html[data-theme="dark"] .theme-btn .moon{display:none}
 @media (max-width:30rem){.js .mast .links{left:0;min-width:0}}
 
 /* hero */
-.hero{--h1:clamp(2.5rem,12.5vw,5.5rem);position:relative;padding:3.5rem 0 3.5rem;border-bottom:1px solid var(--rule)}
+.hero{--h1:clamp(2.125rem,10vw,4.25rem);position:relative;padding:3.5rem 0 3.5rem;border-bottom:1px solid var(--rule)}
 @media (min-width:48rem){.hero{padding:5.5rem 0 5rem}}
 @media (min-width:64rem){.hero{padding:9.5rem 0 8.5rem}}
 /* the name in large type, and under it the handle, smaller and in the fixed-width face */
@@ -180,7 +180,7 @@ html[data-theme="dark"] .theme-btn .moon{display:none}
   letter-spacing:-.04em;
   color:var(--ink);
 }
-.hero .alias{margin:.7rem 0 0;font-family:var(--mono);font-size:clamp(1.375rem,4.4vw,2.125rem);font-weight:600;line-height:1.1;letter-spacing:-.03em;color:var(--ink-2)}
+.hero .alias{margin:.6rem 0 0;font-family:var(--mono);font-size:clamp(1.25rem,3.6vw,1.75rem);font-weight:600;line-height:1.1;letter-spacing:-.03em;color:var(--ink-2)}
 .hero .lede{
   margin:1.5rem 0 0;
   max-width:36ch;
@@ -199,7 +199,7 @@ html[data-theme="dark"] .theme-btn .moon{display:none}
 @media (max-width:47.99rem){.hero .intro{font-size:1rem;line-height:1.5}.hero .intro p{text-wrap:balance}}
 /* a phone held sideways: a smaller name so it stays on the first screen */
 @media (min-width:35rem) and (max-width:47.99rem) and (orientation:landscape) and (max-height:31.25rem){
-  .hero{--h1:clamp(2.5rem,18vh,5.5rem);padding:2.5rem 0 4rem}
+  .hero{--h1:clamp(2.125rem,15vh,4.25rem);padding:2.5rem 0 4rem}
 }
 
 /* generic section */
