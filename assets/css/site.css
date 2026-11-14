@@ -166,20 +166,21 @@ html[data-theme="dark"] .theme-btn .moon{display:none}
 @media (max-width:30rem){.js .mast .links{left:0;min-width:0}}
 
 /* hero */
-.hero{--h1:clamp(3.5rem,17vw,7.5rem);position:relative;padding:3.5rem 0 3.5rem;border-bottom:1px solid var(--rule)}
+.hero{--h1:clamp(2.5rem,12.5vw,5.5rem);position:relative;padding:3.5rem 0 3.5rem;border-bottom:1px solid var(--rule)}
 @media (min-width:48rem){.hero{padding:5.5rem 0 5rem}}
 @media (min-width:64rem){.hero{padding:9.5rem 0 8.5rem}}
+/* the name in large type, and under it the handle, smaller and in the fixed-width face */
 .hero h1{
   margin:0;
   width:fit-content;
-  font-family:var(--mono);
+  font-family:var(--sans);
   font-weight:700;
   font-size:var(--h1);
-  line-height:.9;
-  letter-spacing:-.065em;
+  line-height:1;
+  letter-spacing:-.04em;
   color:var(--ink);
 }
-h1 .wm{display:inline-block;padding-right:.09em}
+.hero .alias{margin:.7rem 0 0;font-family:var(--mono);font-size:clamp(1.375rem,4.4vw,2.125rem);font-weight:600;line-height:1.1;letter-spacing:-.03em;color:var(--ink-2)}
 .hero .lede{
   margin:1.5rem 0 0;
   max-width:36ch;
@@ -198,7 +199,7 @@ h1 .wm{display:inline-block;padding-right:.09em}
 @media (max-width:47.99rem){.hero .intro{font-size:1rem;line-height:1.5}.hero .intro p{text-wrap:balance}}
 /* a phone held sideways: a smaller name so it stays on the first screen */
 @media (min-width:35rem) and (max-width:47.99rem) and (orientation:landscape) and (max-height:31.25rem){
-  .hero{--h1:clamp(3.5rem,26vh,7.5rem);padding:2.5rem 0 4rem}
+  .hero{--h1:clamp(2.5rem,18vh,5.5rem);padding:2.5rem 0 4rem}
 }
 
 /* generic section */
@@ -324,14 +325,13 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 .contact a:focus-visible{outline-offset:2px}
 .contact svg{width:1.25rem;height:1.25rem;fill:currentColor}
 
-/* the main page: the name, tagline and introduction sit centred in the middle of the space between the header
-   and the contact row, which keeps to the left; under the row the bottom line, then glass buttons (one per page) */
+/* the main page: the name, the handle, the tagline and the introduction at the top left; the contact row is
+   pinned just above the bottom line, and under the line are glass buttons (one per page) */
 .page-home main{display:flex;flex-direction:column}
-/* the extra at the top makes up for the empty space type and logos carry inside their own boxes, so the space
-   seen above the name equals the space seen under the introduction */
-.page-home .hero{flex:1 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(2.5rem + 10px) 0 2.5rem;border-bottom:0;text-align:center}
-@media (min-width:48rem){.page-home .hero{padding-top:calc(2.5rem + 8px)}}
-.page-home main>.contact{padding-bottom:.5rem}
+.page-home .hero{padding-top:clamp(2.5rem,9vh,3.5rem);padding-bottom:2.5rem;border-bottom:0}
+@media (min-width:48rem){.page-home .hero{padding-top:clamp(3rem,10vh,5.5rem);padding-bottom:3rem}}
+@media (min-width:64rem){.page-home .hero{padding-top:clamp(3rem,14vh,9.5rem);padding-bottom:3.5rem}}
+.page-home main>.contact{margin-top:auto;padding-bottom:.5rem}
 /* the same space above the line, under it and under the buttons */
 .page-home footer{min-height:0;padding:1.25rem 0 calc(1.25rem + env(safe-area-inset-bottom))}
 .home-nav{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:.5rem}
