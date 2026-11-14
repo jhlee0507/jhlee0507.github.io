@@ -8,15 +8,11 @@
   label: About
   label_ko: 소개
   url: /about/
-- key: affiliation
-  label: Affiliation
-  label_ko: 소속
-  url: /affiliation/
-  home: false
 - key: activities
   label: Activities
   label_ko: 활동
   url: /activities/
-- key: cve
-  label: CVE
-  url: /cve/
+- key: affiliation
+  label: Affiliation
+  label_ko: 소속
+  url: /affiliation/

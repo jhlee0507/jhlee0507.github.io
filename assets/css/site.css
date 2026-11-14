@@ -275,7 +275,7 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 .proj .body .ref:hover{color:var(--accent);text-decoration-color:var(--accent)}
 .proj .role{display:inline-block;margin-top:.9rem;padding:.25rem .7rem;border:1px solid transparent;border-radius:999px;background:linear-gradient(var(--paper),var(--paper)) padding-box,var(--grad) border-box;font-family:var(--mono);font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
 
-/* CVE: a frosted-glass card per id, with a thin band of the gradient down its left edge */
+/* CVE (on the Activities page): a frosted-glass card per id, with a thin band of the gradient down its left edge */
 .cves{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
 .cves a{
   position:relative;overflow:hidden;
@@ -341,10 +341,10 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 .home-nav a{
   display:flex;align-items:center;justify-content:center;
   min-height:3.25rem;
-  padding:.5rem .25rem;
+  padding:.5rem .125rem;
   border:1px solid rgba(255,255,255,.8);
   border-radius:14px;
-  font-family:var(--mono);font-size:clamp(.8125rem,3.8vw,1.0625rem);font-weight:600;letter-spacing:.01em;text-align:center;white-space:nowrap;
+  font-family:var(--mono);font-size:clamp(.75rem,3.7vw,1.0625rem);font-weight:600;letter-spacing:.01em;text-align:center;white-space:nowrap;
   color:var(--ink);text-decoration:none;
   /* glass: see-through, lit along the top edge, blurring what is behind it */
   background-color:rgba(255,255,255,.42);

@@ -1,8 +1,8 @@
-# One entry per CVE, shown as a list on the CVE page.
+# One entry per CVE, shown as cards under the CVE heading of the Activities page.
 # Optional per entry:
 #   url:    link target (default: the MSRC page for that id)
 #   source: the small label on the right (default: MSRC); keep it short, about 10 characters at most
-#   desc:   a short description shown under the id on the CVE page, for example
+#   desc:   a short description shown under the id, for example
 #           desc: Link Following Arbitrary File Corruption
 #           (desc_ko is the same line in Korean; leave it out and the English one is shown in both languages)
 - id: CVE-2026-83834

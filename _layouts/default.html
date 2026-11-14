@@ -16,9 +16,9 @@
 <script>
 /* Marks that scripts run, so the header shows the three-line menu from the first paint, and applies dark mode
    and Korean if the visitor chose them before, so the page never flashes the other way first. On the main page it also
-   forwards the old single-page links (#about, #research, #cve) to their new pages. It sits above the stylesheets
+   forwards the old single-page links (#about, #research, #cve) to where that content is now. It sits above the stylesheets
    so that the forward does not wait for them. */
-(function(d){d.className+=' js';try{if(localStorage.getItem('theme')==='dark')d.setAttribute('data-theme','dark');if(localStorage.getItem('lang')==='ko'){d.setAttribute('data-lang','ko');d.lang='ko';var t=d.getAttribute('data-title-ko');if(t)document.title=t}}catch(e){}{% if page.key == 'home' %}function go(){var to={'#about':'about/','#research':'activities/','#cve':'cve/'}[location.hash];if(to)location.replace('{{ '/' | relative_url }}'+to)}go();addEventListener('hashchange',go);{% endif %}})(document.documentElement);
+(function(d){d.className+=' js';try{if(localStorage.getItem('theme')==='dark')d.setAttribute('data-theme','dark');if(localStorage.getItem('lang')==='ko'){d.setAttribute('data-lang','ko');d.lang='ko';var t=d.getAttribute('data-title-ko');if(t)document.title=t}}catch(e){}{% if page.key == 'home' %}function go(){var to={'#about':'about/','#research':'activities/','#cve':'activities/#cve'}[location.hash];if(to)location.replace('{{ '/' | relative_url }}'+to)}go();addEventListener('hashchange',go);{% endif %}})(document.documentElement);
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

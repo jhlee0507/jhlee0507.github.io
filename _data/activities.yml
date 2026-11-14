@@ -1,4 +1,5 @@
 # The Activities page: categories in the order shown, each with its entries under `list`.
+# (The CVE heading at the end of that page is not listed here: it is filled from _data/cves.yml.)
 # A category with an empty list (`list: []`) still shows its heading, with a short placeholder line.
 # Per entry: `title`, `summary`, and optionally `org` (the line under the title), `when` (the period,
 # written as it should read) and `role` (a badge).
