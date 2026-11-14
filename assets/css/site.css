@@ -325,16 +325,17 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 .contact a:focus-visible{outline-offset:2px}
 .contact svg{width:1.25rem;height:1.25rem;fill:currentColor}
 
-/* the main page: the name, the handle, the tagline, the introduction and the contact logos at the top left;
-   at the foot of the page the bottom line and, under it, glass buttons (one per page) */
+/* the main page: the name, the handle, the tagline and the introduction at the top left; the contact block is
+   pinned just above the bottom line, and under the line are glass buttons (one per page) */
+.page-home main{display:flex;flex-direction:column}
 .page-home .hero{padding-top:clamp(2.5rem,9vh,3.5rem);padding-bottom:2.5rem;border-bottom:0}
 @media (min-width:48rem){.page-home .hero{padding-top:clamp(3rem,10vh,5.5rem);padding-bottom:3rem}}
 @media (min-width:64rem){.page-home .hero{padding-top:clamp(3rem,14vh,9.5rem);padding-bottom:3.5rem}}
 /* contact on the main page: a heading set like the tagline, the logos under it */
-.contact-hero{display:block;margin-top:2.25rem}
-.contact-hero .contact-label{display:block;font-family:var(--sans);font-size:clamp(1.25rem,1.95vw,1.5625rem);line-height:1.45;font-weight:500;letter-spacing:-.012em;text-transform:none;color:var(--ink)}
-html[data-lang="ko"] .contact-hero .contact-label{letter-spacing:-.012em}
-.contact-hero ul{margin-top:.25rem}
+.contact-stacked{display:block;margin-top:auto;padding-bottom:.5rem}
+.contact-stacked .contact-label{display:block;font-family:var(--sans);font-size:clamp(1.25rem,1.95vw,1.5625rem);line-height:1.45;font-weight:500;letter-spacing:-.012em;text-transform:none;color:var(--ink)}
+html[data-lang="ko"] .contact-stacked .contact-label{letter-spacing:-.012em}
+.contact-stacked ul{margin-top:.25rem}
 /* the same space above the line, under it and under the buttons */
 .page-home footer{min-height:0;padding:1.25rem 0 calc(1.25rem + env(safe-area-inset-bottom))}
 .home-nav{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:.5rem}

@@ -32,6 +32,10 @@
 <main id="main" class="wrap">
 {% if page.key == 'home' %}{% include hero.html %}{% endif %}
 {{ content }}
+{%- if page.key == 'home' and site.contact.size > 0 %}
+{%- comment %} on the main page the contact block sits just above the bottom line: a heading, the logos under it {% endcomment %}
+{% include contact.html variant="stacked" %}
+{%- endif %}
 </main>
 
 <footer class="wrap">
