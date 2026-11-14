@@ -173,7 +173,7 @@ html[data-theme="dark"] .theme-btn .moon{display:none}
   margin:0;
   width:fit-content;
   font-family:var(--mono);
-  font-weight:800;
+  font-weight:700;
   font-size:var(--h1);
   line-height:.9;
   letter-spacing:-.065em;
