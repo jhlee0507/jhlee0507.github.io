@@ -1,7 +1,8 @@
 {%- comment -%}
   The contact row: a label and a logo per link. The email is an envelope that opens a new message.
+  With `variant="hero"` (the main page) the label is a heading in the size of the tagline, the logos under it.
 {%- endcomment -%}
-<div class="contact">
+<div class="contact{% if include.variant %} contact-{{ include.variant }}{% endif %}">
   <span class="contact-label" id="contact-label">{% include t.html en="Contact" ko="연락처" %}</span>
   <ul aria-labelledby="contact-label">
     {%- for item in site.contact %}
