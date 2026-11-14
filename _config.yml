@@ -1,5 +1,8 @@
 # Built by GitHub Pages (Jekyll). Text that appears on every page lives here.
 title: r3con
+# The name in large type at the top of the main page; `title` above is set under it in smaller type.
+real_name: Junghwan Lee
+real_name_ko: 이정환
 # The line under the name. It also ends the browser-tab title of the main page.
 tagline: Vulnerability Researcher
 tagline_ko: 취약점 연구자
