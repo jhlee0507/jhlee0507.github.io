@@ -42,7 +42,7 @@
     var dark=isDark();
     var ko=root.getAttribute('data-lang')==='ko';
     btn.setAttribute('aria-label',dark?(ko?'밝은 화면으로 전환':'Switch to light mode'):(ko?'다크 모드로 전환':'Switch to dark mode'));
-    if(metaTheme)metaTheme.setAttribute('content',dark?'#0b0a18':'#eeeef2');
+    if(metaTheme)metaTheme.setAttribute('content',getComputedStyle(root).getPropertyValue('--ground').trim()||(dark?'#0b0a18':'#eeeef2'));
   }
   btn.addEventListener('click',function(){
     var dark=!isDark();
