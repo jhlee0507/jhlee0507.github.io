@@ -59,4 +59,17 @@ title_ko: 활동
     {%- endif %}
   </div>
   {%- endfor %}
+  {%- comment %} the CVEs, from _data/cves.yml: a card per id, linked to its advisory {% endcomment %}
+  {%- if site.data.cves.size > 0 %}
+  <div class="cat" id="cve">
+    <h2 id="cat-cve">CVE</h2>
+    <ul class="cves" aria-labelledby="cat-cve">
+      {%- for cve in site.data.cves %}
+      {%- assign href = site.cve_url | append: cve.id %}
+      {%- if cve.url %}{% assign href = cve.url %}{% endif %}
+      <li class="c{{ forloop.index0 | modulo: 3 }}"><a href="{{ href | escape }}" rel="noopener" target="_blank"><span class="what"><span class="id">{{ cve.id | escape }}</span>{% if cve.desc %}<span class="desc">{% include t.html en=cve.desc ko=cve.desc_ko %}</span>{% endif %}</span><span class="lab">{{ cve.source | default: site.cve_source | escape }}</span></a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+  {%- endif %}
 </section>
