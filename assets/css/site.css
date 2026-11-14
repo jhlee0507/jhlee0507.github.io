@@ -1,4 +1,4 @@
-/* r3c0n — site styles. Colours are sampled from the reference image: a pale grey-white ground with violet -> royal blue -> azure accents. */
+/* r3con — site styles. Colours are sampled from the reference image: a pale grey-white ground with violet -> royal blue -> azure accents. */
 :root{
   /* sampled from the reference: soft grey-white ground, violet -> royal blue -> azure */
   --ground:#eeeef2;
@@ -183,7 +183,7 @@ html[data-theme="dark"] .theme-btn .moon{display:none}
   color:var(--ink);
 }
 h1 .wm{display:inline-block;padding-right:.09em}
-/* the zero carries the reference gradient */
+/* the o of the name carries the gradient of the logo (the class is still called zero: the name was r3c0n) */
 h1 .zero{display:inline-block;color:var(--accent);filter:drop-shadow(0 .05em .13em rgba(var(--bl),.38))}
 @supports ((-webkit-background-clip:text) or (background-clip:text)){
   h1 .zero{background-image:var(--grad-zero);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}

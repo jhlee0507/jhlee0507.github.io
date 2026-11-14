@@ -1,5 +1,5 @@
 # Built by GitHub Pages (Jekyll). Text that appears on every page lives here.
-title: r3c0n
+title: r3con
 # The line under the name. It also ends the browser-tab title of the main page.
 tagline: Vulnerability Researcher
 tagline_ko: 취약점 연구자
@@ -11,7 +11,7 @@ intro:
 intro_ko:
   - 제로데이 취약점을 연구하고 버그 바운티를 하고 있습니다.
 description: >-
-  r3c0n is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers.
+  r3con is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers.
   WhiteHat School 4th cohort.
 # Contact links, shown in a row under the bottom line of every page (on the main page, just above that
 # line), each as a logo. `icon` is x or github; `name` is what a screen reader says for the logo.
