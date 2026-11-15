@@ -34,24 +34,18 @@
 {{ content }}
 {%- if page.key == 'home' and site.contact.size > 0 %}
 {%- comment %} on the main page the contact block sits just above the bottom line: a heading, the logos under it {% endcomment %}
-{% include contact.html variant="stacked" %}
+{% include contact.html %}
 {%- endif %}
 </main>
 
-<footer class="wrap">
-{%- if page.key == 'home' %}
-  {%- comment %} under the line the main page ends in a bar of glass across the page: one capsule holding a label per
-     page (bar those with `home: false` in _data/nav.yml); the one under the pointer or finger lights up on a pill {% endcomment %}
-  {%- assign buttons = site.data.nav | where_exp: "item", "item.home != false" %}
-  <nav class="home-nav" aria-label="Pages" data-label-ko="페이지">
-    {%- for item in buttons %}
-    <a href="{{ item.url | relative_url }}">{% include t.html en=item.label ko=item.label_ko %}</a>
-    {%- endfor %}
-  </nav>
-{%- elsif site.contact.size > 0 %}
-  {% include contact.html %}
-{%- endif %}
-</footer>
+{%- comment %} every page ends in the bottom line and, under it, a bar of glass with a tab per entry of _data/tabs.yml,
+   each shown as an icon. The bar keeps to the foot of the screen while the page scrolls under it. {% endcomment %}
+<div class="endline" aria-hidden="true"></div>
+<nav class="tabbar" aria-label="Pages" data-label-ko="페이지">
+  {%- for tab in site.data.tabs %}
+  <a href="{{ tab.url | relative_url }}" aria-label="{{ tab.label | escape }}" title="{{ tab.label | escape }}"{% if tab.label_ko %} data-label-ko="{{ tab.label_ko | escape }}"{% endif %}{% if page.key == tab.key %} aria-current="page"{% endif %}>{% include icon-tab.html key=tab.key %}</a>
+  {%- endfor %}
+</nav>
 <!-- If the menu script cannot be loaded, fall back to the plain header with its links visible. -->
 <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer onerror="document.documentElement.classList.remove('js')"></script>
 </body>

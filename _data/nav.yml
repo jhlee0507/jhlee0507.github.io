@@ -1,7 +1,6 @@
-# The three-line menu, in order. Each item is shown as a path (/About). The same items are the labels in the
-# bar at the foot of the main page, where `label_ko` is the Korean wording. An item with `home: false` is in
-# the menu only and is left out of the bar.
+# The three-line menu, in order. Each item is shown as a path (/About).
 # `key` is the `key:` at the top of the page's index.html (and the id of its section); `url` is its folder.
+# (The bar at the foot of every page has its own list: _data/tabs.yml.)
 # Old single-page links (/#about, /#research, /#cve) are forwarded by the script in _layouts/default.html:
 # if a folder or key here is renamed, change it there too.
 - key: about
@@ -16,7 +15,6 @@
   label: Affiliation
   label_ko: 소속
   url: /affiliation/
-  home: false
 - key: blog
   label: Blog
   label_ko: 블로그

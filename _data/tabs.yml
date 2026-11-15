@@ -1,0 +1,16 @@
+# The bar of glass at the foot of every page, left to right. Each tab is shown as an icon only; `label` (and
+# `label_ko` in Korean) is what a screen reader says for it and what shows when a mouse rests on it.
+# `key` picks the icon (see _includes/icon-tab.html) and is matched against the `key:` at the top of a page's
+# index.html, so that the tab of the page being read stays lit. `url` is where the tab goes.
+- key: home
+  label: Home
+  label_ko: 홈
+  url: /
+- key: activities
+  label: Activities
+  label_ko: 활동
+  url: /activities/
+- key: blog
+  label: Blog
+  label_ko: 블로그
+  url: /blog/

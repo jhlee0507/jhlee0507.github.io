@@ -78,6 +78,8 @@
       var el=els[i];
       if(!el.hasAttribute('data-label-en'))el.setAttribute('data-label-en',el.getAttribute('aria-label')||'');
       el.setAttribute('aria-label',el.getAttribute(ko?'data-label-ko':'data-label-en'));
+      /* a tooltip, where there is one, says the same */
+      if(el.hasAttribute('title'))el.setAttribute('title',el.getAttribute('aria-label'));
     }
     document.dispatchEvent(new Event('langchange'));
   }
@@ -92,15 +94,16 @@
   show();
 })();
 
-/* the glass bar at the foot of the main page: one lighter pill marks the label under the pointer or finger,
-   and glides to the next label instead of jumping. On a touch screen the finger can press, slide along the
-   bar with the pill following it, and let go on another label to open that page; letting go away from the
-   bar opens nothing. Without this script each label lights up in place. */
+/* the glass bar at the foot of every page: one lighter pill rests on the tab of the page being read, glides
+   to the tab under the pointer or finger instead of jumping, and glides back when that leaves. On a touch
+   screen the finger can press, slide along the bar with the pill following it, and let go on another tab to
+   open that page; letting go away from the bar opens nothing. Without this script the tabs light up in place. */
 (function(){
-  var nav=document.querySelector('.home-nav');
+  var nav=document.querySelector('.tabbar');
   if(!nav||!window.PointerEvent)return;
   var links=Array.prototype.slice.call(nav.querySelectorAll('a'));
   if(!links.length)return;
+  var rest=nav.querySelector('a[aria-current="page"]');
   var pill=document.createElement('span'),cur=null,timer=0;
   var finger=null,slid=false,mute=false;
   pill.className='pill';pill.setAttribute('aria-hidden','true');
@@ -112,18 +115,20 @@
     if(cur===a)return;
     if(cur){cur.classList.remove('is-on');place(a)}
     else{
-      /* appearing: start on the label itself rather than flying in from the edge of the bar */
+      /* appearing: start on the tab itself rather than flying in from the edge of the bar */
       pill.style.transition='opacity .22s ease';place(a);pill.getBoundingClientRect();pill.style.transition='';
     }
     cur=a;a.classList.add('is-on');pill.classList.add('on');
   }
+  /* nothing is pointed at any more: back to the tab of this page, or away if this page has no tab */
   function hide(){
     clearTimeout(timer);
+    if(rest){show(rest);return}
     if(!cur)return;
     cur.classList.remove('is-on');cur=null;pill.classList.remove('on');
   }
   function keyboard(a){try{return a.matches(':focus-visible')}catch(e){return true}}
-  /* the label under a finger at x,y: the nearest column while the finger stays on or close to the bar */
+  /* the tab under a finger at x,y: the nearest column while the finger stays on or close to the bar */
   function under(x,y){
     var r=nav.getBoundingClientRect(),i,q;
     if(y<r.top-44||y>r.bottom+44||x<r.left-24||x>r.right+24)return null;
@@ -137,11 +142,11 @@
     a.addEventListener('focus',function(){if(keyboard(a))show(a)});
   });
   nav.addEventListener('pointerleave',function(e){if(e.pointerType!=='touch')hide()});
-  /* a touch stays tied to the label it began on, so the bar itself works out where the finger is now */
+  /* a touch stays tied to the tab it began on, so the bar itself works out where the finger is now */
   nav.addEventListener('pointermove',function(e){
     if(e.pointerId!==finger)return;
     var a=under(e.clientX,e.clientY);
-    if(a===cur)return;
+    if(a===cur||(!a&&cur===rest))return;
     slid=true;
     if(a)show(a);else hide();
   });
@@ -149,10 +154,11 @@
     if(e.pointerId!==finger)return;
     finger=null;
     if(!slid){clearTimeout(timer);timer=setTimeout(hide,400);return}
-    /* the finger moved to another label (or off the bar): the tap that follows belongs to where it began, so
-       swallow it and open the label it ended on */
+    /* the finger moved to another tab (or off the bar): the tap that follows belongs to where it began, so
+       swallow it and open the tab it ended on, unless that is the page already being read */
     mute=true;setTimeout(function(){mute=false},450);
-    if(cur)window.location.href=cur.href;
+    var a=under(e.clientX,e.clientY);
+    if(a&&a!==rest)window.location.href=a.href;else hide();
   });
   nav.addEventListener('pointercancel',function(e){if(e.pointerId===finger){finger=null;hide()}});
   nav.addEventListener('click',function(e){if(mute){e.preventDefault();e.stopPropagation()}},true);
@@ -163,4 +169,5 @@
   window.addEventListener('resize',function(){if(cur)place(cur)});
   /* coming back with the browser's Back button: start clean */
   window.addEventListener('pageshow',function(e){if(e.persisted){finger=null;hide()}});
+  if(rest)show(rest);
 })();

@@ -1,8 +1,8 @@
 {%- comment -%}
-  The contact row: a label and a logo per link. The email is an envelope that opens a new message.
-  With `variant="stacked"` (the main page) the label is a heading in the size of the tagline, the logos under it.
+  Contact, on the main page: a heading in the size of the tagline and under it a logo per link.
+  The email is an envelope that opens a new message.
 {%- endcomment -%}
-<div class="contact{% if include.variant %} contact-{{ include.variant }}{% endif %}">
+<div class="contact">
   <span class="contact-label" id="contact-label">{% include t.html en="Contact" ko="연락처" %}</span>
   <ul aria-labelledby="contact-label">
     {%- for item in site.contact %}
