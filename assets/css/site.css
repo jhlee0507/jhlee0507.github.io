@@ -350,6 +350,8 @@ html[data-lang="ko"] .contact-stacked .contact-label{letter-spacing:-.012em}
 .home-nav{
   position:relative;isolation:isolate;
   display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:.25rem;
+  /* a finger sliding sideways along the bar moves the pill instead of the page; up and down still scrolls */
+  touch-action:pan-y;
   padding:.3125rem;
   border:1px solid rgba(255,255,255,.92);
   border-radius:999px;
@@ -376,6 +378,8 @@ html[data-lang="ko"] .contact-stacked .contact-label{letter-spacing:-.012em}
   border-radius:999px;
   font-family:var(--sans);font-size:clamp(.875rem,3.9vw,1rem);line-height:1.2;font-weight:600;letter-spacing:-.005em;text-align:center;white-space:nowrap;
   color:var(--ink-2);text-decoration:none;
+  /* held down, a label is not selected, previewed or dragged away (iPhone) */
+  -webkit-touch-callout:none;-webkit-user-select:none;user-select:none;-webkit-user-drag:none;touch-action:pan-y;
   transition:color .2s ease,transform .15s ease;
 }
 .home-nav a:hover,.home-nav a.is-on{color:var(--ink)}

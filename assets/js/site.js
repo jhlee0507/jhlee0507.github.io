@@ -93,13 +93,16 @@
 })();
 
 /* the glass bar at the foot of the main page: one lighter pill marks the label under the pointer or finger,
-   and glides to the next label instead of jumping. Without this script each label lights up in place. */
+   and glides to the next label instead of jumping. On a touch screen the finger can press, slide along the
+   bar with the pill following it, and let go on another label to open that page; letting go away from the
+   bar opens nothing. Without this script each label lights up in place. */
 (function(){
   var nav=document.querySelector('.home-nav');
   if(!nav||!window.PointerEvent)return;
-  var links=nav.querySelectorAll('a');
+  var links=Array.prototype.slice.call(nav.querySelectorAll('a'));
   if(!links.length)return;
   var pill=document.createElement('span'),cur=null,timer=0;
+  var finger=null,slid=false,mute=false;
   pill.className='pill';pill.setAttribute('aria-hidden','true');
   nav.insertBefore(pill,nav.firstChild);
   nav.classList.add('has-pill');
@@ -120,16 +123,44 @@
     cur.classList.remove('is-on');cur=null;pill.classList.remove('on');
   }
   function keyboard(a){try{return a.matches(':focus-visible')}catch(e){return true}}
-  Array.prototype.forEach.call(links,function(a){
+  /* the label under a finger at x,y: the nearest column while the finger stays on or close to the bar */
+  function under(x,y){
+    var r=nav.getBoundingClientRect(),i,q;
+    if(y<r.top-44||y>r.bottom+44||x<r.left-24||x>r.right+24)return null;
+    for(i=0;i<links.length;i++){q=links[i].getBoundingClientRect();if(x<q.right||i===links.length-1)return links[i]}
+    return null;
+  }
+  links.forEach(function(a){
+    a.setAttribute('draggable','false');
     a.addEventListener('pointerenter',function(e){if(e.pointerType!=='touch')show(a)});
-    a.addEventListener('pointerdown',function(e){if(e.pointerType==='touch')show(a)});
+    a.addEventListener('pointerdown',function(e){if(e.pointerType==='touch'){finger=e.pointerId;slid=false;show(a)}});
     a.addEventListener('focus',function(){if(keyboard(a))show(a)});
   });
   nav.addEventListener('pointerleave',function(e){if(e.pointerType!=='touch')hide()});
-  nav.addEventListener('pointerup',function(e){if(e.pointerType==='touch'){clearTimeout(timer);timer=setTimeout(hide,400)}});
-  nav.addEventListener('pointercancel',hide);
+  /* a touch stays tied to the label it began on, so the bar itself works out where the finger is now */
+  nav.addEventListener('pointermove',function(e){
+    if(e.pointerId!==finger)return;
+    var a=under(e.clientX,e.clientY);
+    if(a===cur)return;
+    slid=true;
+    if(a)show(a);else hide();
+  });
+  nav.addEventListener('pointerup',function(e){
+    if(e.pointerId!==finger)return;
+    finger=null;
+    if(!slid){clearTimeout(timer);timer=setTimeout(hide,400);return}
+    /* the finger moved to another label (or off the bar): the tap that follows belongs to where it began, so
+       swallow it and open the label it ended on */
+    mute=true;setTimeout(function(){mute=false},450);
+    if(cur)window.location.href=cur.href;
+  });
+  nav.addEventListener('pointercancel',function(e){if(e.pointerId===finger){finger=null;hide()}});
+  nav.addEventListener('click',function(e){if(mute){e.preventDefault();e.stopPropagation()}},true);
+  /* no link menu and no dragging the link away while a finger is held on the bar */
+  nav.addEventListener('contextmenu',function(e){if(finger!==null)e.preventDefault()});
+  nav.addEventListener('dragstart',function(e){e.preventDefault()});
   nav.addEventListener('focusout',function(e){if(!nav.contains(e.relatedTarget)&&!nav.matches(':hover'))hide()});
   window.addEventListener('resize',function(){if(cur)place(cur)});
   /* coming back with the browser's Back button: start clean */
-  window.addEventListener('pageshow',function(e){if(e.persisted)hide()});
+  window.addEventListener('pageshow',function(e){if(e.persisted){finger=null;hide()}});
 })();
