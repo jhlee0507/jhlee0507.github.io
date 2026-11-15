@@ -55,9 +55,8 @@ html[data-theme="dark"] body{
 html[data-theme="dark"] .timeline .ext{color:#c9d0ff;background-color:rgba(147,160,255,.22)}
 html[data-theme="dark"] .cves a{border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.05);background-image:linear-gradient(135deg,rgba(255,255,255,.11),rgba(255,255,255,.02));box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 18px 36px -22px rgba(0,0,0,.85)}
 html[data-theme="dark"] .cves a:hover{background-color:rgba(255,255,255,.09)}
-html[data-theme="dark"] .home-nav{border-color:rgba(255,255,255,.14);background-color:rgba(30,29,50,.55);box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 14px 34px -14px rgba(0,0,0,.8)}
-html[data-theme="dark"] .home-nav a:active{border-color:rgba(255,255,255,.2);background-color:rgba(255,255,255,.13);box-shadow:0 1px 0 rgba(255,255,255,.14) inset,0 2px 8px rgba(0,0,0,.35)}
-@media (hover:hover){html[data-theme="dark"] .home-nav a:hover{border-color:rgba(255,255,255,.2);background-color:rgba(255,255,255,.13);box-shadow:0 1px 0 rgba(255,255,255,.14) inset,0 2px 8px rgba(0,0,0,.35)}}
+html[data-theme="dark"] .home-nav{--pill-bg:linear-gradient(180deg,rgba(255,255,255,.27),rgba(255,255,255,.1));--pill-rim:rgba(255,255,255,.32);--pill-shadow:0 1px 0 rgba(255,255,255,.38) inset,0 -1px 0 rgba(0,0,0,.2) inset,0 8px 18px -6px rgba(0,0,0,.75);border-color:rgba(255,255,255,.2);background-color:rgba(22,21,44,.4);background-image:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.02) 55%,rgba(255,255,255,.07)),linear-gradient(100deg,rgba(var(--vi),.17),rgba(var(--bl),.1) 50%,rgba(var(--sk),.15));box-shadow:0 1px 0 rgba(255,255,255,.24) inset,0 -1px 0 rgba(255,255,255,.07) inset,0 -12px 20px -14px rgba(var(--az),.35) inset,0 20px 44px -16px rgba(0,0,0,.9)}
+html[data-theme="dark"] .home-nav::before{opacity:.16}
 @media (hover:hover){html[data-theme="dark"] .timeline .ext:hover{color:#fff;background-color:var(--blue)}}
 html[data-theme="dark"].js .mast .links{box-shadow:0 1px 2px rgba(0,0,0,.4),0 26px 50px -22px rgba(0,0,0,.7),0 12px 26px -16px rgba(var(--vi),.45)}
 html[data-theme="dark"] .mast nav a:hover{background-image:linear-gradient(90deg,rgba(147,160,255,.16),rgba(147,160,255,.1) 55%,rgba(var(--sk),.08))}
@@ -343,19 +342,33 @@ html[data-lang="ko"] .contact-stacked .contact-label{letter-spacing:-.012em}
 .contact-stacked ul{margin-top:.25rem}
 /* the same space above the line, under it and under the buttons */
 .page-home footer{min-height:0;padding:1.25rem 0 calc(1.25rem + env(safe-area-inset-bottom))}
-/* the bar at the foot of the main page: one capsule of frosted glass across the page, the labels side by side
-   in it; the one under the pointer or finger lights up on a lighter pill of glass with a thin rim */
+/* the bar at the foot of the main page: one capsule of glass across the page, the labels side by side in it.
+   The glass is see-through and blurs what is behind it, is lit along its top edge with a soft sheen, and
+   carries a faint tint of the logo colours. One lighter pill of glass marks the label under the pointer or
+   finger and glides from label to label (the script in site.js moves it; without the script each label
+   simply lights up in place). */
 .home-nav{
+  position:relative;isolation:isolate;
   display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:.25rem;
   padding:.3125rem;
-  border:1px solid rgba(255,255,255,.85);
+  border:1px solid rgba(255,255,255,.92);
   border-radius:999px;
-  background-color:rgba(255,255,255,.5);
-  -webkit-backdrop-filter:blur(20px) saturate(1.8);
-  backdrop-filter:blur(20px) saturate(1.8);
-  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 1px 3px rgba(14,12,46,.06),0 14px 34px -16px rgba(14,12,46,.3);
+  --pill-bg:linear-gradient(180deg,rgba(255,255,255,.97),rgba(255,255,255,.6));
+  --pill-rim:rgba(255,255,255,.96);
+  --pill-shadow:0 1px 0 #fff inset,0 -1px 0 rgba(14,12,46,.05) inset,0 8px 18px -6px rgba(14,12,46,.3),0 1px 3px rgba(14,12,46,.1);
+  background-color:rgba(255,255,255,.26);
+  background-image:linear-gradient(180deg,rgba(255,255,255,.62),rgba(255,255,255,.1) 55%,rgba(255,255,255,.32)),linear-gradient(100deg,rgba(var(--vi),.11),rgba(var(--bl),.07) 50%,rgba(var(--sk),.14));
+  -webkit-backdrop-filter:blur(28px) saturate(2);
+  backdrop-filter:blur(28px) saturate(2);
+  box-shadow:0 1px 0 rgba(255,255,255,.95) inset,0 -1px 0 rgba(255,255,255,.55) inset,0 -12px 20px -14px rgba(var(--bl),.22) inset,0 2px 6px rgba(14,12,46,.06),0 20px 44px -18px rgba(14,12,46,.42);
 }
+/* the sheen: the upper half of the capsule is lit, fading out towards the middle */
+.home-nav::before{content:"";position:absolute;z-index:0;left:1px;right:1px;top:1px;height:50%;border-radius:999px 999px 0 0;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,0));opacity:.5;pointer-events:none}
+/* the pill that glides: placed and sized by the script */
+.home-nav .pill{position:absolute;z-index:0;left:0;top:.3125rem;bottom:.3125rem;width:0;border:1px solid var(--pill-rim);border-radius:999px;background:var(--pill-bg);box-shadow:var(--pill-shadow);-webkit-backdrop-filter:blur(8px) saturate(1.8);backdrop-filter:blur(8px) saturate(1.8);opacity:0;pointer-events:none;transition:transform .5s cubic-bezier(.22,1,.36,1),width .5s cubic-bezier(.22,1,.36,1),opacity .22s ease;will-change:transform}
+.home-nav .pill.on{opacity:1}
 .home-nav a{
+  position:relative;z-index:1;
   display:flex;align-items:center;justify-content:center;
   min-height:2.75rem;
   padding:.5rem .25rem;
@@ -363,12 +376,13 @@ html[data-lang="ko"] .contact-stacked .contact-label{letter-spacing:-.012em}
   border-radius:999px;
   font-family:var(--sans);font-size:clamp(.875rem,3.9vw,1rem);line-height:1.2;font-weight:600;letter-spacing:-.005em;text-align:center;white-space:nowrap;
   color:var(--ink-2);text-decoration:none;
-  transition:background-color .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease,transform .15s ease;
+  transition:color .2s ease,transform .15s ease;
 }
-.home-nav a:hover{color:var(--ink)}
-@media (hover:hover){.home-nav a:hover{border-color:rgba(14,12,46,.1);background-color:rgba(255,255,255,.85);box-shadow:0 1px 0 #fff inset,0 2px 8px rgba(14,12,46,.1)}}
-.home-nav a:active{color:var(--ink);border-color:rgba(14,12,46,.1);background-color:rgba(255,255,255,.85);box-shadow:0 1px 0 #fff inset,0 2px 8px rgba(14,12,46,.1)}
+.home-nav a:hover,.home-nav a.is-on{color:var(--ink)}
 .home-nav a:active{transform:scale(.97)}
+/* without the script: the label under the pointer or finger carries the pill itself */
+@media (hover:hover){.home-nav:not(.has-pill) a:hover{border-color:var(--pill-rim);background:var(--pill-bg);box-shadow:var(--pill-shadow)}}
+.home-nav:not(.has-pill) a:active{color:var(--ink);border-color:var(--pill-rim);background:var(--pill-bg);box-shadow:var(--pill-shadow)}
 .home-nav a:focus-visible{outline-offset:-2px;border-radius:999px}
 
 @media (prefers-reduced-motion: reduce){

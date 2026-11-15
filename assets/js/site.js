@@ -91,3 +91,45 @@
   window.addEventListener('storage',function(e){if(e.key==='lang')set(e.newValue==='ko')});
   show();
 })();
+
+/* the glass bar at the foot of the main page: one lighter pill marks the label under the pointer or finger,
+   and glides to the next label instead of jumping. Without this script each label lights up in place. */
+(function(){
+  var nav=document.querySelector('.home-nav');
+  if(!nav||!window.PointerEvent)return;
+  var links=nav.querySelectorAll('a');
+  if(!links.length)return;
+  var pill=document.createElement('span'),cur=null,timer=0;
+  pill.className='pill';pill.setAttribute('aria-hidden','true');
+  nav.insertBefore(pill,nav.firstChild);
+  nav.classList.add('has-pill');
+  function place(a){pill.style.width=a.offsetWidth+'px';pill.style.transform='translateX('+a.offsetLeft+'px)'}
+  function show(a){
+    clearTimeout(timer);
+    if(cur===a)return;
+    if(cur){cur.classList.remove('is-on');place(a)}
+    else{
+      /* appearing: start on the label itself rather than flying in from the edge of the bar */
+      pill.style.transition='opacity .22s ease';place(a);pill.getBoundingClientRect();pill.style.transition='';
+    }
+    cur=a;a.classList.add('is-on');pill.classList.add('on');
+  }
+  function hide(){
+    clearTimeout(timer);
+    if(!cur)return;
+    cur.classList.remove('is-on');cur=null;pill.classList.remove('on');
+  }
+  function keyboard(a){try{return a.matches(':focus-visible')}catch(e){return true}}
+  Array.prototype.forEach.call(links,function(a){
+    a.addEventListener('pointerenter',function(e){if(e.pointerType!=='touch')show(a)});
+    a.addEventListener('pointerdown',function(e){if(e.pointerType==='touch')show(a)});
+    a.addEventListener('focus',function(){if(keyboard(a))show(a)});
+  });
+  nav.addEventListener('pointerleave',function(e){if(e.pointerType!=='touch')hide()});
+  nav.addEventListener('pointerup',function(e){if(e.pointerType==='touch'){clearTimeout(timer);timer=setTimeout(hide,400)}});
+  nav.addEventListener('pointercancel',hide);
+  nav.addEventListener('focusout',function(e){if(!nav.contains(e.relatedTarget)&&!nav.matches(':hover'))hide()});
+  window.addEventListener('resize',function(){if(cur)place(cur)});
+  /* coming back with the browser's Back button: start clean */
+  window.addEventListener('pageshow',function(e){if(e.persisted)hide()});
+})();
