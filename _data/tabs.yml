@@ -6,6 +6,10 @@
   label: Home
   label_ko: 홈
   url: /
+- key: about
+  label: About
+  label_ko: 소개
+  url: /about/
 - key: activities
   label: Activities
   label_ko: 활동
