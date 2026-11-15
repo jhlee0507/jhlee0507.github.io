@@ -16,3 +16,8 @@
   label: Affiliation
   label_ko: 소속
   url: /affiliation/
+  home: false
+- key: blog
+  label: Blog
+  label_ko: 블로그
+  url: /blog/
