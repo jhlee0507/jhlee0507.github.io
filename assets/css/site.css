@@ -318,27 +318,20 @@ main > section:last-of-type{border-bottom:0}
 /* the bottom line of every page; under it sits the bar of glass */
 .endline{flex:none;position:relative;z-index:1;width:min(100% - 2rem,72rem);height:2px;margin-inline:auto;border-radius:2px;background:var(--grad)}
 @media (min-width:48rem){.endline{width:min(100% - 4rem,72rem)}}
-/* contact, pinned just above the bottom line. On the main page: a heading in capitals, a size under the
-   tagline, and under it a logo per link */
-.contact{margin-top:auto;padding-bottom:.5rem}
-.contact-label{display:block;font-size:clamp(1.0625rem,1.65vw,1.3125rem);line-height:1.45;font-weight:500;letter-spacing:.03em;text-transform:uppercase;color:var(--ink)}
-/* the wider tracking is for capitals; Korean has none and reads better set closer */
-html[data-lang="ko"] .contact-label{letter-spacing:-.012em}
-/* pulled left by the padding inside a logo, so that the first logo lines up with the heading above it */
-.contact ul{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem;margin:.25rem 0 0 -.75rem;padding:0;list-style:none}
+/* contact, pinned just above the bottom line of every page: a small label and beside it a logo per link */
+.contact{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem 1.25rem;margin-top:auto;padding-bottom:.5rem}
+.contact-label{font-family:var(--mono);font-size:.8125rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+/* the wide tracking is for capitals; Korean has none and reads better set closer */
+html[data-lang="ko"] .contact-label{letter-spacing:.01em}
+/* pulled left by the padding inside a logo, so that a wrapped row lines up with the label above it */
+.contact ul{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem;margin:0 0 0 -.75rem;padding:0;list-style:none}
 .contact a{display:grid;place-items:center;min-width:2.75rem;height:2.75rem;padding:0 .5rem;border-radius:10px;color:var(--ink-2);text-decoration:none;transition:background-color .15s ease,color .15s ease}
 @media (hover:hover){.contact a:hover{color:var(--accent);background-color:var(--tint)}}
 .contact a:active{color:var(--accent);background-color:var(--tint)}
 .contact a:focus-visible{outline-offset:2px}
 .contact svg{width:1.25rem;height:1.25rem;fill:currentColor}
-/* on the other pages: a small label with the logos beside it, in one row */
-.contact-row{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem 1.25rem}
-.contact-row .contact-label{display:inline;font-family:var(--mono);font-size:.8125rem;line-height:inherit;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-html[data-lang="ko"] .contact-row .contact-label{letter-spacing:.01em}
-.contact-row ul{margin-top:0}
 
-/* the main page: the name, the handle, the tagline and the introduction at the top left; the contact block is
-   pinned just above the bottom line */
+/* the main page: the name, the handle, the tagline and the introduction at the top left */
 .page-home .hero{padding-top:clamp(2.5rem,9vh,3.5rem);padding-bottom:2.5rem;border-bottom:0}
 @media (min-width:48rem){.page-home .hero{padding-top:clamp(3rem,10vh,5.5rem);padding-bottom:3rem}}
 @media (min-width:64rem){.page-home .hero{padding-top:clamp(3rem,14vh,9.5rem);padding-bottom:3.5rem}}
