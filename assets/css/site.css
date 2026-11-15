@@ -55,8 +55,7 @@ html[data-theme="dark"] body{
 html[data-theme="dark"] .timeline .ext{color:#c9d0ff;background-color:rgba(147,160,255,.22)}
 html[data-theme="dark"] .cves a{border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.05);background-image:linear-gradient(135deg,rgba(255,255,255,.11),rgba(255,255,255,.02));box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 18px 36px -22px rgba(0,0,0,.85)}
 html[data-theme="dark"] .cves a:hover{background-color:rgba(255,255,255,.09)}
-html[data-theme="dark"] .home-nav a{border-color:rgba(255,255,255,.2);background-color:rgba(12,10,30,.38);background-image:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.03));box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 18px 36px -22px rgba(0,0,0,.85)}
-html[data-theme="dark"] .home-nav a:hover{background-color:rgba(12,10,30,.25)}
+html[data-theme="dark"] .home-nav{border-color:rgba(255,255,255,.14);background-color:rgba(28,27,48,.55);box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 14px 34px -14px rgba(0,0,0,.8)}
 @media (hover:hover){html[data-theme="dark"] .timeline .ext:hover{color:#fff;background-color:var(--blue)}}
 html[data-theme="dark"].js .mast .links{box-shadow:0 1px 2px rgba(0,0,0,.4),0 26px 50px -22px rgba(0,0,0,.7),0 12px 26px -16px rgba(var(--vi),.45)}
 html[data-theme="dark"] .mast nav a:hover{background-image:linear-gradient(90deg,rgba(147,160,255,.16),rgba(147,160,255,.1) 55%,rgba(var(--sk),.08))}
@@ -330,7 +329,7 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 .contact svg{width:1.25rem;height:1.25rem;fill:currentColor}
 
 /* the main page: the name, the handle, the tagline and the introduction at the top left; the contact block is
-   pinned just above the bottom line, and under the line are glass buttons (one per page) */
+   pinned just above the bottom line, and under the line is the tab bar */
 .page-home main{display:flex;flex-direction:column}
 .page-home .hero{padding-top:clamp(2.5rem,9vh,3.5rem);padding-bottom:2.5rem;border-bottom:0}
 @media (min-width:48rem){.page-home .hero{padding-top:clamp(3rem,10vh,5.5rem);padding-bottom:3rem}}
@@ -342,34 +341,36 @@ html[data-lang="ko"] .contact-stacked .contact-label{letter-spacing:-.012em}
 .contact-stacked ul{margin-top:.25rem}
 /* the same space above the line, under it and under the buttons */
 .page-home footer{min-height:0;padding:1.25rem 0 calc(1.25rem + env(safe-area-inset-bottom))}
-.home-nav{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:.5rem}
-@media (min-width:48rem){.home-nav{gap:.875rem}}
-/* four or more buttons do not fit side by side on a phone: two to a row there */
-@media (max-width:47.99rem){.home-nav.many{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr))}.home-nav.many a{min-height:3rem}}
-.home-nav a{
-  display:flex;align-items:center;justify-content:center;
-  min-height:3.25rem;
-  padding:.5rem .125rem;
-  border:1px solid rgba(255,255,255,.8);
-  border-radius:14px;
-  font-family:var(--mono);font-size:clamp(.75rem,3.7vw,1.0625rem);font-weight:600;letter-spacing:.01em;text-align:center;white-space:nowrap;
-  color:var(--ink);text-decoration:none;
-  /* glass: see-through, lit along the top edge, blurring what is behind it */
-  background-color:rgba(255,255,255,.42);
-  background-image:linear-gradient(135deg,rgba(255,255,255,.6),rgba(255,255,255,.12));
-  -webkit-backdrop-filter:blur(16px) saturate(1.6);
-  backdrop-filter:blur(16px) saturate(1.6);
-  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(14,12,46,.06),0 16px 32px -22px rgba(var(--bl),.5);
-  transition:background-color .15s ease,transform .15s ease,box-shadow .15s ease;
+/* the tab bar at the foot of the main page, like the one in a phone app: one capsule of frosted glass,
+   and in it an icon over a label per page; the one under the finger or pointer lights up on a pill */
+.home-nav{
+  display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:.125rem;
+  width:100%;max-width:25rem;margin-inline:auto;
+  padding:.3125rem;
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:999px;
+  background-color:rgba(255,255,255,.55);
+  -webkit-backdrop-filter:blur(20px) saturate(1.8);
+  backdrop-filter:blur(20px) saturate(1.8);
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 1px 3px rgba(14,12,46,.06),0 14px 34px -16px rgba(14,12,46,.3);
 }
-.home-nav a:hover{color:var(--ink)}
-@media (hover:hover){.home-nav a:hover{background-color:rgba(255,255,255,.62);transform:translateY(-2px)}}
-.home-nav a:active{transform:scale(.98)}
-.home-nav a:focus-visible{outline-offset:3px}
+.home-nav a{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1875rem;
+  min-height:3.375rem;
+  padding:.375rem .25rem;
+  border-radius:999px;
+  font-family:var(--sans);font-size:.6875rem;line-height:1.2;font-weight:600;letter-spacing:.01em;text-align:center;white-space:nowrap;
+  color:var(--ink-2);text-decoration:none;
+  transition:background-color .15s ease,color .15s ease,transform .15s ease;
+}
+.home-nav svg{flex:none;width:1.5rem;height:1.5rem}
+@media (hover:hover){.home-nav a:hover{color:var(--accent);background-color:var(--tint)}}
+.home-nav a:active{color:var(--accent);background-color:var(--tint);transform:scale(.96)}
+.home-nav a:focus-visible{outline-offset:-2px;border-radius:999px}
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{transition:none !important;animation:none !important}
-  .cves a:hover,.home-nav a:hover,.home-nav a:active{transform:none !important}
+  .cves a:hover,.home-nav a:active{transform:none !important}
   html{scroll-behavior:auto}
 }
 @media print{
@@ -383,6 +384,6 @@ html[data-lang="ko"] .contact-stacked .contact-label{letter-spacing:-.012em}
   .cves .id,.cves .lab{color:var(--ink)}
 }
 @media (forced-colors:active){
-  .cves a,.home-nav a{border:1px solid currentColor}
+  .cves a,.home-nav{border:1px solid currentColor}
   .js .mast .links{background:Canvas}
 }

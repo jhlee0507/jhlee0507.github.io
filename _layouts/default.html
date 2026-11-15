@@ -40,12 +40,12 @@
 
 <footer class="wrap">
 {%- if page.key == 'home' %}
-  {%- comment %} under the line the main page ends in glass buttons (one per page, bar those with `home: false` in _data/nav.yml); more than three
-     of them stand two to a row on a phone {% endcomment %}
+  {%- comment %} under the line the main page ends in a tab bar like the one at the foot of a phone app: one glass
+     capsule holding an icon and a label per page (bar those with `home: false` in _data/nav.yml) {% endcomment %}
   {%- assign buttons = site.data.nav | where_exp: "item", "item.home != false" %}
-  <nav class="home-nav{% if buttons.size > 3 %} many{% endif %}" aria-label="Pages" data-label-ko="페이지">
+  <nav class="home-nav" aria-label="Pages" data-label-ko="페이지">
     {%- for item in buttons %}
-    <a href="{{ item.url | relative_url }}">{% include t.html en=item.label ko=item.label_ko %}</a>
+    <a href="{{ item.url | relative_url }}">{% include icon-tab.html key=item.key %}<span class="t">{% include t.html en=item.label ko=item.label_ko %}</span></a>
     {%- endfor %}
   </nav>
 {%- elsif site.contact.size > 0 %}
