@@ -1,8 +1,9 @@
 {%- comment -%}
-  Contact, on the main page: a heading in the size of the tagline and under it a logo per link.
-  The email is an envelope that opens a new message.
+  Contact, just above the bottom line of a page: a label and a logo per link. The email is an envelope that
+  opens a new message. On the main page the label is a heading in the size of the tagline with the logos
+  under it; with `variant="row"` (every other page) it is a small label with the logos beside it.
 {%- endcomment -%}
-<div class="contact">
+<div class="contact{% if include.variant %} contact-{{ include.variant }}{% endif %}">
   <span class="contact-label" id="contact-label">{% include t.html en="Contact" ko="연락처" %}</span>
   <ul aria-labelledby="contact-label">
     {%- for item in site.contact %}

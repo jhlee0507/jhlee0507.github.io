@@ -16,7 +16,8 @@ intro_ko:
 description: >-
   r3con is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers.
   WhiteHat School 4th cohort.
-# Contact links on the main page, each as a logo under a "Contact" heading, just above the bottom line.
+# Contact links, each as a logo, just above the bottom line of every page: under a "Contact" heading on the
+# main page, beside a small label on the others.
 # `icon` is x or github; `name` is what a screen reader says for the logo.
 # The email is written under `text` with no `url`: it is shown as an envelope that opens a new message
 # to that address.
