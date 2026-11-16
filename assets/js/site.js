@@ -1,30 +1,4 @@
-/* r3con — the three-line menu. Without JavaScript the links stay visible in the header. */
-(function(){
-  function ko(){return document.documentElement.getAttribute('data-lang')==='ko'}
-  var mast=document.querySelector('.mast'),btn=mast&&mast.querySelector('.menu-btn'),nav=document.getElementById('site-nav');
-  if(!btn||!nav)return;
-  function isOpen(){return nav.classList.contains('is-open')}
-  function set(open){
-    nav.classList.toggle('is-open',open);
-    btn.setAttribute('aria-expanded',open?'true':'false');
-    label();
-  }
-  function label(){btn.setAttribute('aria-label',isOpen()?(ko()?'메뉴 닫기':'Close menu'):(ko()?'메뉴 열기':'Open menu'))}
-  document.addEventListener('langchange',label);label();
-  function inside(n){return !!n&&(btn.contains(n)||nav.contains(n))}
-  function away(e){if(isOpen()&&!inside(e.target))set(false)}
-  btn.addEventListener('click',function(){set(!isOpen())});
-  nav.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
-  /* close on a press anywhere else (pointerdown also covers iOS), and when keyboard focus leaves */
-  document.addEventListener('pointerdown',away);document.addEventListener('click',away);
-  mast.addEventListener('focusout',function(e){if(isOpen()&&e.relatedTarget&&!inside(e.relatedTarget))set(false)});
-  document.addEventListener('keydown',function(e){
-    if(e.key!=='Escape'||!isOpen())return;
-    var a=document.activeElement,back=inside(a)||a===document.body;
-    set(false);if(back)btn.focus({preventScroll:true});
-  });
-})();
-
+/* r3con — the small scripts of the site. */
 /* The skip link moves focus into the content without adding a history entry. */
 (function(){
   var skip=document.querySelector('.skip'),main=document.getElementById('main');

@@ -46,9 +46,10 @@ html[data-theme="dark"]{
 html[data-theme="dark"] .timeline .ext{color:#c9d0ff;background-color:rgba(147,160,255,.22)}
 html[data-theme="dark"] .cves a,html[data-theme="dark"] .reach a{border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.06);box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 18px 36px -22px rgba(0,0,0,.85)}
 html[data-theme="dark"] .cves a:hover,html[data-theme="dark"] .reach a:hover{background-color:rgba(255,255,255,.1)}
-html[data-theme="dark"] .tabbar{--pill-bg:rgba(255,255,255,.16);--pill-rim:rgba(255,255,255,.24);--pill-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 6px 14px -6px rgba(0,0,0,.5);border-color:rgba(255,255,255,.16);background-color:rgba(20,19,36,.2);box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 10px 26px -16px rgba(0,0,0,.6)}
+html[data-theme="dark"] .tabbar{--pill-bg:rgba(255,255,255,.12);--pill-rim:rgba(255,255,255,.24);--pill-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 6px 14px -6px rgba(0,0,0,.5);border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.05);box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 10px 26px -16px rgba(0,0,0,.6)}
+html[data-theme="dark"] .hero .cta{border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.05);box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 12px 28px -16px rgba(0,0,0,.6)}
+html[data-theme="dark"] .hero .cta:hover,html[data-theme="dark"] .hero .cta:active{background-color:rgba(255,255,255,.12)}
 @media (hover:hover){html[data-theme="dark"] .timeline .ext:hover{color:#fff;background-color:var(--blue)}}
-html[data-theme="dark"].js .mast .links{box-shadow:0 1px 2px rgba(0,0,0,.4),0 26px 50px -22px rgba(0,0,0,.7)}
 }
 *,*::before,*::after{box-sizing:border-box}
 /* two languages: each translated text is in the page twice, and the KR/EN button in the header decides which shows */
@@ -95,20 +96,26 @@ main:focus{outline:none}
 .wrap{position:relative;z-index:1;width:min(100% - 2rem,72rem);margin-inline:auto}
 @media (min-width:48rem){.wrap{width:min(100% - 4rem,72rem)}}
 
-/* masthead */
-.mast{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:1.5rem 0;border-bottom:1px solid var(--rule)}
+/* masthead: the handle, the pages, and the language and dark-mode buttons. On a wide screen they share one
+   row; on a narrow one the pages take a row of their own under the other two */
+.mast{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.25rem 1rem;padding:1.5rem 0;border-bottom:1px solid var(--rule)}
 .mast .handle{flex:none;display:inline-block;padding:.7rem .5rem;margin:-.7rem -.5rem;font-family:var(--mono);font-size:.9375rem;font-weight:600;letter-spacing:.02em;white-space:nowrap;text-decoration:none;color:var(--ink)}
 .mast .handle:hover{color:var(--accent)}
 .mast .handle::before{content:"~/";color:var(--accent-2)}
-.mast .links{display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:flex-end}
-/* the menu items read as paths, like the handle: /About */
-.mast nav a{font-family:var(--mono);font-size:.875rem;font-weight:500;color:var(--ink-2);text-decoration:none;letter-spacing:.01em;padding:.7rem .5rem;margin:-.7rem -.5rem;display:inline-block}
-.mast nav a:hover{color:var(--accent)}
-.mast nav .n{color:var(--accent-2)}
-/* the three-line menu; without JavaScript the links simply stay visible in the header */
-.js .mast{z-index:5;align-items:center}
-.menu-btn{flex:none;display:none;place-items:center;width:2.75rem;height:2.75rem;margin:-.625rem -.6875rem -.625rem 0;padding:0;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .15s ease,color .15s ease}
-.js .menu-btn{display:inline-grid}
+/* the pages read as paths, like the handle: /About. The one being read is darker and heavier */
+.mast .links{order:3;flex:1 0 100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 .375rem;margin:.375rem 0 -.75rem}
+.mast .links a{display:inline-block;padding:.8rem 0;font-family:var(--mono);font-size:clamp(.6875rem,3.2vw,.8125rem);font-weight:500;letter-spacing:.01em;white-space:nowrap;text-decoration:none;color:var(--ink-2)}
+.mast .links a:hover{color:var(--accent)}
+.mast .links a[aria-current="page"]{font-weight:700;color:var(--ink)}
+.mast .links .n{color:var(--accent-2)}
+.mast .links a:focus-visible{outline-offset:-2px}
+/* the narrowest phones: the names without the slash, so that all five still fit on one row */
+@media (max-width:21.5rem){.mast .links .n{display:none}}
+@media (min-width:48rem){
+  .mast{flex-wrap:nowrap}
+  .mast .links{order:0;flex:0 1 auto;justify-content:flex-end;gap:0 1.5rem;margin:-.8rem 0 -.8rem auto}
+  .mast .links a{font-size:.875rem}
+}
 /* the language button: KR/EN, the one in use standing out */
 .lang-btn{flex:none;display:none;align-items:center;gap:.2rem;height:2.75rem;margin:-.625rem 0;padding:0 .6rem;border:1px solid transparent;border-radius:10px;background:transparent;font-family:var(--mono);font-size:.8125rem;font-weight:700;letter-spacing:.04em;color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .15s ease,color .15s ease}
 .js .lang-btn{display:inline-flex}
@@ -118,8 +125,8 @@ main:focus{outline:none}
 .lang-btn .en,html[data-lang="ko"] .lang-btn .kr{color:var(--ink)}
 html[data-lang="ko"] .lang-btn .en{color:inherit}
 /* the dark-mode button: a moon while the page is light, a sun while it is dark */
-.mast .tools{display:flex;align-items:center;gap:.25rem}
-.theme-btn{flex:none;display:none;place-items:center;width:2.75rem;height:2.75rem;margin:-.625rem 0;padding:0;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .15s ease,color .15s ease}
+.mast .tools{flex:none;display:flex;align-items:center;gap:.25rem}
+.theme-btn{flex:none;display:none;place-items:center;width:2.75rem;height:2.75rem;margin:-.625rem -.75rem -.625rem 0;padding:0;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--ink);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .15s ease,color .15s ease}
 .js .theme-btn{display:inline-grid}
 .theme-btn:focus-visible{outline-offset:2px}
 @media (hover:hover){.theme-btn:hover{background-color:var(--tint);color:var(--accent)}}
@@ -127,26 +134,6 @@ html[data-lang="ko"] .lang-btn .en{color:inherit}
 .theme-btn .sun{display:none}
 html[data-theme="dark"] .theme-btn .sun{display:block}
 html[data-theme="dark"] .theme-btn .moon{display:none}
-.menu-btn:focus-visible{outline-offset:2px}
-@media (hover:hover){.menu-btn:hover{background-color:var(--tint);color:var(--accent)}}
-.menu-btn[aria-expanded="true"]{background-color:var(--tint);color:var(--accent)}
-.menu-btn .bars{position:relative;display:block;width:1.375rem;height:1rem}
-.menu-btn .bars i{position:absolute;left:0;right:0;height:0;border-top:2px solid currentColor;border-radius:2px;transition:transform .2s ease,opacity .15s ease,top .2s ease}
-.menu-btn .bars i:nth-child(1){top:0}
-.menu-btn .bars i:nth-child(2){top:calc(50% - 1px)}
-.menu-btn .bars i:nth-child(3){top:calc(100% - 2px)}
-.menu-btn[aria-expanded="true"] .bars i:nth-child(1){top:calc(50% - 1px);transform:rotate(45deg)}
-.menu-btn[aria-expanded="true"] .bars i:nth-child(2){opacity:0}
-.menu-btn[aria-expanded="true"] .bars i:nth-child(3){top:calc(50% - 1px);transform:rotate(-45deg)}
-.js .mast nav{display:flex}
-.js .mast .links{position:absolute;top:calc(100% + .6rem);right:0;z-index:6;flex-direction:column;flex-wrap:nowrap;gap:.125rem;min-width:14.5rem;padding:.5rem;border:1px solid var(--rule-hi);border-radius:14px;background:var(--paper);box-shadow:0 1px 2px rgba(14,12,46,.06),0 26px 50px -22px rgba(14,12,46,.38);animation:menu-in .16s ease}
-.js .mast .links:not(.is-open){display:none}
-.js .mast nav a{display:block;margin:0;padding:.8rem .9rem;border-radius:9px;font-size:1rem;font-weight:600;letter-spacing:.01em;color:var(--ink)}
-.js .mast nav a:hover{color:var(--ink);background-color:var(--tint)}
-.js .mast nav a:focus-visible{outline-offset:-2px}
-.js .mast nav a[aria-current="page"]{color:var(--accent)}
-@keyframes menu-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-@media (max-width:30rem){.js .mast .links{left:0;min-width:0}}
 
 /* hero */
 .hero{--h1:clamp(2.125rem,10vw,4.25rem);position:relative;padding:3.5rem 0 3.5rem;border-bottom:1px solid var(--rule)}
@@ -296,13 +283,13 @@ main > section:last-of-type{border-bottom:0}
 /* the bottom line of every page; under it sits the bar of glass */
 .endline{flex:none;position:relative;z-index:1;width:min(100% - 2rem,72rem);height:2px;margin-inline:auto;border-radius:2px;background:var(--accent-2)}
 @media (min-width:48rem){.endline{width:min(100% - 4rem,72rem)}}
-/* contact page: a card per way of reaching me, with its logo and its name */
+/* contact page: a card per way of reaching me, with its logo and the handle or address */
 .contact-page .grid{display:block}
 .reach{list-style:none;margin:2.75rem 0 0;padding:0;display:grid;gap:.75rem}
 .reach a{justify-content:flex-start;gap:.875rem;padding:1rem}
 .reach .ico{flex:none;display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:12px;background-color:var(--tint);color:var(--accent)}
 .reach .ico svg{width:1.375rem;height:1.375rem;fill:currentColor}
-.reach .name{flex:1 1 auto;min-width:0;font-size:clamp(1.0625rem,1.9vw,1.25rem);line-height:1.3;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.reach .val{flex:1 1 auto;min-width:0;font-family:var(--mono);font-size:clamp(.8125rem,4.2vw,1.25rem);line-height:1.3;font-weight:600;letter-spacing:-.01em;color:var(--ink);overflow-wrap:anywhere}
 .reach .go{flex:none;width:1.125rem;height:1.125rem;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @media (min-width:48rem){.reach a{gap:1rem;padding:1.1rem 1.4rem}}
 
@@ -311,17 +298,18 @@ main > section:last-of-type{border-bottom:0}
 .page-home .hero{padding-top:clamp(2.5rem,9vh,3.5rem);padding-bottom:2.5rem;border-bottom:0}
 @media (min-width:48rem){.page-home .hero{padding-top:clamp(3rem,10vh,5.5rem);padding-bottom:3rem}}
 @media (min-width:64rem){.page-home .hero{padding-top:clamp(3rem,14vh,9.5rem);padding-bottom:3.5rem}}
-/* the buttons on the main page, one under the other and of one width: to the About page and to the Contact page */
-.hero .actions{display:inline-grid;gap:.625rem;margin-top:1.75rem}
-.hero .cta{display:flex;align-items:center;justify-content:space-between;gap:.75rem;min-height:2.75rem;padding:.55rem 1.15rem;border:1px solid var(--rule-hi);border-radius:999px;background-color:var(--paper);font-size:.9375rem;line-height:1.2;font-weight:600;color:var(--ink);text-decoration:none;transition:border-color .15s ease,color .15s ease,transform .15s ease}
-.hero .cta svg{flex:none;width:1rem;height:1rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-@media (hover:hover){.hero .cta:hover{color:var(--accent);border-color:var(--accent)}}
-.hero .cta:active{color:var(--accent);border-color:var(--accent);transform:scale(.98)}
+/* the buttons on the main page, one under the other and of one width: to the About page and to the Contact
+   page. Clear glass like the bar: nine tenths see-through, a light blur, a pale rim */
+.hero .actions{display:inline-grid;gap:.75rem;margin-top:2rem}
+.hero .cta{display:flex;align-items:center;justify-content:space-between;gap:2rem;min-width:13.5rem;min-height:3.5rem;padding:.8rem 1.5rem;border:1px solid rgba(255,255,255,.7);border-radius:999px;background-color:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(6px) saturate(1.4);backdrop-filter:blur(6px) saturate(1.4);box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 0 0 1px rgba(14,12,46,.05),0 12px 28px -18px rgba(14,12,46,.28);font-size:1.0625rem;line-height:1.2;font-weight:600;color:var(--ink);text-decoration:none;transition:background-color .15s ease,color .15s ease,transform .15s ease}
+.hero .cta svg{flex:none;width:1.125rem;height:1.125rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (hover:hover){.hero .cta:hover{color:var(--accent);background-color:rgba(255,255,255,.4)}}
+.hero .cta:active{color:var(--accent);background-color:rgba(255,255,255,.4);transform:scale(.98)}
 .hero .cta:focus-visible{outline-offset:3px;border-radius:999px}
 /* the bar at the foot of every page on a touch screen: one capsule of clear glass across the page with a tab
    per icon. It keeps to the foot of the screen while the page scrolls under it, and comes to rest under the
-   bottom line at the end. The glass is about four fifths see-through and only lightly blurs what is behind
-   it. One lighter
+   bottom line at the end. The glass is nine tenths see-through and only lightly blurs what is behind it.
+   One lighter
    pill rests on the tab of the page being read, glides to the tab under the finger and back again (the
    script in site.js moves it; without the script the tabs simply light up in place). */
 .tabbar{
@@ -333,14 +321,14 @@ main > section:last-of-type{border-bottom:0}
   padding:.3125rem;
   border:1px solid rgba(255,255,255,.6);
   border-radius:999px;
-  --pill-bg:rgba(255,255,255,.5);
+  --pill-bg:rgba(255,255,255,.42);
   --pill-rim:rgba(255,255,255,.85);
   --pill-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 6px 14px -6px rgba(14,12,46,.2),0 1px 2px rgba(14,12,46,.06);
-  /* about four fifths see-through: a thin veil of white and only a light blur, so the page shows through */
-  background-color:rgba(255,255,255,.18);
+  /* nine tenths see-through: the thinnest veil of white and only a light blur, so the page shows through */
+  background-color:rgba(255,255,255,.1);
   -webkit-backdrop-filter:blur(6px) saturate(1.4);
   backdrop-filter:blur(6px) saturate(1.4);
-  box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 10px 26px -18px rgba(14,12,46,.22);
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 0 0 1px rgba(14,12,46,.05),0 10px 26px -18px rgba(14,12,46,.22);
 }
 /* the pill that glides: placed and sized by the script */
 .tabbar .pill{position:absolute;z-index:0;left:0;top:.3125rem;bottom:.3125rem;width:0;border:1px solid var(--pill-rim);border-radius:999px;background:var(--pill-bg);box-shadow:var(--pill-shadow);-webkit-backdrop-filter:blur(8px) saturate(1.8);backdrop-filter:blur(8px) saturate(1.8);opacity:0;pointer-events:none;transition:transform .5s cubic-bezier(.22,1,.36,1),width .5s cubic-bezier(.22,1,.36,1),opacity .22s ease;will-change:transform}
@@ -359,7 +347,7 @@ main > section:last-of-type{border-bottom:0}
 }
 .tabbar svg{flex:none;width:1.5rem;height:1.5rem;
   /* a soft halo in the colour of the page keeps an icon readable when text passes behind the clear glass */
-  filter:drop-shadow(0 0 1.5px var(--ground)) drop-shadow(0 0 5px var(--ground))}
+  filter:drop-shadow(0 0 1px var(--ground)) drop-shadow(0 0 2px var(--ground)) drop-shadow(0 0 4px var(--ground)) drop-shadow(0 0 8px var(--ground))}
 .tabbar a:hover,.tabbar a.is-on,.tabbar a[aria-current="page"]{color:var(--ink)}
 .tabbar a:active{transform:scale(.97)}
 /* without the script: the tab of this page, and the one under the pointer or finger, carry the pill themselves */
@@ -378,7 +366,7 @@ main > section:last-of-type{border-bottom:0}
   html{scroll-behavior:auto}
 }
 @media print{
-  .menu-btn,.theme-btn,.lang-btn,.mast nav{display:none !important}
+  .theme-btn,.lang-btn,.mast .links{display:none !important}
   .hero{padding-top:2.5rem}
   section:not(.hero)::before,.endline,.tabbar{display:none}
   .proj > li,.cves li{break-inside:avoid}
@@ -388,5 +376,4 @@ main > section:last-of-type{border-bottom:0}
 }
 @media (forced-colors:active){
   .cves a,.tabbar{border:1px solid currentColor}
-  .js .mast .links{background:Canvas}
 }

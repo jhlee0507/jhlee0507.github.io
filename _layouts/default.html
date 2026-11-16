@@ -14,7 +14,7 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#eeeef2">
 <script>
-/* Marks that scripts run, so the header shows the three-line menu from the first paint, and applies dark mode
+/* Marks that scripts run, so the header shows its buttons from the first paint, and applies dark mode
    and Korean if the visitor chose them before, so the page never flashes the other way first. On the main page it also
    forwards the old single-page links (#about, #research, #cve) to where that content is now. It sits above the stylesheets
    so that the forward does not wait for them. */
@@ -42,7 +42,7 @@
   <a href="{{ tab.url | relative_url }}" aria-label="{{ tab.label | escape }}" title="{{ tab.label | escape }}"{% if tab.label_ko %} data-label-ko="{{ tab.label_ko | escape }}"{% endif %}{% if page.key == tab.key %} aria-current="page"{% endif %}>{% include icon-tab.html key=tab.key %}</a>
   {%- endfor %}
 </nav>
-<!-- If the menu script cannot be loaded, fall back to the plain header with its links visible. -->
+<!-- If the script cannot be loaded, the language and dark-mode buttons, which need it, are not shown. -->
 <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer onerror="document.documentElement.classList.remove('js')"></script>
 </body>
 </html>
