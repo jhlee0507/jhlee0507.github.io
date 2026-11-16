@@ -16,20 +16,21 @@ intro_ko:
 description: >-
   r3con is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers.
   WhiteHat School 4th cohort.
-# Contact links, each as a logo beside a small label, just above the bottom line of every page.
-# `icon` is x or github; `name` is what a screen reader says for the logo.
-# The email is written under `text` with no `url`: it is shown as an envelope that opens a new message
-# to that address.
+# The Contact page: one card per entry. `icon` is x or github; `handle` is what the card shows for it.
+# The email is written under `text` with no `url`: its card shows the address and opens a new message.
+# `name_ko` is the name of the card in Korean (left out, the English name is shown in both languages).
 contact:
   - name: X
     url: https://x.com/_r3con_
+    handle: "@_r3con_"
     icon: x
   - name: GitHub
     url: https://github.com/jhlee0507
+    handle: jhlee0507
     icon: github
   - name: Email
+    name_ko: 이메일
     text: tommy0507@sju.ac.kr
-
 # Where a CVE links to when its entry in _data/cves.yml has no `url`, and the label shown beside it.
 cve_url: https://msrc.microsoft.com/update-guide/vulnerability/
 cve_source: MSRC

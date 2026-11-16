@@ -19,3 +19,7 @@
   label: Blog
   label_ko: 블로그
   url: /blog/
+- key: contact
+  label: Contact
+  label_ko: 연락처
+  url: /contact/

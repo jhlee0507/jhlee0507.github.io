@@ -17,9 +17,6 @@
   --bl:59,38,253;
   --az:51,119,254;
   --sk:63,160,254;
-  --grad:linear-gradient(100deg,var(--violet),var(--indigo) 28%,var(--blue) 52%,var(--azure) 78%,var(--sky));
-  /* stays dark enough for white text on top */
-  --grad-fill:linear-gradient(100deg,var(--violet),var(--indigo) 40%,#3550fe);
   /* accents used as text or thin lines on the ground: these change with the theme, the fills above do not */
   --accent:var(--blue);
   --accent-2:var(--violet);
@@ -46,20 +43,12 @@ html[data-theme="dark"]{
   --tint:rgba(147,160,255,.14);
   color-scheme:dark;
 }
-html[data-theme="dark"] body{
-  background-image:
-    radial-gradient(ellipse 46rem 30rem at -4rem 34%,rgba(var(--vi),.16),transparent 70%),
-    radial-gradient(ellipse 48rem 32rem at calc(100% + 4rem) 52%,rgba(var(--az),.13),transparent 70%),
-    radial-gradient(ellipse 46rem 30rem at -4rem 78%,rgba(var(--bl),.14),transparent 70%);
-}
 html[data-theme="dark"] .timeline .ext{color:#c9d0ff;background-color:rgba(147,160,255,.22)}
-html[data-theme="dark"] .cves a{border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.05);background-image:linear-gradient(135deg,rgba(255,255,255,.11),rgba(255,255,255,.02));box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 18px 36px -22px rgba(0,0,0,.85)}
-html[data-theme="dark"] .cves a:hover{background-color:rgba(255,255,255,.09)}
-html[data-theme="dark"] .tabbar{--pill-bg:linear-gradient(180deg,rgba(255,255,255,.27),rgba(255,255,255,.1));--pill-rim:rgba(255,255,255,.32);--pill-shadow:0 1px 0 rgba(255,255,255,.38) inset,0 -1px 0 rgba(0,0,0,.2) inset,0 8px 18px -6px rgba(0,0,0,.75);border-color:rgba(255,255,255,.2);background-color:rgba(22,21,44,.4);background-image:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.02) 55%,rgba(255,255,255,.07)),linear-gradient(100deg,rgba(var(--vi),.17),rgba(var(--bl),.1) 50%,rgba(var(--sk),.15));box-shadow:0 1px 0 rgba(255,255,255,.24) inset,0 -1px 0 rgba(255,255,255,.07) inset,0 -12px 20px -14px rgba(var(--az),.35) inset,0 20px 44px -16px rgba(0,0,0,.9)}
-html[data-theme="dark"] .tabbar::before{opacity:.16}
+html[data-theme="dark"] .cves a,html[data-theme="dark"] .reach a{border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.06);box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 18px 36px -22px rgba(0,0,0,.85)}
+html[data-theme="dark"] .cves a:hover,html[data-theme="dark"] .reach a:hover{background-color:rgba(255,255,255,.1)}
+html[data-theme="dark"] .tabbar{--pill-bg:rgba(255,255,255,.17);--pill-rim:rgba(255,255,255,.26);--pill-shadow:0 1px 0 rgba(255,255,255,.22) inset,0 8px 18px -6px rgba(0,0,0,.6);border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.05);box-shadow:0 1px 0 rgba(255,255,255,.14) inset,0 16px 38px -16px rgba(0,0,0,.7)}
 @media (hover:hover){html[data-theme="dark"] .timeline .ext:hover{color:#fff;background-color:var(--blue)}}
-html[data-theme="dark"].js .mast .links{box-shadow:0 1px 2px rgba(0,0,0,.4),0 26px 50px -22px rgba(0,0,0,.7),0 12px 26px -16px rgba(var(--vi),.45)}
-html[data-theme="dark"] .mast nav a:hover{background-image:linear-gradient(90deg,rgba(147,160,255,.16),rgba(147,160,255,.1) 55%,rgba(var(--sk),.08))}
+html[data-theme="dark"].js .mast .links{box-shadow:0 1px 2px rgba(0,0,0,.4),0 26px 50px -22px rgba(0,0,0,.7)}
 }
 *,*::before,*::after{box-sizing:border-box}
 /* two languages: each translated text is in the page twice, and the KR/EN button in the header decides which shows */
@@ -82,12 +71,6 @@ body{
   min-height:100vh;
   min-height:100dvh;
   background-color:var(--ground);
-  /* pale washes of the same three hues carry the colour down the page */
-  background-image:
-    radial-gradient(ellipse 46rem 30rem at -4rem 34%,rgba(var(--vi),.12),transparent 70%),
-    radial-gradient(ellipse 48rem 32rem at calc(100% + 4rem) 52%,rgba(var(--sk),.22),transparent 70%),
-    radial-gradient(ellipse 46rem 30rem at -4rem 78%,rgba(var(--bl),.11),transparent 70%);
-  background-repeat:no-repeat;
   color:var(--ink);
   font-family:var(--sans);
   font-size:1.0625rem;
@@ -104,8 +87,7 @@ a:hover{color:var(--accent);text-decoration-color:var(--accent)}
 .skip:focus{top:1rem}
 .skip:hover{color:#fff}
 .nw{white-space:nowrap}
-/* a column, so that the contact block can sit at its foot however short the page is */
-main{flex:1 0 auto;display:flex;flex-direction:column}
+main{flex:1 0 auto}
 /* read aloud, not shown */
 .sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
 main:focus{outline:none}
@@ -157,10 +139,10 @@ html[data-theme="dark"] .theme-btn .moon{display:none}
 .menu-btn[aria-expanded="true"] .bars i:nth-child(2){opacity:0}
 .menu-btn[aria-expanded="true"] .bars i:nth-child(3){top:calc(50% - 1px);transform:rotate(-45deg)}
 .js .mast nav{display:flex}
-.js .mast .links{position:absolute;top:calc(100% + .6rem);right:0;z-index:6;flex-direction:column;flex-wrap:nowrap;gap:.125rem;min-width:14.5rem;padding:.5rem;border:1px solid transparent;border-radius:14px;background:linear-gradient(var(--paper),var(--paper)) padding-box,var(--grad) border-box;box-shadow:0 1px 2px rgba(14,12,46,.06),0 26px 50px -22px rgba(var(--bl),.5),0 12px 26px -16px rgba(var(--vi),.35);animation:menu-in .16s ease}
+.js .mast .links{position:absolute;top:calc(100% + .6rem);right:0;z-index:6;flex-direction:column;flex-wrap:nowrap;gap:.125rem;min-width:14.5rem;padding:.5rem;border:1px solid var(--rule-hi);border-radius:14px;background:var(--paper);box-shadow:0 1px 2px rgba(14,12,46,.06),0 26px 50px -22px rgba(14,12,46,.38);animation:menu-in .16s ease}
 .js .mast .links:not(.is-open){display:none}
 .js .mast nav a{display:block;margin:0;padding:.8rem .9rem;border-radius:9px;font-size:1rem;font-weight:600;letter-spacing:.01em;color:var(--ink)}
-.js .mast nav a:hover{color:var(--ink);background-image:linear-gradient(90deg,rgba(var(--vi),.11),rgba(var(--bl),.09) 55%,rgba(var(--sk),.07))}
+.js .mast nav a:hover{color:var(--ink);background-color:var(--tint)}
 .js .mast nav a:focus-visible{outline-offset:-2px}
 .js .mast nav a[aria-current="page"]{color:var(--accent)}
 @keyframes menu-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
@@ -206,8 +188,8 @@ html[data-theme="dark"] .theme-btn .moon{display:none}
 /* generic section */
 section{position:relative;padding:4rem 0;border-bottom:1px solid var(--rule)}
 @media (min-width:64rem){section{padding:5.5rem 0}}
-/* a short gradient tick rides on the rule above each section */
-section:not(.hero)::before{content:"";position:absolute;left:0;top:-2px;width:2.5rem;height:3px;border-radius:3px;background:var(--grad)}
+/* a short tick of colour rides on the rule above each section */
+section:not(.hero)::before{content:"";position:absolute;left:0;top:-2px;width:2.5rem;height:3px;border-radius:3px;background:var(--accent-2)}
 .grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem}
 @media (min-width:64rem){.grid{grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:3rem}}
 .sec-head{display:flex;flex-direction:column;gap:.5rem}
@@ -227,7 +209,7 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 .timeline{list-style:none;margin:0;padding:0}
 .timeline li{position:relative;padding:0 0 2.5rem 2.25rem}
 .timeline li:last-child{padding-bottom:0}
-.timeline li::before{content:"";position:absolute;left:0;top:.3rem;width:.75rem;height:.75rem;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 0 0 4px rgba(var(--bl),.12)}
+.timeline li::before{content:"";position:absolute;left:0;top:.3rem;width:.75rem;height:.75rem;border-radius:50%;background:var(--c1);box-shadow:0 0 0 4px rgba(var(--bl),.12)}
 .timeline li:not(:last-child)::after{content:"";position:absolute;left:calc(.375rem - 1px);top:1.55rem;bottom:-.2rem;width:2px;border-radius:2px;background:var(--rule-hi)}
 .timeline p{margin:0;min-width:0}
 .timeline .when{font-family:var(--mono);font-size:.875rem;font-weight:600;line-height:1.5;letter-spacing:.02em;color:var(--accent-2)}
@@ -278,11 +260,11 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 /* a linked part of a summary: bold, in the same colour as the text around it */
 .proj .body .ref{font-weight:700;color:inherit;text-decoration-color:var(--rule-hi);text-decoration-thickness:1px}
 .proj .body .ref:hover{color:var(--accent);text-decoration-color:var(--accent)}
-.proj .role{display:inline-block;margin-top:.9rem;padding:.25rem .7rem;border:1px solid transparent;border-radius:999px;background:linear-gradient(var(--paper),var(--paper)) padding-box,var(--grad) border-box;font-family:var(--mono);font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.proj .role{display:inline-block;margin-top:.9rem;padding:.25rem .7rem;border:1px solid var(--accent-line);border-radius:999px;font-family:var(--mono);font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
 
-/* CVE (on the Activities page): a frosted-glass card per id, with a thin band of the gradient down its left edge */
+/* CVE (on the Activities page): a frosted-glass card per id, with a thin band of colour down its left edge */
 .cves{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
-.cves a{
+.cves a,.reach a{
   position:relative;overflow:hidden;
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
   min-height:4.75rem;
@@ -292,20 +274,19 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
   text-decoration:none;
   color:var(--ink);
   /* glass: see-through, lit along the top edge, blurring whatever lies behind it */
-  background-color:rgba(255,255,255,.42);
-  background-image:linear-gradient(135deg,rgba(255,255,255,.6),rgba(255,255,255,.12));
+  background-color:rgba(255,255,255,.5);
   -webkit-backdrop-filter:blur(16px) saturate(1.6);
   backdrop-filter:blur(16px) saturate(1.6);
   box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(14,12,46,.05),0 16px 32px -22px rgba(var(--bl),.45);
   transition:box-shadow .15s ease,transform .15s ease,border-color .15s ease,background-color .15s ease;
 }
-.cves a::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--c1),var(--c2))}
+.cves a::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c1)}
 .cves .c0 a{--c1:#8a1cfb;--c2:#5608fe;--glow:rgba(var(--vi),.45)}
 .cves .c1 a{--c1:#5608fe;--c2:var(--blue);--glow:rgba(var(--bl),.45)}
 .cves .c2 a{--c1:var(--blue);--c2:#3358fe;--glow:rgba(var(--az),.5)}
-.cves a:hover{color:var(--ink)}
-@media (hover:hover){.cves a:hover{transform:translateY(-2px);background-color:rgba(255,255,255,.6);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(14,12,46,.05),0 22px 36px -22px var(--glow)}}
-.cves a:focus-visible{outline-offset:3px}
+.cves a:hover,.reach a:hover{color:var(--ink)}
+@media (hover:hover){.cves a:hover,.reach a:hover{transform:translateY(-2px);background-color:rgba(255,255,255,.7);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(14,12,46,.05),0 22px 36px -22px var(--glow,rgba(var(--bl),.45))}}
+.cves a:focus-visible,.reach a:focus-visible{outline-offset:3px}
 .cves .id{font-family:var(--mono);font-size:clamp(1.0625rem,2vw,1.375rem);font-weight:700;letter-spacing:-.02em;white-space:nowrap;color:var(--ink)}
 /* the id, and under it an optional short description */
 .cves .what{flex:1 1 auto;display:flex;flex-direction:column;gap:.3rem;min-width:0}
@@ -316,31 +297,37 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 main > section:last-of-type{border-bottom:0}
 
 /* the bottom line of every page; under it sits the bar of glass */
-.endline{flex:none;position:relative;z-index:1;width:min(100% - 2rem,72rem);height:2px;margin-inline:auto;border-radius:2px;background:var(--grad)}
+.endline{flex:none;position:relative;z-index:1;width:min(100% - 2rem,72rem);height:2px;margin-inline:auto;border-radius:2px;background:var(--accent-2)}
 @media (min-width:48rem){.endline{width:min(100% - 4rem,72rem)}}
-/* contact, pinned just above the bottom line of every page: a small label and beside it a logo per link */
-.contact{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem 1.25rem;margin-top:auto;padding-bottom:.5rem}
-.contact-label{font-family:var(--mono);font-size:.8125rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-/* the wide tracking is for capitals; Korean has none and reads better set closer */
-html[data-lang="ko"] .contact-label{letter-spacing:.01em}
-/* pulled left by the padding inside a logo, so that a wrapped row lines up with the label above it */
-.contact ul{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem;margin:0 0 0 -.75rem;padding:0;list-style:none}
-.contact a{display:grid;place-items:center;min-width:2.75rem;height:2.75rem;padding:0 .5rem;border-radius:10px;color:var(--ink-2);text-decoration:none;transition:background-color .15s ease,color .15s ease}
-@media (hover:hover){.contact a:hover{color:var(--accent);background-color:var(--tint)}}
-.contact a:active{color:var(--accent);background-color:var(--tint)}
-.contact a:focus-visible{outline-offset:2px}
-.contact svg{width:1.25rem;height:1.25rem;fill:currentColor}
+/* contact page: a card per way of reaching me, with its logo, its name and the handle or address */
+.contact-page .grid{display:block}
+.reach{list-style:none;margin:2.75rem 0 0;padding:0;display:grid;gap:.75rem}
+.reach a{justify-content:flex-start;gap:.75rem;padding:1rem}
+.reach .ico{flex:none;display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:12px;background-color:var(--tint);color:var(--accent)}
+.reach .ico svg{width:1.375rem;height:1.375rem;fill:currentColor}
+.reach .what{flex:1 1 auto;display:flex;flex-direction:column;gap:.2rem;min-width:0}
+.reach .name{font-family:var(--mono);font-size:.75rem;line-height:1.3;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+html[data-lang="ko"] .reach .name{letter-spacing:.01em}
+.reach .val{font-family:var(--mono);font-size:clamp(.875rem,3.9vw,1.25rem);line-height:1.3;font-weight:600;letter-spacing:-.01em;color:var(--ink);overflow-wrap:anywhere}
+.reach .go{flex:none;width:1.125rem;height:1.125rem;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (min-width:48rem){.reach a{gap:1rem;padding:1.1rem 1.4rem}}
 
-/* the main page: the name, the handle, the tagline and the introduction at the top left */
+/* the main page: the name, the handle, the tagline and the introduction at the top left, and under them a
+   button to the Contact page */
 .page-home .hero{padding-top:clamp(2.5rem,9vh,3.5rem);padding-bottom:2.5rem;border-bottom:0}
 @media (min-width:48rem){.page-home .hero{padding-top:clamp(3rem,10vh,5.5rem);padding-bottom:3rem}}
 @media (min-width:64rem){.page-home .hero{padding-top:clamp(3rem,14vh,9.5rem);padding-bottom:3.5rem}}
-/* the bar at the foot of every page: one capsule of glass across the page with a tab per icon. It keeps to the
-   foot of the screen while the page scrolls under it, and comes to rest under the bottom line at the end.
-   The glass is see-through and blurs what is behind it, is lit along its top edge with a soft sheen, and
-   carries a faint tint of the logo colours. One lighter pill of glass rests on the tab of the page being
-   read, glides to the tab under the pointer or finger and back again (the script in site.js moves it;
-   without the script the tabs simply light up in place). */
+/* the button on the main page that goes to the Contact page */
+.hero .cta{display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;margin-top:1.75rem;padding:.55rem 1.15rem;border:1px solid var(--rule-hi);border-radius:999px;background-color:var(--paper);font-size:.9375rem;line-height:1.2;font-weight:600;color:var(--ink);text-decoration:none;transition:border-color .15s ease,color .15s ease,transform .15s ease}
+.hero .cta svg{flex:none;width:1rem;height:1rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (hover:hover){.hero .cta:hover{color:var(--accent);border-color:var(--accent)}}
+.hero .cta:active{color:var(--accent);border-color:var(--accent);transform:scale(.98)}
+.hero .cta:focus-visible{outline-offset:3px;border-radius:999px}
+/* the bar at the foot of every page on a touch screen: one capsule of clear glass across the page with a tab
+   per icon. It keeps to the foot of the screen while the page scrolls under it, and comes to rest under the
+   bottom line at the end. The glass is almost fully see-through and blurs what is behind it. One lighter
+   pill rests on the tab of the page being read, glides to the tab under the finger and back again (the
+   script in site.js moves it; without the script the tabs simply light up in place). */
 .tabbar{
   flex:none;position:sticky;bottom:calc(1.25rem + env(safe-area-inset-bottom));z-index:4;isolation:isolate;
   width:min(100% - 2rem,72rem);margin:1.25rem auto calc(1.25rem + env(safe-area-inset-bottom));
@@ -348,19 +335,16 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
   /* a finger sliding sideways along the bar moves the pill instead of the page; up and down still scrolls */
   touch-action:pan-y;
   padding:.3125rem;
-  border:1px solid rgba(255,255,255,.92);
+  border:1px solid rgba(255,255,255,.72);
   border-radius:999px;
-  --pill-bg:linear-gradient(180deg,rgba(255,255,255,.97),rgba(255,255,255,.6));
-  --pill-rim:rgba(255,255,255,.96);
-  --pill-shadow:0 1px 0 #fff inset,0 -1px 0 rgba(14,12,46,.05) inset,0 8px 18px -6px rgba(14,12,46,.3),0 1px 3px rgba(14,12,46,.1);
-  background-color:rgba(255,255,255,.26);
-  background-image:linear-gradient(180deg,rgba(255,255,255,.62),rgba(255,255,255,.1) 55%,rgba(255,255,255,.32)),linear-gradient(100deg,rgba(var(--vi),.11),rgba(var(--bl),.07) 50%,rgba(var(--sk),.14));
-  -webkit-backdrop-filter:blur(28px) saturate(2);
-  backdrop-filter:blur(28px) saturate(2);
-  box-shadow:0 1px 0 rgba(255,255,255,.95) inset,0 -1px 0 rgba(255,255,255,.55) inset,0 -12px 20px -14px rgba(var(--bl),.22) inset,0 2px 6px rgba(14,12,46,.06),0 20px 44px -18px rgba(14,12,46,.42);
+  --pill-bg:rgba(255,255,255,.66);
+  --pill-rim:rgba(255,255,255,.9);
+  --pill-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 8px 18px -6px rgba(14,12,46,.24),0 1px 3px rgba(14,12,46,.08);
+  background-color:rgba(255,255,255,.12);
+  -webkit-backdrop-filter:blur(22px) saturate(1.8);
+  backdrop-filter:blur(22px) saturate(1.8);
+  box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 1px 3px rgba(14,12,46,.05),0 16px 38px -18px rgba(14,12,46,.32);
 }
-/* the sheen: the upper half of the capsule is lit, fading out towards the middle */
-.tabbar::before{content:"";position:absolute;z-index:0;left:1px;right:1px;top:1px;height:50%;border-radius:999px 999px 0 0;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,0));opacity:.5;pointer-events:none}
 /* the pill that glides: placed and sized by the script */
 .tabbar .pill{position:absolute;z-index:0;left:0;top:.3125rem;bottom:.3125rem;width:0;border:1px solid var(--pill-rim);border-radius:999px;background:var(--pill-bg);box-shadow:var(--pill-shadow);-webkit-backdrop-filter:blur(8px) saturate(1.8);backdrop-filter:blur(8px) saturate(1.8);opacity:0;pointer-events:none;transition:transform .5s cubic-bezier(.22,1,.36,1),width .5s cubic-bezier(.22,1,.36,1),opacity .22s ease;will-change:transform}
 .tabbar .pill.on{opacity:1}
@@ -386,10 +370,12 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 @media (min-width:48rem){.tabbar{width:min(100% - 4rem,72rem)}}
 /* a very low screen (a phone on its side): the bar would cover too much of it, so it stays at the end of the page */
 @media (max-height:30rem){.tabbar{position:relative;bottom:auto}}
+/* with a mouse (a PC) there is no bar: the menu in the header does the job, and the page ends at the line */
+@media (hover:hover) and (pointer:fine){.tabbar{display:none}.endline{margin-bottom:2.5rem}}
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{transition:none !important;animation:none !important}
-  .cves a:hover,.tabbar a:active{transform:none !important}
+  .cves a:hover,.reach a:hover,.tabbar a:active,.hero .cta:active{transform:none !important}
   html{scroll-behavior:auto}
 }
 @media print{

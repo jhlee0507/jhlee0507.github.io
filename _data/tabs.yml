@@ -1,4 +1,4 @@
-# The bar of glass at the foot of every page, left to right. Each tab is shown as an icon only; `label` (and
+# The bar of glass at the foot of every page on a touch screen, left to right. Each tab is shown as an icon only; `label` (and
 # `label_ko` in Korean) is what a screen reader says for it and what shows when a mouse rests on it.
 # `key` picks the icon (see _includes/icon-tab.html) and is matched against the `key:` at the top of a page's
 # index.html, so that the tab of the page being read stays lit. `url` is where the tab goes.
@@ -6,10 +6,6 @@
   label: Home
   label_ko: 홈
   url: /
-- key: about
-  label: About
-  label_ko: 소개
-  url: /about/
 - key: activities
   label: Activities
   label_ko: 활동
