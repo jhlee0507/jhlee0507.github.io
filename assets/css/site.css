@@ -312,13 +312,14 @@ html[data-lang="ko"] .reach .name{letter-spacing:.01em}
 .reach .go{flex:none;width:1.125rem;height:1.125rem;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @media (min-width:48rem){.reach a{gap:1rem;padding:1.1rem 1.4rem}}
 
-/* the main page: the name, the handle, the tagline and the introduction at the top left, and under them a
-   button to the Contact page */
+/* the main page: the name, the handle, the tagline and the introduction at the top left, and under them
+   the buttons to the About and Contact pages */
 .page-home .hero{padding-top:clamp(2.5rem,9vh,3.5rem);padding-bottom:2.5rem;border-bottom:0}
 @media (min-width:48rem){.page-home .hero{padding-top:clamp(3rem,10vh,5.5rem);padding-bottom:3rem}}
 @media (min-width:64rem){.page-home .hero{padding-top:clamp(3rem,14vh,9.5rem);padding-bottom:3.5rem}}
-/* the button on the main page that goes to the Contact page */
-.hero .cta{display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;margin-top:1.75rem;padding:.55rem 1.15rem;border:1px solid var(--rule-hi);border-radius:999px;background-color:var(--paper);font-size:.9375rem;line-height:1.2;font-weight:600;color:var(--ink);text-decoration:none;transition:border-color .15s ease,color .15s ease,transform .15s ease}
+/* the buttons on the main page, one under the other and of one width: to the About page and to the Contact page */
+.hero .actions{display:inline-grid;gap:.625rem;margin-top:1.75rem}
+.hero .cta{display:flex;align-items:center;justify-content:space-between;gap:.75rem;min-height:2.75rem;padding:.55rem 1.15rem;border:1px solid var(--rule-hi);border-radius:999px;background-color:var(--paper);font-size:.9375rem;line-height:1.2;font-weight:600;color:var(--ink);text-decoration:none;transition:border-color .15s ease,color .15s ease,transform .15s ease}
 .hero .cta svg{flex:none;width:1rem;height:1rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @media (hover:hover){.hero .cta:hover{color:var(--accent);border-color:var(--accent)}}
 .hero .cta:active{color:var(--accent);border-color:var(--accent);transform:scale(.98)}
