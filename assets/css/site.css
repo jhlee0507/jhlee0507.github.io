@@ -46,7 +46,7 @@ html[data-theme="dark"]{
 html[data-theme="dark"] .timeline .ext{color:#c9d0ff;background-color:rgba(147,160,255,.22)}
 html[data-theme="dark"] .cves a,html[data-theme="dark"] .reach a{border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.06);box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 18px 36px -22px rgba(0,0,0,.85)}
 html[data-theme="dark"] .cves a:hover,html[data-theme="dark"] .reach a:hover{background-color:rgba(255,255,255,.1)}
-html[data-theme="dark"] .tabbar{--pill-bg:rgba(255,255,255,.17);--pill-rim:rgba(255,255,255,.26);--pill-shadow:0 1px 0 rgba(255,255,255,.22) inset,0 8px 18px -6px rgba(0,0,0,.6);border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.05);box-shadow:0 1px 0 rgba(255,255,255,.14) inset,0 16px 38px -16px rgba(0,0,0,.7)}
+html[data-theme="dark"] .tabbar{--pill-bg:rgba(255,255,255,.16);--pill-rim:rgba(255,255,255,.24);--pill-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 6px 14px -6px rgba(0,0,0,.5);border-color:rgba(255,255,255,.16);background-color:rgba(20,19,36,.2);box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 10px 26px -16px rgba(0,0,0,.6)}
 @media (hover:hover){html[data-theme="dark"] .timeline .ext:hover{color:#fff;background-color:var(--blue)}}
 html[data-theme="dark"].js .mast .links{box-shadow:0 1px 2px rgba(0,0,0,.4),0 26px 50px -22px rgba(0,0,0,.7)}
 }
@@ -325,7 +325,8 @@ html[data-lang="ko"] .reach .name{letter-spacing:.01em}
 .hero .cta:focus-visible{outline-offset:3px;border-radius:999px}
 /* the bar at the foot of every page on a touch screen: one capsule of clear glass across the page with a tab
    per icon. It keeps to the foot of the screen while the page scrolls under it, and comes to rest under the
-   bottom line at the end. The glass is almost fully see-through and blurs what is behind it. One lighter
+   bottom line at the end. The glass is about four fifths see-through and only lightly blurs what is behind
+   it. One lighter
    pill rests on the tab of the page being read, glides to the tab under the finger and back again (the
    script in site.js moves it; without the script the tabs simply light up in place). */
 .tabbar{
@@ -335,15 +336,16 @@ html[data-lang="ko"] .reach .name{letter-spacing:.01em}
   /* a finger sliding sideways along the bar moves the pill instead of the page; up and down still scrolls */
   touch-action:pan-y;
   padding:.3125rem;
-  border:1px solid rgba(255,255,255,.72);
+  border:1px solid rgba(255,255,255,.6);
   border-radius:999px;
-  --pill-bg:rgba(255,255,255,.66);
-  --pill-rim:rgba(255,255,255,.9);
-  --pill-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 8px 18px -6px rgba(14,12,46,.24),0 1px 3px rgba(14,12,46,.08);
-  background-color:rgba(255,255,255,.12);
-  -webkit-backdrop-filter:blur(22px) saturate(1.8);
-  backdrop-filter:blur(22px) saturate(1.8);
-  box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 1px 3px rgba(14,12,46,.05),0 16px 38px -18px rgba(14,12,46,.32);
+  --pill-bg:rgba(255,255,255,.5);
+  --pill-rim:rgba(255,255,255,.85);
+  --pill-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 6px 14px -6px rgba(14,12,46,.2),0 1px 2px rgba(14,12,46,.06);
+  /* about four fifths see-through: a thin veil of white and only a light blur, so the page shows through */
+  background-color:rgba(255,255,255,.18);
+  -webkit-backdrop-filter:blur(6px) saturate(1.4);
+  backdrop-filter:blur(6px) saturate(1.4);
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 10px 26px -18px rgba(14,12,46,.22);
 }
 /* the pill that glides: placed and sized by the script */
 .tabbar .pill{position:absolute;z-index:0;left:0;top:.3125rem;bottom:.3125rem;width:0;border:1px solid var(--pill-rim);border-radius:999px;background:var(--pill-bg);box-shadow:var(--pill-shadow);-webkit-backdrop-filter:blur(8px) saturate(1.8);backdrop-filter:blur(8px) saturate(1.8);opacity:0;pointer-events:none;transition:transform .5s cubic-bezier(.22,1,.36,1),width .5s cubic-bezier(.22,1,.36,1),opacity .22s ease;will-change:transform}
@@ -360,7 +362,9 @@ html[data-lang="ko"] .reach .name{letter-spacing:.01em}
   -webkit-touch-callout:none;-webkit-user-select:none;user-select:none;-webkit-user-drag:none;touch-action:pan-y;
   transition:color .2s ease,transform .15s ease;
 }
-.tabbar svg{flex:none;width:1.5rem;height:1.5rem}
+.tabbar svg{flex:none;width:1.5rem;height:1.5rem;
+  /* a soft halo in the colour of the page keeps an icon readable when text passes behind the clear glass */
+  filter:drop-shadow(0 0 1.5px var(--ground)) drop-shadow(0 0 5px var(--ground))}
 .tabbar a:hover,.tabbar a.is-on,.tabbar a[aria-current="page"]{color:var(--ink)}
 .tabbar a:active{transform:scale(.97)}
 /* without the script: the tab of this page, and the one under the pointer or finger, carry the pill themselves */
