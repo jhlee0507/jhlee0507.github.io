@@ -98,13 +98,15 @@ main:focus{outline:none}
 @media (min-width:48rem){.wrap{width:min(100% - 4rem,72rem)}}
 
 /* masthead: the handle on the left, the pages in the middle, the language and dark-mode buttons on the right.
-   On a wide screen they share one row; on a narrow one the pages take a row of their own underneath, still
-   centred. The main page shows no handle (its place is kept, so nothing else moves). */
+   On a wide screen they share one row; on a narrow one there is no handle and the pages take a row of their
+   own underneath, still centred. The main page shows no handle (its place is kept, so nothing else moves). */
 .mast{display:grid;grid-template-columns:1fr auto;grid-template-areas:"handle tools" "links links";align-items:center;gap:.25rem 1rem;padding:1.5rem 0;border-bottom:1px solid var(--rule)}
 .mast .handle{grid-area:handle;justify-self:start;display:inline-block;padding:.7rem .5rem;margin:-.7rem -.5rem;font-family:var(--mono);font-size:.9375rem;font-weight:600;letter-spacing:.02em;white-space:nowrap;text-decoration:none;color:var(--ink)}
 .mast .handle:hover{color:var(--accent)}
 .mast .handle::before{content:"~/";color:var(--accent-2)}
 .page-home .mast .handle{visibility:hidden}
+/* a narrow screen (a phone) shows no handle on any page: the Home tab of the bar goes to the main page */
+@media (max-width:47.99rem){.mast .handle{display:none}}
 /* the pages read as paths, like the handle: /About. The one being read is darker and heavier */
 .mast .links{grid-area:links;display:flex;flex-wrap:wrap;justify-content:center;gap:0 clamp(.5rem,3.5vw,1.25rem);margin:.375rem 0 -.75rem}
 .mast .links a{display:inline-block;padding:.8rem 0;font-family:var(--mono);font-size:clamp(.75rem,3.4vw,.875rem);font-weight:500;letter-spacing:.01em;white-space:nowrap;text-decoration:none;color:var(--ink-2)}
