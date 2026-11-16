@@ -1,6 +1,7 @@
 # The pages listed in the header, in order. Each item is shown as a path (/About).
 # `key` is the `key:` at the top of the page's index.html (and the id of its section); `url` is its folder.
-# (The bar at the foot of every page has its own list: _data/tabs.yml.)
+# (The bar at the foot of every page has its own list: _data/tabs.yml. The Contact page is not listed: the
+# main page has a button to it, and the other pages carry the contact row.)
 # Old single-page links (/#about, /#research, /#cve) are forwarded by the script in _layouts/default.html:
 # if a folder or key here is renamed, change it there too.
 - key: about
@@ -19,7 +20,3 @@
   label: Blog
   label_ko: 블로그
   url: /blog/
-- key: contact
-  label: Contact
-  label_ko: 연락처
-  url: /contact/

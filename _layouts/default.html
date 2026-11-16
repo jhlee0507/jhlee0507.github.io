@@ -32,6 +32,10 @@
 <main id="main" class="wrap">
 {% if page.key == 'home' %}{% include hero.html %}{% endif %}
 {{ content }}
+{%- if site.contact.size > 0 and page.key != 'home' and page.key != 'contact' %}
+{%- comment %} every page but the main one (and the Contact page itself) ends in the contact row, just above the bottom line {% endcomment %}
+{% include contact.html %}
+{%- endif %}
 </main>
 
 {%- comment %} every page ends in the bottom line. On a touch screen a bar of glass follows it, with a tab per entry of
