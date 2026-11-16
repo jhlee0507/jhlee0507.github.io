@@ -38,3 +38,7 @@ url: https://jhlee0507.github.io
 baseurl: ""
 # No theme: the site brings its own stylesheet.
 theme: null
+# While the site moves into docs/: this copy at the top of the repository must not publish the docs folder as
+# pages of its own. (This file is removed once GitHub Pages builds from docs/.)
+exclude:
+  - docs
