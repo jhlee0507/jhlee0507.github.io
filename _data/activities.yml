@@ -7,10 +7,6 @@
 # A key ending in _ko is the Korean text for the same line (category_ko, title_ko, org_ko, when_ko,
 # summary_ko, role_ko). Leave it out and the English text is shown in both languages. The `text` of a `link`
 # is looked for in both summaries, so keep that part the same in each; add text_ko only if the Korean differs.
-- category: Research
-  category_ko: 연구
-  list: []
-
 - category: Project
   category_ko: 프로젝트
   list:

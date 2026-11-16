@@ -18,7 +18,6 @@ title_ko: 활동
       {%- for item in group.list %}
       <li>
         <div>
-          <span class="idx" aria-hidden="true"></span>
           <h3>{% include t.html en=item.title ko=item.title_ko %}</h3>
           {%- if item.org %}
           <p class="sub">{% include t.html en=item.org ko=item.org_ko %}</p>
