@@ -6,10 +6,18 @@
   label: Home
   label_ko: 홈
   url: /
+- key: about
+  label: About
+  label_ko: 소개
+  url: /about/
 - key: activities
   label: Activities
   label_ko: 활동
   url: /activities/
+- key: affiliation
+  label: Affiliation
+  label_ko: 소속
+  url: /affiliation/
 - key: blog
   label: Blog
   label_ko: 블로그
