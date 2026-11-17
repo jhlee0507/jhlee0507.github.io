@@ -282,6 +282,8 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 /* the id, and under it an optional short description */
 .cves .what{flex:1 1 auto;display:flex;flex-direction:column;gap:.3rem;min-width:0}
 .cves .desc{font-size:.9375rem;line-height:1.45;font-weight:500;color:var(--ink-2);text-wrap:balance}
+/* and under that an optional small line saying where it came from */
+.cves .note{margin-top:.15rem;font-family:var(--mono);font-size:.8125rem;line-height:1.4;font-weight:500;letter-spacing:.01em;color:var(--muted)}
 .cves .lab{flex:none;font-family:var(--mono);font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;color:var(--accent)}
 .cves .lab::after{content:" ↗\FE0E";font-variant-emoji:text;font-size:1.15em}
 

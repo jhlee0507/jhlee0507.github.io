@@ -66,7 +66,7 @@ title_ko: 활동
       {%- for cve in site.data.cves %}
       {%- assign href = site.cve_url | append: cve.id %}
       {%- if cve.url %}{% assign href = cve.url %}{% endif %}
-      <li class="c{{ forloop.index0 | modulo: 3 }}"><a href="{{ href | escape }}" rel="noopener" target="_blank"><span class="what"><span class="id">{{ cve.id | escape }}</span>{% if cve.desc %}<span class="desc">{% include t.html en=cve.desc ko=cve.desc_ko %}</span>{% endif %}</span><span class="lab">{{ cve.source | default: site.cve_source | escape }}</span></a></li>
+      <li class="c{{ forloop.index0 | modulo: 3 }}"><a href="{{ href | escape }}" rel="noopener" target="_blank"><span class="what"><span class="id">{{ cve.id | escape }}</span>{% if cve.desc %}<span class="desc">{% include t.html en=cve.desc ko=cve.desc_ko %}</span>{% endif %}{% if cve.note %}<span class="note">{% include t.html en=cve.note ko=cve.note_ko %}</span>{% endif %}</span><span class="lab">{{ cve.source | default: site.cve_source | escape }}</span></a></li>
       {%- endfor %}
     </ul>
   </div>
