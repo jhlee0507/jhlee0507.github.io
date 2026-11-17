@@ -5,7 +5,7 @@
 #   desc:   a short description shown under the id, for example
 #           desc: Link Following Arbitrary File Corruption
 #           (desc_ko is the same line in Korean; leave it out and the English one is shown in both languages)
-#   note:   a small line under the description saying where the CVE came from, for example
+#   note:   a line right under the id saying where the CVE came from, for example
 #           note: at WHS 4th Project
 #           (note_ko is the same line in Korean)
 - id: CVE-2026-83834
