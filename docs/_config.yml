@@ -30,9 +30,6 @@ contact:
     icon: github
   - name: Email
     text: tommy0507@sju.ac.kr
-# Where a CVE links to when its entry in _data/cves.yml has no `url`, and the label shown beside it.
-cve_url: https://msrc.microsoft.com/update-guide/vulnerability/
-cve_source: MSRC
 
 url: https://jhlee0507.github.io
 baseurl: ""

@@ -26,7 +26,7 @@
   --mono:"JetBrains Mono","SFMono-Regular",ui-monospace,Menlo,Consolas,"Liberation Mono",monospace;
   color-scheme:only light;
 }
-/* dark mode, chosen with the button in the header. The buttons and the CVE chips keep their colours;
+/* dark mode, chosen with the button in the header. The buttons keep their colours;
    the ground, the text and the thin accents change. Paper stays light, so this applies to screens only. */
 @media screen{
 html[data-theme="dark"]{
@@ -44,8 +44,8 @@ html[data-theme="dark"]{
   color-scheme:dark;
 }
 html[data-theme="dark"] .timeline .ext{color:#c9d0ff;background-color:rgba(147,160,255,.22)}
-html[data-theme="dark"] .cves a,html[data-theme="dark"] .reach a{border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.06);box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 18px 36px -22px rgba(0,0,0,.85)}
-html[data-theme="dark"] .cves a:hover,html[data-theme="dark"] .reach a:hover{background-color:rgba(255,255,255,.1)}
+html[data-theme="dark"] .reach a{border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.06);box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 18px 36px -22px rgba(0,0,0,.85)}
+html[data-theme="dark"] .reach a:hover{background-color:rgba(255,255,255,.1)}
 html[data-theme="dark"] .tabbar{--pill-bg:rgba(255,255,255,.12);--pill-rim:rgba(255,255,255,.24);--pill-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 6px 14px -6px rgba(0,0,0,.5);border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.05);box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 10px 26px -16px rgba(0,0,0,.6)}
 html[data-theme="dark"] .hero .cta{border-color:rgba(255,255,255,.16);background-color:rgba(255,255,255,.05);box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 12px 28px -16px rgba(0,0,0,.6)}
 html[data-theme="dark"] .hero .cta:hover,html[data-theme="dark"] .hero .cta:active{background-color:rgba(255,255,255,.12)}
@@ -253,9 +253,8 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
 .proj .body .ref:hover{color:var(--accent);text-decoration-color:var(--accent)}
 .proj .role{display:inline-block;margin-top:.9rem;padding:.25rem .7rem;border:1px solid var(--accent-line);border-radius:999px;font-family:var(--mono);font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
 
-/* CVE (on the Activities page): a frosted-glass card per id, with a thin band of colour down its left edge */
-.cves{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
-.cves a,.reach a{
+/* the cards of the Contact page: frosted glass, see-through and lit along the top edge */
+.reach a{
   position:relative;overflow:hidden;
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
   min-height:4.75rem;
@@ -271,21 +270,9 @@ h2,.sec-head h1{margin:0;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.15;
   box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(14,12,46,.05),0 16px 32px -22px rgba(var(--bl),.45);
   transition:box-shadow .15s ease,transform .15s ease,border-color .15s ease,background-color .15s ease;
 }
-.cves a::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c1)}
-.cves .c0 a{--c1:#8a1cfb;--c2:#5608fe;--glow:rgba(var(--vi),.45)}
-.cves .c1 a{--c1:#5608fe;--c2:var(--blue);--glow:rgba(var(--bl),.45)}
-.cves .c2 a{--c1:var(--blue);--c2:#3358fe;--glow:rgba(var(--az),.5)}
-.cves a:hover,.reach a:hover{color:var(--ink)}
-@media (hover:hover){.cves a:hover,.reach a:hover{transform:translateY(-2px);background-color:rgba(255,255,255,.7);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(14,12,46,.05),0 22px 36px -22px var(--glow,rgba(var(--bl),.45))}}
-.cves a:focus-visible,.reach a:focus-visible{outline-offset:3px}
-.cves .id{font-family:var(--mono);font-size:clamp(1.0625rem,2vw,1.375rem);font-weight:700;letter-spacing:-.02em;white-space:nowrap;color:var(--ink)}
-/* the id, and under it an optional short description */
-.cves .what{flex:1 1 auto;display:flex;flex-direction:column;gap:.3rem;min-width:0}
-/* between the two, an optional line saying where it came from: larger than the description, smaller than the id */
-.cves .note{font-family:var(--mono);font-size:clamp(1rem,1.6vw,1.125rem);line-height:1.35;font-weight:600;letter-spacing:-.01em;color:var(--ink-2)}
-.cves .desc{font-size:.9375rem;line-height:1.45;font-weight:500;color:var(--ink-2);text-wrap:balance}
-.cves .lab{flex:none;font-family:var(--mono);font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;color:var(--accent)}
-.cves .lab::after{content:" ↗\FE0E";font-variant-emoji:text;font-size:1.15em}
+.reach a:hover{color:var(--ink)}
+@media (hover:hover){.reach a:hover{transform:translateY(-2px);background-color:rgba(255,255,255,.7);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 2px 6px rgba(14,12,46,.05),0 22px 36px -22px rgba(var(--bl),.45)}}
+.reach a:focus-visible{outline-offset:3px}
 
 main > section:last-of-type{border-bottom:0}
 
@@ -384,18 +371,16 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{transition:none !important;animation:none !important}
-  .cves a:hover,.reach a:hover,.tabbar a:active,.hero .cta:active{transform:none !important}
+  .reach a:hover,.tabbar a:active,.hero .cta:active{transform:none !important}
   html{scroll-behavior:auto}
 }
 @media print{
   .theme-btn,.lang-btn,.mast .links{display:none !important}
   .hero{padding-top:2.5rem}
   section:not(.hero)::before,.endline,.tabbar{display:none}
-  .proj > li,.cves li{break-inside:avoid}
-  .cves a{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
-  .cves a::before{display:none}
-  .cves .id,.cves .lab{color:var(--ink)}
+  .proj > li{break-inside:avoid}
+  .reach a{background:none;color:var(--ink);border:1px solid var(--rule-hi);box-shadow:none}
 }
 @media (forced-colors:active){
-  .cves a,.tabbar{border:1px solid currentColor}
+  .reach a,.tabbar{border:1px solid currentColor}
 }
