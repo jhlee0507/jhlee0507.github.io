@@ -6,13 +6,11 @@ real_name_ko: 이정환
 # The line under the name. It also ends the browser-tab title of the main page.
 tagline: Vulnerability Researcher
 tagline_ko: 취약점 연구자
-# The short introduction under the tagline on the main page. One entry per paragraph;
-# each starts on its own line with a little space above it.
-intro:
-  - 0-day vulnerability researcher
+# The short introduction under the tagline on the main page: empty for now, so nothing is shown.
+# To bring it back, list one entry per paragraph (intro:\n  - First paragraph.).
+intro: []
 # The same paragraphs in Korean, in the same order (shown when the visitor picks KR in the header).
-intro_ko:
-  - 제로데이 취약점 연구자
+intro_ko: []
 description: >-
   r3con is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers.
   WhiteHat School 4th cohort.
