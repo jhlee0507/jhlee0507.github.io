@@ -9,10 +9,10 @@ tagline_ko: 취약점 연구자
 # The short introduction under the tagline on the main page. One entry per paragraph;
 # each starts on its own line with a little space above it.
 intro:
-  - I am a 0-day vulnerability researcher and bug bounty hunter.
+  - 0-day vulnerability researcher
 # The same paragraphs in Korean, in the same order (shown when the visitor picks KR in the header).
 intro_ko:
-  - 제로데이 취약점을 연구하고 버그 바운티를 하고 있습니다.
+  - 제로데이 취약점 연구자
 description: >-
   r3con is a vulnerability researcher and Sejong University undergraduate working on Windows kernel drivers.
   WhiteHat School 4th cohort.
