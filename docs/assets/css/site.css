@@ -315,6 +315,14 @@ html[data-lang="ko"] .contact-label{letter-spacing:.01em}
 @media (hover:hover){.hero .cta:hover{color:var(--accent);background-color:rgba(255,255,255,.4)}}
 .hero .cta:active{color:var(--accent);background-color:rgba(255,255,255,.4);transform:scale(.98)}
 .hero .cta:focus-visible{outline-offset:3px;border-radius:999px}
+/* with a mouse (a PC) the two buttons are larger and sit a little lower; on a phone they stay as they are */
+@media (hover:hover) and (pointer:fine){
+  .hero .actions{gap:1rem;margin-top:3.25rem}
+  .hero .cta{min-width:17rem;min-height:4.25rem;padding:1rem 2rem;font-size:1.25rem}
+  .hero .cta svg{width:1.375rem;height:1.375rem}
+}
+/* a low PC window (a small laptop): less room is kept under the buttons, so the page still fits without scrolling */
+@media (hover:hover) and (pointer:fine) and (max-height:43rem){.page-home .hero{padding-bottom:1.5rem}}
 /* the bar at the foot of every page on a touch screen: one capsule of clear glass across the page with a tab
    per icon. It keeps to the foot of the screen while the page scrolls under it, and comes to rest under the
    bottom line at the end. The glass is nine tenths see-through and only lightly blurs what is behind it.
