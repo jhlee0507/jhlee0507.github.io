@@ -1,7 +1,7 @@
 <section class="hero" aria-labelledby="name">
   <h1 id="name">{% include t.html en=site.real_name ko=site.real_name_ko %}</h1>
-  <p class="alias">{{ site.title | escape }}</p>
-  <p class="lede">{% include t.html en=site.tagline ko=site.tagline_ko %}</p>
+  {%- comment %} one line under the name: the handle, a dot, the tagline {% endcomment %}
+  <p class="lede"><span class="alias">{{ site.title | escape }}</span><span class="dot" aria-hidden="true"> · </span><span class="tag">{% include t.html en=site.tagline ko=site.tagline_ko %}</span></p>
   {%- if site.intro.size > 0 %}
   <div class="intro">
     {%- for line in site.intro %}

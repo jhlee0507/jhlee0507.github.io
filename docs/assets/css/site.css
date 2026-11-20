@@ -156,17 +156,18 @@ html[data-theme="dark"] .theme-btn .moon{display:none}
   letter-spacing:-.04em;
   color:var(--ink);
 }
-.hero .alias{margin:.6rem 0 0;font-family:var(--mono);font-size:clamp(1.25rem,3.6vw,1.75rem);font-weight:600;line-height:1.1;letter-spacing:-.03em;color:var(--ink-2)}
+/* under the name, on one line: the handle, a dot, the tagline. If it has to wrap, it breaks at the dot */
 .hero .lede{
-  margin:1.5rem 0 0;
-  max-width:36ch;
-  font-size:clamp(1.25rem,1.95vw,1.5625rem);
+  margin:1rem 0 0;
+  font-size:clamp(1.0625rem,4.7vw,1.5625rem);
   line-height:1.45;
   font-weight:500;
   letter-spacing:-.012em;
   color:var(--ink);
-  text-wrap:balance;
 }
+.hero .alias{font-family:var(--mono);font-weight:600;letter-spacing:-.03em;color:var(--ink-2)}
+.hero .dot{color:var(--muted)}
+.hero .tag{white-space:nowrap}
 /* the short introduction on the main page, a size under the tagline */
 .hero .intro{margin:1rem 0 0;max-width:38rem;font-size:1.0625rem;line-height:1.6;color:var(--ink-2)}
 .hero .intro p{margin:0}
